@@ -23,4 +23,4 @@ for c in range(0, 5 + 1):
 
 print(lista)
 print(f'O maior Número foi {maiorN} na posição {positionMax}º')
-print(f'O menor Número foi {menorN} na posição {positionMin}º')
+print(f'O menor Numero foi {menorN} na posição {positionMin}º')

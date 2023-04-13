@@ -1,7 +1,15 @@
-print('Hello World')
-print('Acho que está funcionando')
-print('mano, se é zika, não desiste nunca, muito bom mano!')
-print('Hello brow')
-print()
-print('Testando união de códigos')
-print('Acabei de criar um novo branch para testar, o que tem aqui precisa estar nos dois branch ao final do teste')
+# TEST FILE
+
+import datetime
+
+
+def dateVerification():
+    data = str(input('Informe a data atual: '))
+    if len(data) == 0:
+        data = datetime.datetime.now()
+        data = datetime.datetime.date(data)
+        data_formatada = data.strftime("%d/%m/%Y")
+        print(data_formatada)
+
+
+dateVerification()

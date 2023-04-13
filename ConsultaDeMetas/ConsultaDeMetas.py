@@ -1,4 +1,15 @@
 import time
+import datetime
+
+
+def dateVerification():
+    global data_formatada, data
+    if len(data) == 0:
+        date = datetime.datetime.now()
+        date = datetime.datetime.date(date)
+        date_formatada = date.strftime("%d/%m/%Y")
+        data = date_formatada
+
 
 # Cores
 red = '\033[31m'
@@ -13,6 +24,7 @@ titulo = "CONSULTA DE METAS"
 tamanho = 43
 tamanho_lista = 95
 titulo_centralizado = titulo.center(tamanho)
+data_formatada = ""
 
 texto_dados = "DADOS ARMAZENADOS!"
 texto_dados_centralizado = texto_dados.center(tamanho)
@@ -165,6 +177,7 @@ while activate:
             print('\n')
             print(texto_RDMarcas_centralizado)
             data = str(input(green + ' [?] - Informe a data [dia/mês/ano]: '))
+            dateVerification()
             metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
             vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
             print(normal)
@@ -220,6 +233,7 @@ while activate:
             print('\n')
             print(texto_PERFUMARIA_centralizado)
             data = str(input(green + ' [?] - Informe a data [dia/mês/ano]: '))
+            dateVerification()
             metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
             vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
             print(normal)
@@ -275,6 +289,7 @@ while activate:
             print('\n')
             print(texto_DERMO_centralizado)
             data = str(input(green + ' [?] - Informe a data [dia/mês/ano]: '))
+            dateVerification()
             metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
             vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
             print(normal)

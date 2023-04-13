@@ -292,9 +292,11 @@ while activate:
             dateVerification()
             metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
             vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
+            pecaDia = int(input(' [?] - Quantas peças Vendeu Hoje: '))
             print(normal)
             metaAcDERMO = 0
             vendaAcDERMO = 0
+            pecaAc = 0
             sobrasDermo = 0
             porcentagemDERMO = 0
 
@@ -319,6 +321,17 @@ while activate:
                 vendaAcDERMO = vendaAcDERMO + float(linha.strip())
             print(yellow + f" [!] - VENDA ACUMULADA = ", end='')
             print(rosa + f"R$ {vendaAcDERMO:.2f}" + normal)
+
+            # Cálculo de Peças acumuladas
+            with open("pecaAcumuladaDERMO.txt", "a") as pecaAcumuladaDERMO:
+                pecaAcumuladaDERMO.write(f'{pecaDia}\n')
+            with open("pecaAcumuladaDERMO.txt", "r") as pecaAcumuladaDERMO:
+                linhasPeca = pecaAcumuladaDERMO.readlines()
+
+            for linha in linhasPeca:
+                pecaAc = pecaAc + int(linha.strip())
+            print(yellow + f" [!] - PEÇAS ACUMULADAS = ", end='')
+            print(rosa + f"{pecaAc} Unidades" + normal)
 
             # Cálculo de porcentagem
             if vendaAcDERMO < metaAcDERMO:

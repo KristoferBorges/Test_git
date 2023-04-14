@@ -14,8 +14,7 @@ cursor = conexao.cursor()
 # Escolha de comandos
 # Caso for edição = (COMMIT),
 # Caso for leitura = (FETCHALL)
-
-
+# conexao.commit()
 # recebimento = cursor.fetchall()
 
 

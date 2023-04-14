@@ -119,6 +119,8 @@ while activate:
                     metaAcumuladaDERMO.write("")
                 with open("vendaAcumuladaDERMO.txt", "w") as vendaAcumuladaDERMO:
                     vendaAcumuladaDERMO.write("")
+                with open("pecaAcumuladaDERMO.txt", "w") as pecaAcumuladaDERMO:
+                    pecaAcumuladaDERMO.write("")
                 for i in range(3, 0, -1):
                     time.sleep(0.6)
                     print(red, end='')
@@ -292,7 +294,11 @@ while activate:
             dateVerification()
             metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
             vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
-            pecaDia = int(input(' [?] - Quantas peças Vendeu Hoje: '))
+            pecaDia = str(input(' [?] - Quantas peças Vendeu Hoje: '))
+            if len(pecaDia) == 0:
+                pecaDia = int(0)
+            else:
+                pecaDia = int(pecaDia)
             print(normal)
             metaAcDERMO = 0
             vendaAcDERMO = 0

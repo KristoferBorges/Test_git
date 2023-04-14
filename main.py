@@ -20,7 +20,7 @@ cursor = conexao.cursor()
 
 def createMysql():
     # C-REATE
-    comando = 'INSERT INTO pessoas (nome, idade, cpf) VALUES ("Kristofer", 22, "51023136813")'
+    comando = 'INSERT INTO pessoas (nome, idade, cpf) VALUES ("Kristofer", 34, "92023136874")'
     cursor.execute(comando)
     conexao.commit()
 
@@ -47,5 +47,6 @@ def deleteMysql():
     conexao.commit()
 
 
+createMysql()
 cursor.close()
 conexao.close()

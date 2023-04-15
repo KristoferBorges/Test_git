@@ -1,16 +1,6 @@
 import time
 import datetime
 
-
-def dateVerification():
-    global data_formatada, data
-    if len(data) == 0:
-        date = datetime.datetime.now()
-        date = datetime.datetime.date(date)
-        date_formatada = date.strftime("%d/%m/%Y")
-        data = date_formatada
-
-
 # Cores
 red = '\033[31m'
 green = '\033[32m'
@@ -19,6 +9,19 @@ ciano = '\033[36m'
 normal = '\033[m'
 roxo = '\033[35m'
 rosa = '\033[95m'
+
+
+def dateVerification():
+    global data_formatada, data
+    if len(data) == 0:
+        date = datetime.datetime.now()
+        date = datetime.datetime.date(date)
+        date_formatada = date.strftime("%d/%m/%Y")
+        data = date_formatada
+        data_soma = int(data[:2])
+        data_soma = data_soma - 1
+        data = str(data_soma) + data[2:] # Data de ontem formatada
+
 
 titulo = "CONSULTA DE METAS"
 tamanho = 46
@@ -157,6 +160,8 @@ while activate:
                     metaAcumuladaDERMO.write("")
                 with open("vendaAcumuladaDERMO.txt", "w") as vendaAcumuladaDERMO:
                     vendaAcumuladaDERMO.write("")
+                with open("pecaAcumuladaDERMO.txt", "w") as pecaAcumuladaDERMO:
+                    pecaAcumuladaDERMO.write("")
                 for i in range(3, 0, -1):
                     time.sleep(0.6)
                     print(red, end='')

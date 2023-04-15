@@ -1,4 +1,6 @@
-# TEST FILE
+import datetime
+
+"""# TEST FILE
 
 import mysql.connector
 
@@ -50,3 +52,14 @@ def deleteMysql():
 createMysql()
 cursor.close()
 conexao.close()
+"""
+
+
+date = datetime.datetime.now()
+date = datetime.datetime.date(date)
+date_formatada = date.strftime("%d/%m/%Y")
+data = date_formatada
+data_soma = int(data[:2])
+data_soma = data_soma - 1
+dataOntem = str(data_soma) + data[2:]
+print(dataOntem)

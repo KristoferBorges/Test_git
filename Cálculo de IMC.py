@@ -20,6 +20,6 @@ elif resultado >= 25 and resultado < 30:
 elif resultado >= 30 and resultado < 40:
     print('Seu IMC é {:.2f}'.format(resultado))
     print('Você está Muito Acima do Peso!')
-elif resultado > 40:
+elif resultado >= 40:
     print('Seu IMC é {:.2f}'.format(resultado))
     print('Você está na fase de Obesidade Mórbida!')

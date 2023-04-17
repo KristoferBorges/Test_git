@@ -1,12 +1,12 @@
-def calculo(__massa__, __altura__):
+def calculo(massa, altura):
     imc = massa / (altura ** 2)
     return imc
 
 
-massa = float(input('Quando você pesa: '))
-altura = float(input('Qual é a sua altura: '))
+m = float(input('Quando você pesa: '))
+a = float(input('Qual é a sua altura: '))
 
-resultado = calculo(massa, altura)
+resultado = calculo(m, a)
 
 if resultado < 18.5:
     print('Seu IMC é {:.2f}'.format(resultado))

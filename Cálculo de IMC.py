@@ -1,12 +1,12 @@
-def calculo(__massa__, __altura__):
+def calculo(massa, altura):
     imc = massa / (altura ** 2)
     return imc
 
 
-massa = float(input('Quando você pesa: '))
-altura = float(input('Qual é a sua altura: '))
+m = float(input('Quando você pesa: '))
+a = float(input('Qual é a sua altura: '))
 
-resultado = calculo(massa, altura)
+resultado = calculo(m, a)
 
 if resultado < 18.5:
     print('Seu IMC é {:.2f}'.format(resultado))
@@ -20,6 +20,6 @@ elif resultado >= 25 and resultado < 30:
 elif resultado >= 30 and resultado < 40:
     print('Seu IMC é {:.2f}'.format(resultado))
     print('Você está Muito Acima do Peso!')
-elif resultado > 40:
+elif resultado >= 40:
     print('Seu IMC é {:.2f}'.format(resultado))
     print('Você está na fase de Obesidade Mórbida!')

@@ -127,6 +127,7 @@ while activate:
                 for i in range(3, 0, -1):
                     time.sleep(0.6)
                     print(red, end='')
+
                     print(f' [!] - CARREGANDO {i}')
                     print(normal, end='')
                 print(green + ' [!] - PROCESSO FINALIZADO')

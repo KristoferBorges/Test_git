@@ -1,3 +1,6 @@
+body{
+    background-color: #e9f5f9;
+}
 .titulo {
   font-size: 2.5rem;
   font-weight: bold;
@@ -26,6 +29,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+#form-quantidade{
+    width: 15%;
+}
 .form-control{
     width: 100%;
 }
@@ -33,17 +39,17 @@
     margin-top: 20px;
 }
 .buttom-form{
-  background-color: #4CAF50; /* Cor de fundo verde */
+  background-color: #4CAF50;
   border: none;
   color: white;
-  padding: 12px 30px; /* Adicione um pouco de espaço interno */
+  padding: 12px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  border-radius: 9px; /* Adicione cantos arredondados */
+  border-radius: 9px;
 }
 input[type="text"], [type="number"] {
   background-color: #fff;

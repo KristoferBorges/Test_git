@@ -73,32 +73,32 @@ input[type="text"], [type="number"] {
 <div class="container">
   <h1 class="titulo">Cadastro de Materiais</h1>
   <h6 style="color: red;">Preecha todos os campos</h6>
-  <form class="form-cadastro">
+  <form action="{% url 'listagem_materiais' %}" method="post" class="form-cadastro">
     {% csrf_token  %}
-    <input class="form-control-sm" type="text" placeholder="NOME*" required>
-    <input class="form-control-sm" type="number" placeholder="VALOR R$*" step="0.10" required>
-    <input type="number" id="peso" name="peso" min="0" max="999" step="0.1" placeholder="PESO (Kg)*" required>
-    <input class="form-control-sm" id="form-quantidade" type="number" placeholder="QUANTIA*" required>
+    <input name='nome' class="form-control-sm" type="text" placeholder="NOME*" required>
+    <input name='valor' class="form-control-sm" type="number" placeholder="VALOR R$*" step="0.10" required>
+    <input name='peso' type="number" id="peso" min="0" max="999" step="0.1" placeholder="PESO (Kg)*" required>
+    <input name='quantia' class="form-control-sm" id="form-quantidade" type="number" placeholder="QUANTIA*" required>
     <div class="input-group mb-3">
     <label class="input-group-text" for="inputGroupSelect01">MATERIAL</label>
-      <select class="form-select" id="inputGroupSelect01">
+      <select name='tipo_material' class="form-select" id="inputGroupSelect01">
         <option selected>TIPOS DE MATERIAIS*</option>
-        <option value="1">Metais ferrosos (como aço, ferro fundido, ferro galvanizado, entre outros)</option>
-        <option value="2">Metais não ferrosos (como alumínio, cobre, bronze, latão, níquel, zinco, entre outros)</option>
-        <option value="3">Plásticos (como polietileno, polipropileno, PET, PVC, entre outros)</option>
-        <option value="4">Vidros (como garrafas, vidros planos, espelhos, entre outros)</option>
-        <option value="5">Papelões (como caixas, papelão ondulado, entre outros)</option>
-        <option value="6">Eletrônicos (como placas de circuito, fios, cabos, entre outros)</option>
-        <option value="7">Baterias (como baterias automotivas, de celular, entre outras)</option>
-        <option value="8">Pneus (de carros, motos, bicicletas, entre outros)</option>
-        <option value="9">Madeiras (como pallets, móveis, portas, entre outros)</option>
-        <option value="10">Materiais de construção (como telhas, tijolos, concreto, entre outros)</option>
-        <option value="11">Sucatas em geral (como objetos em fim de vida útil ou sem utilidade aparente)</option>
-        <option value="12">OUTRO</option>
+        <option value="Metais ferrosos">Metais ferrosos (como aço, ferro fundido, ferro galvanizado, entre outros)</option>
+        <option value="Metais não ferrosos">Metais não ferrosos (como alumínio, cobre, bronze, latão, níquel, zinco, entre outros)</option>
+        <option value="Plásticos">Plásticos (como polietileno, polipropileno, PET, PVC, entre outros)</option>
+        <option value="Vidros">Vidros (como garrafas, vidros planos, espelhos, entre outros)</option>
+        <option value="Papelões">Papelões (como caixas, papelão ondulado, entre outros)</option>
+        <option value="Eletrônicos">Eletrônicos (como placas de circuito, fios, cabos, entre outros)</option>
+        <option value="Baterias">Baterias (como baterias automotivas, de celular, entre outras)</option>
+        <option value="Pneus">Pneus (de carros, motos, bicicletas, entre outros)</option>
+        <option value="Madeiras">Madeiras (como pallets, móveis, portas, entre outros)</option>
+        <option value="Materiais de construção">Materiais de construção (como telhas, tijolos, concreto, entre outros)</option>
+        <option value="Sucatas em geral">Sucatas em geral (como objetos em fim de vida útil ou sem utilidade aparente)</option>
+        <option value="OUTRO">OUTRO</option>
       </select>
     </div>
     <div class="form-floating">
-      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+      <textarea name='descricao' class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
       <label for="floatingTextarea2">Descrição do material (Opcional)</label>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto" id="button-finish">

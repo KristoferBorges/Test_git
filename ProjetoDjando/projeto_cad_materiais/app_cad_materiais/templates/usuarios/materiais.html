@@ -1,0 +1,24 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>VALOR</th>
+            <th>PESO</th>
+            <th>QUANTIDADE</th>
+            <th>TIPO</th>
+            <th>DESCRIÇÃO</th>
+        </tr>
+        {% for material in materiais %}
+        <tr>
+            <td>{{material.id}}</td>
+            <td>{{material.nome}}</td>
+            <td>{{material.valor}}</td>
+            <td>{{material.peso}}</td>
+            <td>{{material.quantia}}</td>
+            <td>{{material.tipo_material}}</td>
+            <td>{{material.descricao}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>

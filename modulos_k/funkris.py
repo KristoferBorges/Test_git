@@ -19,6 +19,7 @@ def dateVerification(data):
         data_soma = data_soma - 1
         data = str(data_soma) + data[2:]
         # Data de ontem formatada
+    print(data)
 
 
 def maiorNumero(lista):

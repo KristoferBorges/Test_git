@@ -1,5 +1,7 @@
 import datetime
 import time
+
+
 def dateVerification(data):
     """
     --> Pedido do cliente: 'Preciso que o sistema pegue o dia de ontem baseado na data atual'.

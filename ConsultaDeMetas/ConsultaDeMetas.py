@@ -12,6 +12,13 @@ rosa = '\033[95m'
 
 
 def dateVerification():
+    """
+    --> Pedido do cliente: 'Preciso que o sistema pegue o dia de ontem baseado na data atual'.
+    --> Sistema: Ele pegará a data atual e fara uma formatação dos dois primeiros números, fazendo com que seja a data
+    de ontem.
+    Exemplo: 15/03/2021 = 14/03/2021
+    :return: Retornará uma string com a data de ontem
+    """
     global data_formatada, data
     if len(data) == 0:
         date = datetime.datetime.now()
@@ -20,7 +27,8 @@ def dateVerification():
         data = date_formatada
         data_soma = int(data[:2])
         data_soma = data_soma - 1
-        data = str(data_soma) + data[2:] # Data de ontem formatada
+        data = str(data_soma) + data[2:]
+        # Data de ontem formatada
 
 
 titulo = "CONSULTA DE METAS"

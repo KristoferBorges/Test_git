@@ -132,4 +132,4 @@ while True:
             print('\033[33mComputador:\033[m {}'.format(computer_choice))
             print('-----PERDEDOR-----')
         else:
-            print('Error')
+            print('[!] Error [!]')

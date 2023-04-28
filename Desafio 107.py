@@ -10,11 +10,11 @@ def processos(number):
     dobrado = moeda.dobro(number)
     metade = moeda.metade(number)
     aumentado = moeda.aumentar(number)
-    print(f'[!] - Valor digitado [{number}]')
-    print(f'[!] - Dobro = {dobrado}')
-    print(f'[!] - Metade = {metade}')
-    print(f'[!] - Aumentado = {aumentado}')
+    print(f' [!] - Valor digitado [{number}]')
+    print(f' [!] - Dobro = {dobrado}')
+    print(f' [!] - Metade = {metade}')
+    print(f' [!] - Aumentado = {aumentado}')
 
 
-numero = float(input('[?] - DIGITE UM VALOR E VEJA SEU:\n -> Drobro\n -> Metade\n -> + 10%\n [?] - R$ '))
+numero = float(input(' [?] - DIGITE UM VALOR E VEJA SEU:\n -> Drobro\n -> Metade\n -> + 10%\n [?] - R$ '))
 processos(numero)

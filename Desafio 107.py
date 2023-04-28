@@ -16,5 +16,5 @@ def processos(number):
     print(f' [!] - Aumentado = {aumentado}')
 
 
-numero = float(input(' [?] - DIGITE UM VALOR E VEJA SEU:\n -> Drobro\n -> Metade\n -> + 10%\n [?] - R$ '))
+numero = float(input(' [?] - DIGITE UM VALOR E VEJA SEU:\n -> Dobro\n -> Metade\n -> + 10%\n [?] - R$ '))
 processos(numero)

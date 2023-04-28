@@ -50,4 +50,4 @@ def diminuir(number):
 
 def moeda(number):
     formatado = 'R$' + f'{number:,.2f}'
-    return formatado
+    return formatado.replace('.', ',')

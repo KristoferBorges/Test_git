@@ -38,4 +38,16 @@ def aumentar(number):
 
 
 def diminuir(number):
-    pass
+    """
+        -> Diminui 10% do valor passado como parâmetro.
+        EX: 100 - 10% = 90
+        :param number: Valor passado.
+        :return: Retorna -10% somado com o valor passado.
+        """
+    number = number - (number * 0.10)
+    return number
+
+
+def moeda(number):
+    formatado = 'R$' + f'{number:,.2f}'
+    return formatado

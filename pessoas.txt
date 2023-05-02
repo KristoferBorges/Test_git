@@ -1,5 +1,4 @@
-kristofer;22
-ramon;22
-KRISTOFER;22
-RAMON;22
-LIVIA;22
+Kristofer;22
+Kristofer;20
+Gustavo;22
+Kristofer;21

@@ -1,3 +1,7 @@
+from modulos_k import tryOption
+from modulos_k import tryName
+from modulos_k import tryAge
+
 """
 Exercício Python 115a: Vamos criar um menu em Python, usando modularização.
 """
@@ -13,55 +17,6 @@ greenBack = '\033[42m'
 yellowBack = '\033[43m'
 
 # Opção de resposta ao menu
-opcao = 0
-nome = ''
-idade = ''
-
-
-def tryOption():
-    global opcao
-    while True:
-        try:
-            opcao = int(input(yellow + '--> ' + normal))
-        except ValueError:
-            print(red + 'DIGITE UM NÚMERO INTEIRO VÁLIDO!' + normal)
-        except Exception as error:
-            print(red + f'ERRO DE {error.__class__}' + normal)
-        else:
-            if opcao in range(1, 4):
-                return opcao
-            else:
-                print(red + 'APENAS NÚMEROS INTEIROS DAS OPÇÕES LISTADAS!' + normal)
-
-
-def tryName():
-    global nome
-    while True:
-        try:
-            nome = str(input(' [?] Nome: '))
-        except Exception as error:
-            print(red + f'ERRO DE {error.__class__}')
-        else:
-            if nome.isalpha():
-                return nome
-            else:
-                print(red + 'APENAS LETRAS!' + normal)
-
-
-def tryAge():
-    global idade
-    while True:
-        try:
-            idade = str(input(' [?] Idade: '))
-        except Exception as error:
-            print(red + f'ERRO DE {error.__class__}')
-        else:
-            if idade.isnumeric():
-                idade = int(idade)
-                return idade
-            else:
-                print(red + 'APENAS NÚMEROS INTEIROS!' + normal)
-
 
 while True:
     print('_' * 30 + normal)
@@ -70,13 +25,16 @@ while True:
     print(yellow + '1' + normal + ' - ' + blue + 'Novo registro')
     print(yellow + '2' + normal + ' - ' + blue + 'Ver registros')
     print(yellow + '3' + normal + ' - ' + blue + 'Sair do programa' + normal)
-    tryOption()
+    opcao = int(input(yellow + '--> ' + normal))
+    tryOption(opcao)
     if opcao == 1:
         print('_' * 30 + normal)
         print('{}'.format('NOVO CADASTRO'.center(30)))
         print('_' * 30)
-        tryName()
-        tryAge()
+        nome = str(input(' [?] Nome: '))
+        tryName(nome)
+        idade = str(input(' [?] Idade: '))
+        tryAge(idade)
         with open('pessoas.txt', 'a') as pessoas:
             pessoas.write(f'{nome}' + ';' + f'{idade}\n')
     elif opcao == 2:

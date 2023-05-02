@@ -1,9 +1,9 @@
 # Python-Study
 Exercícios com Desenvolvimento usando a Linguagem Python
-TODOS OS MUNDOS FORAM CONCLUÍDOS! 02/05/2023
 
 # Resumo
 Tenho muitos exercícios usando o Python, mais de 90% deles foram introduzidos pelo canal Curso em Vídeo, do professor Gustavo Guanabara: https://www.cursoemvideo.com/.
+TODOS OS MUNDOS FORAM CONCLUÍDOS! 02/05/2023
 
 # Objetivo
 Meu objetivo é demonstrar publicamente o repositório em questão, contendo minha evolução. Eu estudo todos os dias em aulas ou criando scripts.

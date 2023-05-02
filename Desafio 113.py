@@ -5,9 +5,7 @@ possibilidade da digitação de um número de tipo inválido. Aproveite e crie t
 
 while True:
     try:
-        numero = str(input('Digite um número inteiro: '))
-        if numero.isnumeric:
-            numero = int(numero)
+        numero_inteiro = int(input('Digite um número inteiro: '))
     except TypeError:
         print('Tipo incorreto!')
     except ValueError:
@@ -15,7 +13,19 @@ while True:
     except Exception as erro:
         print(f'O erro encontrato foi {erro.__cause__}')
     else:
-        print(f'Você digitou corretamente o número [{numero}]')
+        print(f'Você digitou corretamente o número [{numero_inteiro}]')
         break
-
-while True
+while True:
+    try:
+        numero_real = float(input('Digite um número real: '))
+    except TypeError:
+        print('Tipo incorreto!')
+    except ValueError:
+        print('Valor incorreto!')
+    except AttributeError:
+        print('O valor não é do tipo REAL')
+    except Exception as erro:
+        print(f'O erro encontrato foi {erro.__cause__}')
+    else:
+        print(f'Você digitou corretamente o número [{numero_real:,.2f}]')
+        break

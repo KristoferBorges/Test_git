@@ -13,13 +13,25 @@ yellowBack = '\033[43m'
 
 
 def textFormatado(text):
+    """
+    --> Função para deixar um título formatado, apenas será necessário alterar o texto que será centralizado no tamanho
+    de 30 caracteres.
+    :param text: Texto informado pelo programador.
+    :return: Retorna um print formatado com o título pré-definido.
+    """
     print('_' * 30 + normal)
     print('{}'.format(f'{text}'.center(30)))
     print('_' * 30)
 
 
 def tryOption(op):
-
+    """
+    --> Função para determinar a opção que o usuário irá escolher no menu, atualmente temos 3 opções, de registro,
+    consulta ou de sair do programa, caso o usuário digitar outro número ou letras fora do esperado o sistema
+    apresentará uma exceção.
+    :param op: Entrada do usuário.
+    :return: Retorna a opção escolhida em caso de zero exceções.
+    """
     while True:
         try:
             pass

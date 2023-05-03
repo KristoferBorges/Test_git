@@ -12,6 +12,12 @@ greenBack = '\033[42m'
 yellowBack = '\033[43m'
 
 
+def textFormatado(text):
+    print('_' * 30 + normal)
+    print('{}'.format(f'{text}'.center(30)))
+    print('_' * 30)
+
+
 def tryOption(op):
 
     while True:

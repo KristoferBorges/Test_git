@@ -1,7 +1,7 @@
 from modulos_k import tryOption
 from modulos_k import tryName
 from modulos_k import tryAge
-
+from modulos_k import textFormatado
 """
 Exercício Python 115a: Vamos criar um menu em Python, usando modularização.
 """
@@ -17,18 +17,14 @@ greenBack = '\033[42m'
 yellowBack = '\033[43m'
 
 while True:
-    print('_' * 30 + normal)
-    print('{}'.format('MENU PRINCIPAL'.center(30)))
-    print('_' * 30)
+    textFormatado('MENU PRINCIPAL')
     print(yellow + '1' + normal + ' - ' + blue + 'Novo registro')
     print(yellow + '2' + normal + ' - ' + blue + 'Ver registros')
     print(yellow + '3' + normal + ' - ' + blue + 'Sair do programa' + normal)
     opcao = int(input(yellow + '--> ' + normal))
     tryOption(opcao)
     if opcao == 1:
-        print('_' * 30 + normal)
-        print('{}'.format('NOVO CADASTRO'.center(30)))
-        print('_' * 30)
+        textFormatado('NOVO CADASTRO')
         nome = str(input(' [?] Nome: '))
         tryName(nome)
         idade = str(input(' [?] Idade: '))
@@ -36,9 +32,7 @@ while True:
         with open('pessoas.txt', 'a') as pessoas:
             pessoas.write(f'{nome}' + ';' + f'{idade}\n')
     elif opcao == 2:
-        print('_' * 30 + normal)
-        print('{}'.format('REGISTROS ATUAIS'.center(30)))
-        print('_' * 30)
+        textFormatado('REGISTROS ATUAIS')
         with open('pessoas.txt', 'r') as pessoas:
             linhas = pessoas.readlines()
         for linha in linhas:

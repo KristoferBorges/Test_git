@@ -2,3 +2,4 @@ Kristofer;22
 Kristofer;20
 Gustavo;22
 Kristofer;21
+KRISTOFER;22

@@ -16,8 +16,6 @@ redBack = '\033[41m'
 greenBack = '\033[42m'
 yellowBack = '\033[43m'
 
-# Opção de resposta ao menu
-
 while True:
     print('_' * 30 + normal)
     print('{}'.format('MENU PRINCIPAL'.center(30)))

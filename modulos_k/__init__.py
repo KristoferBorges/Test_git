@@ -35,6 +35,11 @@ def tryOption(op):
 
 
 def tryName(name):
+    """
+    --> Função usando tratamento de erros para identificar se o usuário digitou um nome, não podendo haver números.
+    :param name: entrada por parte do usuário.
+    :return: retorna um except em caso de problema, caso não haja problemas o sistema seguirá com o nome do usuário.
+    """
     while True:
         try:
             pass

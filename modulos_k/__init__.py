@@ -48,6 +48,11 @@ def tryName(name):
 
 
 def tryAge(age):
+    """
+    --> Função usando tratamento de erros para identificar se o usuário digitou um número inteiro.
+    :param age: idade ou número digitado pelo usuário.
+    :return: retorna um except em caso de problema, caso não haja problemas o sistema seguirá com o número do usuário.
+    """
     while True:
         try:
             pass

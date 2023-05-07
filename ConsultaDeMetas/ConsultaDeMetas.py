@@ -252,9 +252,9 @@ while activate:
             print(rosa + '=-' * 21 + normal)
             # Inserção de dados
             with open("listaRDMARCAS.txt", "a") as listaRDMARCAS:
-                listaRDMARCAS.write(f"{data} | R${metaDia:.2f} | R${metaAcRDMARCAS:.2f} | R${vendaDia:.2f} |"
-                                    f" R${vendaAcRDMARCAS:.2f} | "
-                                    f" R${sobrasRD:.2f} | "
+                listaRDMARCAS.write(f"{data}|R${metaDia:.2f}|R${metaAcRDMARCAS:.2f}|R${vendaDia:.2f}|"
+                                    f"R${vendaAcRDMARCAS:.2f}|"
+                                    f"R${sobrasRD:.2f}|"
                                     f"{porcentagemRDMARCAS:.2f}%\n")
         elif decis_listas == '2':
             # Inputs de dados - RD Perfumaria
@@ -406,10 +406,15 @@ while activate:
         if decis_consulta == '1':
             print('¨¨' * 46)
             print(texto_RDMarcas_lista_centralizado)
+            print('{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>11}'.format('DATA', 'META', 'META.AC', 'VENDAS', 'VENDAS.AC',
+                                                                      'SOBRAS', 'P'))
             with open("listaRDMARCAS.txt", "r") as listaRDMARCAS:
                 linhas3 = listaRDMARCAS.readlines()
             for linha in linhas3:
-                print(green + f'{linha.strip()}' + normal)
+                dado = linha.split('|')
+                for i in dado:
+                    print(f'{i:>13}', end='')
+            print()
             print('¨¨' * 46)
         elif decis_consulta == '2':
             print('¨¨' * 46)

@@ -73,7 +73,7 @@ while activate:
                                                           ' [?] - LIMPAR DADOS ATUAIS [2]\n'
                                                           ' [?] - CONSULTAR LISTAS ATUAIS [3]\n --> ' + normal))
     tryOption(decis_registro_exclusao_consulta)
-    if decis_registro_exclusao_consulta == 2:
+    if decis_registro_exclusao_consulta == '2':
         print('\n')
         print(red + ' [!] - SISTEMA DE EXCLUSÃO\n' + normal)
         print(texto_decis_centralizado)
@@ -183,7 +183,7 @@ while activate:
 
             elif confirmacao != 'S':
                 print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')
-    elif decis_registro_exclusao_consulta == 1:
+    elif decis_registro_exclusao_consulta == '1':
         print('\n')
         print(green + ' [!] - SISTEMA DE REGISTRO\n' + normal)
         print(texto_decis_centralizado)
@@ -377,7 +377,7 @@ while activate:
                                  f" {pecaAc}Un | "
                                  f" R${sobrasDermo:.2f} | "
                                  f"{porcentagemDERMO:.2f}%\n")
-    elif decis_registro_exclusao_consulta == 3:
+    elif decis_registro_exclusao_consulta == '3':
         print('\n')
         print(texto_decis_centralizado)
         decis_consulta = int(input((yellow + " [?] - CONSULTAR LISTA DE RD MARCAS [1]\n"

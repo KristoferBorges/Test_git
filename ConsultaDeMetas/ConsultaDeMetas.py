@@ -205,6 +205,8 @@ while activate:
             vendaDia = str(input(' [?] - Quando Vendeu Hoje R$ '))
             tryIsNumber(metaDia)
             tryIsNumber(vendaDia)
+            metaDia = float(metaDia)
+            vendaDia = float(vendaDia)
             print(normal)
             metaAcRDMARCAS = 0
             vendaAcRDMARCAS = 0
@@ -263,6 +265,8 @@ while activate:
             vendaDia = str(input(' [?] - Quando Vendeu Hoje R$ '))
             tryIsNumber(metaDia)
             tryIsNumber(vendaDia)
+            metaDia = float(metaDia)
+            vendaDia = float(vendaDia)
             print(normal)
             metaAcPERFUMARIA = 0
             vendaAcPERFUMARIA = 0
@@ -323,6 +327,8 @@ while activate:
             tryIsNumber(metaDia)
             tryIsNumber(vendaDia)
             tryIsNumber(pecaDia)
+            metaDia = float(metaDia)
+            vendaDia = float(vendaDia)
             if len(pecaDia) == 0:
                 pecaDia = int(0)
             else:

@@ -1,4 +1,6 @@
 # Cores
+import sys
+
 red = '\033[31m'
 green = '\033[32m'
 yellow = '\033[33m'
@@ -48,3 +50,19 @@ def tryExclusion(option):
             return option
         else:
             print(red + 'APENAS NÚMEROS INTEIROS DAS OPÇÕES LISTADAS!' + normal)
+
+
+def tryIsNumber(valor):
+    try:
+        pass
+    except ValueError:
+        print(red + 'DIGITE UM NÚMERO INTEIRO VÁLIDO!' + normal)
+    except Exception as error:
+        print(red + f'ERRO DE {error.__class__}' + normal)
+    else:
+        if valor.isnumeric():
+            valor = int(valor)
+            return valor
+        else:
+            print(red + ' [!] - DADOS INVÁLIDOS (PROCESSO INTERROMPIDO)' + normal)
+            sys.exit()

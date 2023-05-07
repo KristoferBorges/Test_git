@@ -2,6 +2,7 @@ import time
 import datetime
 from modulo import tryOption
 from modulo import tryExclusion
+from modulo import tryIsNumber
 
 # Cores
 red = '\033[31m'
@@ -189,18 +190,21 @@ while activate:
         print('\n')
         print(green + ' [!] - SISTEMA DE REGISTRO\n' + normal)
         print(texto_decis_centralizado)
-        decis_listas = int(input(yellow + ' [?] - Lista de RD Marcas - [1]\n'
+        decis_listas = str(input(yellow + ' [?] - Lista de RD Marcas - [1]\n'
                                           ' [?] - Lista de Perfumaria - [2]\n'
                                           ' [?] - Lista de Dermo - [3]\n'
                                           ' --> ' + normal))
-        if decis_listas == 1:
+        tryOption(decis_listas)
+        if decis_listas == '1':
             # Inputs de dados - RD Marcas
             print('\n')
             print(texto_RDMarcas_centralizado)
             data = str(input(green + ' [?] - Informe a data [dia/mês/ano]: '))
             dateVerification()
-            metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
-            vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
+            metaDia = str(input(' [?] - Qual a Meta do Dia R$ '))
+            vendaDia = str(input(' [?] - Quando Vendeu Hoje R$ '))
+            tryIsNumber(metaDia)
+            tryIsNumber(vendaDia)
             print(normal)
             metaAcRDMARCAS = 0
             vendaAcRDMARCAS = 0
@@ -249,14 +253,16 @@ while activate:
                                     f" R${vendaAcRDMARCAS:.2f} | "
                                     f" R${sobrasRD:.2f} | "
                                     f"{porcentagemRDMARCAS:.2f}%\n")
-        elif decis_listas == 2:
+        elif decis_listas == '2':
             # Inputs de dados - RD Perfumaria
             print('\n')
             print(texto_PERFUMARIA_centralizado)
             data = str(input(green + ' [?] - Informe a data [dia/mês/ano]: '))
             dateVerification()
-            metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
-            vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
+            metaDia = str(input(' [?] - Qual a Meta do Dia R$ '))
+            vendaDia = str(input(' [?] - Quando Vendeu Hoje R$ '))
+            tryIsNumber(metaDia)
+            tryIsNumber(vendaDia)
             print(normal)
             metaAcPERFUMARIA = 0
             vendaAcPERFUMARIA = 0
@@ -305,15 +311,18 @@ while activate:
                                       f" R${vendaAcPERFUMARIA:.2f} | "
                                       f" R${sobrasPerfumaria :.2f} | "
                                       f"{porcentagemPERFUMARIA:.2f}%\n")
-        elif decis_listas == 3:
+        elif decis_listas == '3':
             # Inputs de dados - RD Dermo
             print('\n')
             print(texto_DERMO_centralizado)
             data = str(input(green + ' [?] - Informe a data [dia/mês/ano]: '))
             dateVerification()
-            metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
-            vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
+            metaDia = str(input(' [?] - Qual a Meta do Dia R$ '))
+            vendaDia = str(input(' [?] - Quando Vendeu Hoje R$ '))
             pecaDia = str(input(' [?] - Quantas peças Vendeu Hoje: '))
+            tryIsNumber(metaDia)
+            tryIsNumber(vendaDia)
+            tryIsNumber(pecaDia)
             if len(pecaDia) == 0:
                 pecaDia = int(0)
             else:

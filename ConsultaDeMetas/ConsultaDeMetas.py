@@ -23,10 +23,12 @@ def dateVerification():
     if len(data) == 0:
         date = datetime.datetime.now()
         date = datetime.datetime.date(date)
-        date_formatada = date.strftime("%d/%m/%Y")
-        data = date_formatada
+        data = date.strftime("%d/%m/%Y")
         data_soma = int(data[:2])
         data_soma = data_soma - 1
+        data_soma = str(data_soma)
+        if len(data_soma) == 1:
+            data_soma = '0' + data_soma
         data = str(data_soma) + data[2:]
         # Data de ontem formatada
 

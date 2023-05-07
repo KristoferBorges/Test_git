@@ -1,6 +1,7 @@
 import time
 import datetime
 from modulo import tryOption
+from modulo import tryExclusion
 
 # Cores
 red = '\033[31m'
@@ -77,13 +78,14 @@ while activate:
         print('\n')
         print(red + ' [!] - SISTEMA DE EXCLUSÃO\n' + normal)
         print(texto_decis_centralizado)
-        decis2_listas = int(input(red + ' [?] - Lista de RD Marcas - [1]\n'
+        decis2_listas = str(input(red + ' [?] - Lista de RD Marcas - [1]\n'
                                         ' [?] - Lista de Perfumaria - [2]\n'
-                                        ' [?] - Lista de Dermo [3]\n'
-                                        ' [?] - TODAS AS LISTAS [4]\n'
+                                        ' [?] - Lista de Dermo - [3]\n'
+                                        ' [?] - TODAS AS LISTAS - [4]\n'
                                         ' --> ' + normal + ''))
+        tryExclusion(decis2_listas)
         print('\n')
-        if decis2_listas == 1:
+        if decis2_listas == '1':
             confirmacao = str(input(red + ' [!] - Confirme a exclusao dos dados [S/N] ' + normal)).upper().strip()
             if confirmacao == 'S':
                 # Exclusão RD MARCAS
@@ -103,7 +105,7 @@ while activate:
 
             elif confirmacao != 'S':
                 print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')
-        elif decis2_listas == 2:
+        elif decis2_listas == '2':
             # Exclusão Perfumaria
             confirmacao = str(input(red + ' [!] - Confirme a exclusao dos dados [S/N] ' + normal)).upper().strip()
             if confirmacao == 'S':
@@ -123,7 +125,7 @@ while activate:
 
             elif confirmacao != 'S':
                 print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')
-        elif decis2_listas == 3:
+        elif decis2_listas == '3':
             # Exclusão Dermo
             confirmacao = str(input(red + ' [!] - Confirme a exclusao dos dados [S/N] ' + normal)).upper().strip()
             if confirmacao == 'S':
@@ -145,7 +147,7 @@ while activate:
 
             elif confirmacao != 'S':
                 print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')
-        elif decis2_listas == 4:
+        elif decis2_listas == '4':
             # Exclusão TODAS AS LISTAS
             confirmacao = str(input(red + ' [!] - Confirme a exclusao dos dados [S/N] ' + normal)).upper().strip()
             if confirmacao == 'S':

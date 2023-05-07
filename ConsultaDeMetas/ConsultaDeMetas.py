@@ -11,6 +11,27 @@ roxo = '\033[35m'
 rosa = '\033[95m'
 
 
+def tryOption(option):
+    """
+    --> Função para determinar a opção que o usuário irá escolher no menu, atualmente temos 3 opções, de registro,
+    consulta ou de sair do programa, caso o usuário digitar outro número ou letras fora do esperado o sistema
+    apresentará uma exceção.
+    :param option: Entrada do usuário.
+    :return: Retorna a opção escolhida em caso de zero exceções.
+    """
+    try:
+        option = int(option)
+    except ValueError:
+        print(red + 'DIGITE UM NÚMERO INTEIRO VÁLIDO!' + normal)
+    except Exception as error:
+        print(red + f'ERRO DE {error.__class__}' + normal)
+    else:
+        if option in range(1, 4):
+            return option
+        else:
+            print(red + 'APENAS NÚMEROS INTEIROS DAS OPÇÕES LISTADAS!' + normal)
+
+
 def dateVerification():
     """
     --> Pedido do cliente: 'Preciso que o sistema pegue o dia de ontem baseado na data atual'.
@@ -68,9 +89,10 @@ while activate:
 
     # input de decisão
     print(texto_decis_centralizado)
-    decis_registro_exclusao_consulta = int(input(yellow + ' [?] - NOVOS REGISTROS [1]\n'
+    decis_registro_exclusao_consulta = str(input(yellow + ' [?] - NOVOS REGISTROS [1]\n'
                                                           ' [?] - LIMPAR DADOS ATUAIS [2]\n'
                                                           ' [?] - CONSULTAR LISTAS ATUAIS [3]\n --> ' + normal))
+    tryOption(decis_registro_exclusao_consulta)
     if decis_registro_exclusao_consulta == 2:
         print('\n')
         print(red + ' [!] - SISTEMA DE EXCLUSÃO\n' + normal)
@@ -137,7 +159,6 @@ while activate:
                 for i in range(3, 0, -1):
                     time.sleep(0.6)
                     print(red, end='')
-
                     print(f' [!] - CARREGANDO {i}')
                     print(normal, end='')
                 print(green + ' [!] - PROCESSO FINALIZADO')

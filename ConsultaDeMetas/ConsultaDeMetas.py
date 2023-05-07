@@ -3,6 +3,7 @@ import datetime
 from modulo import tryOption
 from modulo import tryExclusion
 from modulo import tryIsNumber
+from modulo import tryOptionConsult
 
 # Cores
 red = '\033[31m'
@@ -397,11 +398,12 @@ while activate:
     elif decis_registro_exclusao_consulta == '3':
         print('\n')
         print(texto_decis_centralizado)
-        decis_consulta = int(input((yellow + " [?] - CONSULTAR LISTA DE RD MARCAS [1]\n"
+        decis_consulta = str(input((yellow + " [?] - CONSULTAR LISTA DE RD MARCAS [1]\n"
                                              " [?] - CONSULTAR LISTA DE PERFUMARIA [2]\n"
                                              " [?] - CONSULTAR LISTA DE DERMO [3]\n"
                                              " [?] - CONSULTAR TODAS AS LISTAS [4]\n --> " + normal)))
-        if decis_consulta == 1:
+        tryOptionConsult(decis_consulta)
+        if decis_consulta == '1':
             print('¨¨' * 46)
             print(texto_RDMarcas_lista_centralizado)
             with open("listaRDMARCAS.txt", "r") as listaRDMARCAS:
@@ -409,7 +411,7 @@ while activate:
             for linha in linhas3:
                 print(green + f'{linha.strip()}' + normal)
             print('¨¨' * 46)
-        elif decis_consulta == 2:
+        elif decis_consulta == '2':
             print('¨¨' * 46)
             print(texto_PERFUMARIA_lista_centralizado)
             with open("listaPERFUMARIA.txt", "r") as listaPERFUMARIA:
@@ -417,7 +419,7 @@ while activate:
             for linha in linhas3:
                 print(green + f'{linha.strip()}' + normal)
             print('¨¨' * 46)
-        elif decis_consulta == 3:
+        elif decis_consulta == '3':
             print('¨¨' * 46)
             print(texto_DERMO_lista_centralizado)
             with open("listaDERMO.txt", "r") as listaDERMO:
@@ -425,7 +427,7 @@ while activate:
             for linha in linhas3:
                 print(green + f'{linha.strip()}' + normal)
             print('¨¨' * 46)
-        elif decis_consulta == 4:
+        elif decis_consulta == '4':
             print('¨¨' * 46)
             print('¨¨' * 46)
             print(texto_RDMarcas_lista_centralizado)

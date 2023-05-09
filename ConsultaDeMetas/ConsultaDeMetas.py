@@ -92,8 +92,7 @@ while activate:
             if confirmacao == 'S':
                 # Exclusão RD MARCAS
                 with open("listaRDMARCAS.txt", "w") as listaRDMARCAS:
-                    listaRDMARCAS.write("DATA-------- META-------- META.AC----- VENDAS----- VENDAS.AC--- "
-                                        "SOBRAS----- P--------------\n")
+                    listaRDMARCAS.write("")
                 with open("metaAcumuladaRDMARCAS.txt", "w") as metaAcumuladaRDMARCAS:
                     metaAcumuladaRDMARCAS.write("")
                 with open("vendaAcumuladaRDMARCAS.txt", "w") as vendaAcumuladaRDMARCAS:
@@ -154,8 +153,7 @@ while activate:
             confirmacao = str(input(red + ' [!] - Confirme a exclusao dos dados [S/N] ' + normal)).upper().strip()
             if confirmacao == 'S':
                 with open("listaRDMARCAS.txt", "w") as listaRDMARCAS:
-                    listaRDMARCAS.write("DATA-------- META-------- META.AC----- VENDAS----- VENDAS.AC--- "
-                                        "SOBRAS----- P--------------\n")
+                    listaRDMARCAS.write("")
                 with open("metaAcumuladaRDMARCAS.txt", "w") as metaAcumuladaRDMARCAS:
                     metaAcumuladaRDMARCAS.write("")
                 with open("vendaAcumuladaRDMARCAS.txt", "w") as vendaAcumuladaRDMARCAS:

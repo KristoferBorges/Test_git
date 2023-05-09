@@ -413,10 +413,15 @@ while activate:
         elif decis_consulta == '2':
             print('¨¨' * 46)
             print(texto_PERFUMARIA_lista_centralizado)
+            print('{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>11}'.format('DATA', 'META', 'META.AC', 'VENDAS', 'VENDAS.AC',
+                                                                      'SOBRAS', 'P'))
             with open("listaPERFUMARIA.txt", "r") as listaPERFUMARIA:
                 linhas3 = listaPERFUMARIA.readlines()
             for linha in linhas3:
-                print(green + f'{linha.strip()}' + normal)
+                dado = linha.split('|')
+                for i in dado:
+                    print(f'{i:>13}', end='')
+            print()
             print('¨¨' * 46)
         elif decis_consulta == '3':
             print('¨¨' * 46)

@@ -111,8 +111,7 @@ while activate:
             confirmacao = str(input(red + ' [!] - Confirme a exclusao dos dados [S/N] ' + normal)).upper().strip()
             if confirmacao == 'S':
                 with open("listaPERFUMARIA.txt", "w") as listaPERFUMARIA:
-                    listaPERFUMARIA.write("DATA-------- META-------- META.AC----- VENDAS----- VENDAS.AC--- "
-                                          "SOBRAS----- P--------------\n")
+                    listaPERFUMARIA.write("")
                 with open("metaAcumuladaPERFUMARIA.txt", "w") as metaAcumuladaPERFUMARIA:
                     metaAcumuladaPERFUMARIA.write("")
                 with open("vendaAcumuladaPERFUMARIA.txt", "w") as vendaAcumuladaPERFUMARIA:
@@ -131,8 +130,7 @@ while activate:
             confirmacao = str(input(red + ' [!] - Confirme a exclusao dos dados [S/N] ' + normal)).upper().strip()
             if confirmacao == 'S':
                 with open("listaDERMO.txt", "w") as listaDERMO:
-                    listaDERMO.write("DATA-------- META-------- META.AC---- VENDAS---- VENDAS.AC-- "
-                                     " Peças--- SOBRAS-----P--------\n")
+                    listaDERMO.write("")
                 with open("metaAcumuladaDERMO.txt", "w") as metaAcumuladaDERMO:
                     metaAcumuladaDERMO.write("")
                 with open("vendaAcumuladaDERMO.txt", "w") as vendaAcumuladaDERMO:
@@ -160,16 +158,14 @@ while activate:
                     vendaAcumuladaRDMARCAS.write("")
 
                 with open("listaPERFUMARIA.txt", "w") as listaPERFUMARIA:
-                    listaPERFUMARIA.write("DATA-------- META-------- META.AC----- VENDAS----- VENDAS.AC--- "
-                                          "SOBRAS----- P--------------\n")
+                    listaPERFUMARIA.write("")
                 with open("metaAcumuladaPERFUMARIA.txt", "w") as metaAcumuladaPERFUMARIA:
                     metaAcumuladaPERFUMARIA.write("")
                 with open("vendaAcumuladaPERFUMARIA.txt", "w") as vendaAcumuladaPERFUMARIA:
                     vendaAcumuladaPERFUMARIA.write("")
 
                 with open("listaDERMO.txt", "w") as listaDERMO:
-                    listaDERMO.write("DATA-------- META-------- META.AC---- VENDAS---- VENDAS.AC-- "
-                                     " Peças--- SOBRAS-----P--------\n")
+                    listaDERMO.write("")
                 with open("metaAcumuladaDERMO.txt", "w") as metaAcumuladaDERMO:
                     metaAcumuladaDERMO.write("")
                 with open("vendaAcumuladaDERMO.txt", "w") as vendaAcumuladaDERMO:

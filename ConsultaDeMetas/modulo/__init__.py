@@ -49,7 +49,7 @@ def tryOptionConsult(option):
     except Exception as error:
         print(red + f' [!] - ERRO DE {error.__class__}' + normal)
     else:
-        if option in range(1, 5):
+        if option in range(1, 4):
             return option
         else:
             print(red + ' [!] - APENAS NÚMEROS INTEIROS DAS OPÇÕES LISTADAS!' + normal)

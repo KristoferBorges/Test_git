@@ -63,6 +63,7 @@ texto_RDMarcas_lista_centralizado = texto_RDMarcas.center(tamanho_lista)
 texto_PERFUMARIA_lista_centralizado = texto_PERFUMARIA.center(tamanho_lista)
 texto_DERMO_lista_centralizado = texto_DERMO.center(tamanho_lista)
 
+teste = True
 activate = True
 while activate:
     print('\n\n')
@@ -203,6 +204,10 @@ while activate:
             tryIsNumber(vendaDia)
             metaDia = float(metaDia)
             vendaDia = float(vendaDia)
+            # Impulso de inserção (Insere de forma rápida os dados de forma aleatória)
+            if teste and metaDia == 0 and vendaDia == 0:
+                vendaDia = float(random.randint(99, 9999))
+                metaDia = random.randint(99, 9999)
             print(normal)
             metaAcRDMARCAS = 0
             vendaAcRDMARCAS = 0
@@ -263,6 +268,10 @@ while activate:
             tryIsNumber(vendaDia)
             metaDia = float(metaDia)
             vendaDia = float(vendaDia)
+            # Impulso de inserção (Insere de forma rápida os dados de forma aleatória)
+            if teste and metaDia == 0 and vendaDia == 0:
+                vendaDia = float(random.randint(99, 9999))
+                metaDia = random.randint(99, 9999)
             print(normal)
             metaAcPERFUMARIA = 0
             vendaAcPERFUMARIA = 0
@@ -329,6 +338,11 @@ while activate:
                 pecaDia = int(0)
             else:
                 pecaDia = int(pecaDia)
+                # Impulso de inserção (Insere de forma rápida os dados de forma aleatória)
+                if teste and metaDia == 0 and vendaDia == 0 and pecaDia == 0:
+                    vendaDia = float(random.randint(99, 9999))
+                    metaDia = random.randint(99, 9999)
+                    pecaDia = random.randint(5, 60)
             print(normal)
             metaAcDERMO = 0
             vendaAcDERMO = 0
@@ -478,5 +492,3 @@ while activate:
             print()
             print('¨¨' * 52)
             print('¨¨' * 52)
-    elif decis_registro_exclusao_consulta == 'adm':
-        testList()

@@ -1,5 +1,6 @@
 import time
 import datetime
+import random
 from modulo import tryOption
 from modulo import tryExclusion
 from modulo import tryIsNumber
@@ -400,7 +401,7 @@ while activate:
         if decis_consulta == '1':
             print('¨¨' * 46)
             print(texto_RDMarcas_lista_centralizado)
-            print(green + '{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>11}'.format('DATA', 'META', 'META.AC', 'VENDAS',
+            print(green + '{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>14}'.format('DATA', 'META', 'META.AC', 'VENDAS',
                                                                               'VENDAS.AC', 'SOBRAS', 'P' + normal))
             with open("listaRDMARCAS.txt", "r") as listaRDMARCAS:
                 linhas3 = listaRDMARCAS.readlines()
@@ -413,7 +414,7 @@ while activate:
         elif decis_consulta == '2':
             print('¨¨' * 46)
             print(texto_PERFUMARIA_lista_centralizado)
-            print(green + '{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>11}'.format('DATA', 'META', 'META.AC', 'VENDAS',
+            print(green + '{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>14}'.format('DATA', 'META', 'META.AC', 'VENDAS',
                                                                               'VENDAS.AC', 'SOBRAS', 'P' + normal))
             with open("listaPERFUMARIA.txt", "r") as listaPERFUMARIA:
                 linhas3 = listaPERFUMARIA.readlines()
@@ -424,10 +425,10 @@ while activate:
             print()
             print('¨¨' * 46)
         elif decis_consulta == '3':
-            print('¨¨' * 46)
+            print('¨¨' * 52)
             print(texto_DERMO_lista_centralizado)
-            print(green + '{:>10}{:>13}{:>15}{:>12}{:>14}{:>13}{:>12}{:>11}'.format('DATA', 'META',
-                                                                                    'META.AC', 'VENDAS','VENDAS.AC',
+            print(green + '{:>10}{:>13}{:>15}{:>12}{:>14}{:>13}{:>12}{:>14}'.format('DATA', 'META',
+                                                                                    'META.AC', 'VENDAS', 'VENDAS.AC',
                                                                                     'PECA.AC', 'SOBRAS', 'P' + normal))
             with open("listaDERMO.txt", "r") as listaDERMO:
                 linhas3 = listaDERMO.readlines()
@@ -436,12 +437,12 @@ while activate:
                 for i in dado:
                     print(f'{i:>13}', end='')
             print()
-            print('¨¨' * 46)
+            print('¨¨' * 52)
         elif decis_consulta == '4':
             print('¨¨' * 52)
             print('¨¨' * 52)
             print(texto_RDMarcas_lista_centralizado)
-            print(green + '{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>11}'.format('DATA', 'META', 'META.AC', 'VENDAS',
+            print(green + '{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>14}'.format('DATA', 'META', 'META.AC', 'VENDAS',
                                                                               'VENDAS.AC', 'SOBRAS', 'P' + normal))
             with open("listaRDMARCAS.txt", "r") as listaRDMARCAS:
                 linhas3 = listaRDMARCAS.readlines()
@@ -453,7 +454,7 @@ while activate:
             print('¨¨' * 52)
             print('¨¨' * 52)
             print(texto_PERFUMARIA_lista_centralizado)
-            print(green + '{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>11}'.format('DATA', 'META', 'META.AC', 'VENDAS',
+            print(green + '{:>10}{:>13}{:>15}{:>12}{:>15}{:>11}{:>14}'.format('DATA', 'META', 'META.AC', 'VENDAS',
                                                                               'VENDAS.AC', 'SOBRAS', 'P' + normal))
             with open("listaPERFUMARIA.txt", "r") as listaPERFUMARIA:
                 linhas3 = listaPERFUMARIA.readlines()
@@ -465,7 +466,7 @@ while activate:
             print('¨¨' * 52)
             print('¨¨' * 52)
             print(texto_DERMO_lista_centralizado)
-            print(green + '{:>10}{:>13}{:>15}{:>12}{:>14}{:>13}{:>12}{:>11}'.format('DATA', 'META', 'META.AC', 'VENDAS',
+            print(green + '{:>10}{:>13}{:>15}{:>12}{:>14}{:>13}{:>12}{:>14}'.format('DATA', 'META', 'META.AC', 'VENDAS',
                                                                                     'VENDAS.AC', 'PECA.AC', 'SOBRAS',
                                                                                     'P' + normal))
             with open("listaDERMO.txt", "r") as listaDERMO:
@@ -477,3 +478,5 @@ while activate:
             print()
             print('¨¨' * 52)
             print('¨¨' * 52)
+    elif decis_registro_exclusao_consulta == 'adm':
+        testList()

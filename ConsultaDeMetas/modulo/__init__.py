@@ -21,11 +21,14 @@ def tryOption(option):
     try:
         option = int(option)
     except ValueError:
-        print(red + ' [!] - DIGITE UM NÚMERO INTEIRO VÁLIDO!' + normal)
+        if option != 'adm':
+            print(red + ' [!] - DIGITE UM NÚMERO INTEIRO VÁLIDO!' + normal)
     except Exception as error:
         print(red + f' [!] - ERRO DE {error.__class__}' + normal)
     else:
-        if option in range(1, 4):
+        if option in range(1, 5):
+            return option
+        elif option == 'adm':
             return option
         else:
             print(red + ' [!] - APENAS NÚMEROS DAS OPÇÕES LISTADAS!' + normal)
@@ -91,3 +94,63 @@ def tryIsNumber(valor):
         else:
             print(red + ' [!] - DADOS INVÁLIDOS (PROCESSO INTERROMPIDO)' + normal)
             sys.exit()
+
+
+def testList():
+    global data, metaDia, vendaDia, linhas, linha, metaAcRDMARCAS, vendaAcRDMARCAS, sobrasRD, \
+        porcentagemRDMARCAS, linhas2
+    metaAcRDMARCAS = 0
+    vendaAcRDMARCAS = 0
+    sobrasRD = 0
+    porcentagemRDMARCAS = 0
+    quantidade = int(input(yellow + '[?] - Digite a quantidade de informações para inserir: '))
+    for info in range(quantidade):
+        # Inputs de dados - RD Marcas-TESTE
+        print('\n')
+        print(green + f'[{info + 1}] - CONCLUIDO' + normal)
+        data = "31/03/2023"
+        dateVerification()
+        metaDia = float(random.randint(100, 1000))
+        vendaDia = float(random.randint(100, 1000))
+        with open("metaAcumuladaRDMARCAS.txt", "a") as metaAcumuladaRDMARCAS:
+            metaAcumuladaRDMARCAS.write(f"{metaDia}\n")
+        with open("metaAcumuladaRDMARCAS.txt", "r") as metaAcumuladaRDMARCAS:
+            linhas = metaAcumuladaRDMARCAS.readlines()
+
+        for linha in linhas:
+            metaAcRDMARCAS = metaAcRDMARCAS + float(linha.strip())
+        print(yellow + f" [!] - META ACUMULADA = ", end='')
+        print(rosa + f"R$ {metaAcRDMARCAS:.2f}" + normal)
+
+        # Cálculo de Vendas acumuladas
+        with open("vendaAcumuladaRDMARCAS.txt", "a") as vendaAcumuladaRDMARCAS:
+            vendaAcumuladaRDMARCAS.write(f"{vendaDia}\n")
+        with open("vendaAcumuladaRDMARCAS.txt", "r") as vendaAcumuladaRDMARCAS:
+            linhas2 = vendaAcumuladaRDMARCAS.readlines()
+
+        for linha in linhas2:
+            vendaAcRDMARCAS = vendaAcRDMARCAS + float(linha.strip())
+        print(yellow + f" [!] - VENDA ACUMULADA = ", end='')
+        print(rosa + f"R$ {vendaAcRDMARCAS:.2f}" + normal)
+
+        # Cálculo de porcentagem
+        if vendaAcRDMARCAS < metaAcRDMARCAS:
+            sobrasRD = (metaAcRDMARCAS - vendaAcRDMARCAS)
+        elif metaAcRDMARCAS < vendaAcRDMARCAS:
+            sobrasRD = (vendaAcRDMARCAS - metaAcRDMARCAS)
+        else:
+            sobrasRD = 0
+        porcentagemRDMARCAS = (vendaAcRDMARCAS / metaAcRDMARCAS) * 100
+        print(yellow + f" [!] - PORCENTAGEM ACUMULADA = ", end='')
+        print(rosa + f"{porcentagemRDMARCAS:.2f}%" + normal)
+        print('\n')
+        print(rosa + '=-' * 21 + normal)
+        print(roxo + texto_dados_centralizado + normal)
+        print(rosa + '=-' * 21 + normal)
+        # Inserção de dados
+        with open("listaRDMARCAS.txt", "a") as listaRDMARCAS:
+            listaRDMARCAS.write(f"{data}|R${metaDia:.2f}|R${metaAcRDMARCAS:.2f}|R${vendaDia:.2f}|"
+                                f"R${vendaAcRDMARCAS:.2f}|"
+                                f"R${sobrasRD:.2f}|"
+                                f"{porcentagemRDMARCAS:.2f}%\n")
+

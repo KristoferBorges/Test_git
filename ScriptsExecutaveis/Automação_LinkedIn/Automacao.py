@@ -1,7 +1,8 @@
 import pyautogui
+import pyperclip
 # import time
 
-pyautogui.PAUSE = 1
+pyautogui.PAUSE = 0.2
 
 # pyautogui.write("Hello world")
 # pyautogui.click(x=0, y=0, button="right", clicks=2)
@@ -13,8 +14,9 @@ texto = "Bom dia, me chamo Kristofer e estou em busca da minha primeira oportuni
         "praticando diariamente. Gostaria de me conectar contigo e pedir, se possível, que analisasse meu perfil e " \
         "verificasse como posso melhorar. Estou disponível para entrevistas ou processos seletivos!"
 
-pyautogui.hotkey("alt", "tab")
-pyautogui.click(x=1050, y=306)
-pyautogui.click(x=785, y=328)
-pyautogui.write(texto)
-pyautogui.click(x=1174, y=600)
+
+pyautogui.click(x=1049, y=277)
+pyautogui.click(x=773, y=329)
+pyperclip.copy(texto)
+pyautogui.hotkey("ctrl", "v")
+pyautogui.click(x=1173, y=592)

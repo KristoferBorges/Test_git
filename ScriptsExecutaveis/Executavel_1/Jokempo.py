@@ -1,7 +1,7 @@
 import random
 import time
 
-print('\033[36mVAMOS JOGAR JOKEMPO!\033[m')
+print('\033[36mVAMOS JOGAR JOKEMPO\033[m')
 time.sleep(1)
 print('\033[36mPODE ESCOLHER ENTRE \033[m')
 time.sleep(0.5)

@@ -76,7 +76,8 @@ while activate:
     print(texto_decis_centralizado)
     decis_registro_exclusao_consulta = str(input(yellow + ' [?] - NOVOS REGISTROS [1]\n'
                                                           ' [?] - LIMPAR DADOS ATUAIS [2]\n'
-                                                          ' [?] - CONSULTAR LISTAS ATUAIS [3]\n --> ' + normal))
+                                                          ' [?] - CONSULTAR LISTAS ATUAIS [3]\n'
+                                                          ' [?] - BACKUP DOS DADOS [4]\n --> ' + normal))
     tryOption(decis_registro_exclusao_consulta)
     if decis_registro_exclusao_consulta == '2':
         print('\n')
@@ -492,3 +493,12 @@ while activate:
             print()
             print('¨¨' * 52)
             print('¨¨' * 52)
+    elif decis_registro_exclusao_consulta == '4':
+        print(green + ' [!] - TODOS OS DADOS SERÃO GUARDADOS!')
+        time.sleep(1)
+        # BACKUP DE TODAS AS LISTAS
+        confirmacao = str(input(green + ' [!] - Confirma o Backup dos dados [S/N] ' + normal)).upper().strip()
+        if confirmacao == 'S':
+            pass
+        elif confirmacao != 'S':
+            print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')

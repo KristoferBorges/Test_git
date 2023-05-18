@@ -27,7 +27,7 @@ def tryOption(option):
     except Exception as error:
         print(red + f' [!] - ERRO DE {error.__class__}' + normal)
     else:
-        if option in range(1, 4):
+        if option in range(1, 5):
             return option
         elif option == 'adm':
             return option
@@ -95,6 +95,10 @@ def tryIsNumber(valor):
         else:
             print(red + ' [!] - DADOS INVÁLIDOS (PROCESSO INTERROMPIDO)' + normal)
             sys.exit()
+
+
+def backupList():
+    pass
 
 
 def testList():

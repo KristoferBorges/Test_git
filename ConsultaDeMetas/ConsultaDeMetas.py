@@ -66,7 +66,7 @@ texto_PERFUMARIA_lista_centralizado = texto_PERFUMARIA.center(tamanho_lista)
 texto_DERMO_lista_centralizado = texto_DERMO.center(tamanho_lista)
 
 # Variável de Teste, deixar falso se não for utilizado
-teste = False
+teste = True
 activate = True
 while activate:
     print('\n\n')
@@ -99,9 +99,9 @@ while activate:
                 # Exclusão RD MARCAS
                 with open("listaRDMARCAS.txt", "w") as listaRDMARCAS:
                     listaRDMARCAS.write("")
-                with open("metaAcumuladaRDMARCAS.txt", "w") as metaAcumuladaRDMARCAS:
+                with open("storage/metaAcumuladaRDMARCAS.txt", "w") as metaAcumuladaRDMARCAS:
                     metaAcumuladaRDMARCAS.write("")
-                with open("vendaAcumuladaRDMARCAS.txt", "w") as vendaAcumuladaRDMARCAS:
+                with open("storage/vendaAcumuladaRDMARCAS.txt", "w") as vendaAcumuladaRDMARCAS:
                     vendaAcumuladaRDMARCAS.write("")
                 for i in range(3, 0, -1):
                     time.sleep(0.6)
@@ -118,9 +118,9 @@ while activate:
             if confirmacao == 'S':
                 with open("listaPERFUMARIA.txt", "w") as listaPERFUMARIA:
                     listaPERFUMARIA.write("")
-                with open("metaAcumuladaPERFUMARIA.txt", "w") as metaAcumuladaPERFUMARIA:
+                with open("storage/metaAcumuladaPERFUMARIA.txt", "w") as metaAcumuladaPERFUMARIA:
                     metaAcumuladaPERFUMARIA.write("")
-                with open("vendaAcumuladaPERFUMARIA.txt", "w") as vendaAcumuladaPERFUMARIA:
+                with open("storage/vendaAcumuladaPERFUMARIA.txt", "w") as vendaAcumuladaPERFUMARIA:
                     vendaAcumuladaPERFUMARIA.write("")
                 for i in range(3, 0, -1):
                     time.sleep(0.6)
@@ -137,11 +137,11 @@ while activate:
             if confirmacao == 'S':
                 with open("listaDERMO.txt", "w") as listaDERMO:
                     listaDERMO.write("")
-                with open("metaAcumuladaDERMO.txt", "w") as metaAcumuladaDERMO:
+                with open("storage/metaAcumuladaDERMO.txt", "w") as metaAcumuladaDERMO:
                     metaAcumuladaDERMO.write("")
-                with open("vendaAcumuladaDERMO.txt", "w") as vendaAcumuladaDERMO:
+                with open("storage/vendaAcumuladaDERMO.txt", "w") as vendaAcumuladaDERMO:
                     vendaAcumuladaDERMO.write("")
-                with open("pecaAcumuladaDERMO.txt", "w") as pecaAcumuladaDERMO:
+                with open("storage/pecaAcumuladaDERMO.txt", "w") as pecaAcumuladaDERMO:
                     pecaAcumuladaDERMO.write("")
                 for i in range(3, 0, -1):
                     time.sleep(0.6)
@@ -158,25 +158,25 @@ while activate:
             if confirmacao == 'S':
                 with open("listaRDMARCAS.txt", "w") as listaRDMARCAS:
                     listaRDMARCAS.write("")
-                with open("metaAcumuladaRDMARCAS.txt", "w") as metaAcumuladaRDMARCAS:
+                with open("storage/metaAcumuladaRDMARCAS.txt", "w") as metaAcumuladaRDMARCAS:
                     metaAcumuladaRDMARCAS.write("")
-                with open("vendaAcumuladaRDMARCAS.txt", "w") as vendaAcumuladaRDMARCAS:
+                with open("storage/vendaAcumuladaRDMARCAS.txt", "w") as vendaAcumuladaRDMARCAS:
                     vendaAcumuladaRDMARCAS.write("")
 
                 with open("listaPERFUMARIA.txt", "w") as listaPERFUMARIA:
                     listaPERFUMARIA.write("")
-                with open("metaAcumuladaPERFUMARIA.txt", "w") as metaAcumuladaPERFUMARIA:
+                with open("storage/metaAcumuladaPERFUMARIA.txt", "w") as metaAcumuladaPERFUMARIA:
                     metaAcumuladaPERFUMARIA.write("")
-                with open("vendaAcumuladaPERFUMARIA.txt", "w") as vendaAcumuladaPERFUMARIA:
+                with open("storage/vendaAcumuladaPERFUMARIA.txt", "w") as vendaAcumuladaPERFUMARIA:
                     vendaAcumuladaPERFUMARIA.write("")
 
                 with open("listaDERMO.txt", "w") as listaDERMO:
                     listaDERMO.write("")
-                with open("metaAcumuladaDERMO.txt", "w") as metaAcumuladaDERMO:
+                with open("storage/metaAcumuladaDERMO.txt", "w") as metaAcumuladaDERMO:
                     metaAcumuladaDERMO.write("")
-                with open("vendaAcumuladaDERMO.txt", "w") as vendaAcumuladaDERMO:
+                with open("storage/vendaAcumuladaDERMO.txt", "w") as vendaAcumuladaDERMO:
                     vendaAcumuladaDERMO.write("")
-                with open("pecaAcumuladaDERMO.txt", "w") as pecaAcumuladaDERMO:
+                with open("storage/pecaAcumuladaDERMO.txt", "w") as pecaAcumuladaDERMO:
                     pecaAcumuladaDERMO.write("")
                 for i in range(3, 0, -1):
                     time.sleep(0.6)
@@ -217,9 +217,9 @@ while activate:
             porcentagemRDMARCAS = 0
 
             # Cálculo de Metas acumuladas
-            with open("metaAcumuladaRDMARCAS.txt", "a") as metaAcumuladaRDMARCAS:
+            with open("storage/metaAcumuladaRDMARCAS.txt", "a") as metaAcumuladaRDMARCAS:
                 metaAcumuladaRDMARCAS.write(f"{metaDia}\n")
-            with open("metaAcumuladaRDMARCAS.txt", "r") as metaAcumuladaRDMARCAS:
+            with open("storage/metaAcumuladaRDMARCAS.txt", "r") as metaAcumuladaRDMARCAS:
                 linhas = metaAcumuladaRDMARCAS.readlines()
 
             for linha in linhas:
@@ -228,9 +228,9 @@ while activate:
             print(rosa + f"R$ {metaAcRDMARCAS:.2f}" + normal)
 
             # Cálculo de Vendas acumuladas
-            with open("vendaAcumuladaRDMARCAS.txt", "a") as vendaAcumuladaRDMARCAS:
+            with open("storage/vendaAcumuladaRDMARCAS.txt", "a") as vendaAcumuladaRDMARCAS:
                 vendaAcumuladaRDMARCAS.write(f"{vendaDia}\n")
-            with open("vendaAcumuladaRDMARCAS.txt", "r") as vendaAcumuladaRDMARCAS:
+            with open("storage/vendaAcumuladaRDMARCAS.txt", "r") as vendaAcumuladaRDMARCAS:
                 linhas2 = vendaAcumuladaRDMARCAS.readlines()
 
             for linha in linhas2:
@@ -279,9 +279,9 @@ while activate:
             porcentagemPERFUMARIA = 0
 
             # Cálculo de Metas acumuladas
-            with open("metaAcumuladaPERFUMARIA.txt", "a") as metaAcumuladaPERFUMARIA:
+            with open("storage/metaAcumuladaPERFUMARIA.txt", "a") as metaAcumuladaPERFUMARIA:
                 metaAcumuladaPERFUMARIA.write(f"{metaDia}\n")
-            with open("metaAcumuladaPERFUMARIA.txt", "r") as metaAcumuladaPERFUMARIA:
+            with open("storage/metaAcumuladaPERFUMARIA.txt", "r") as metaAcumuladaPERFUMARIA:
                 linhas = metaAcumuladaPERFUMARIA.readlines()
 
             for linha in linhas:
@@ -290,9 +290,9 @@ while activate:
             print(rosa + f"R$ {metaAcPERFUMARIA:.2f}" + normal)
 
             # Cálculo de Vendas acumuladas
-            with open("vendaAcumuladaPERFUMARIA.txt", "a") as vendaAcumuladaPERFUMARIA:
+            with open("storage/vendaAcumuladaPERFUMARIA.txt", "a") as vendaAcumuladaPERFUMARIA:
                 vendaAcumuladaPERFUMARIA.write(f"{vendaDia}\n")
-            with open("vendaAcumuladaPERFUMARIA.txt", "r") as vendaAcumuladaPERFUMARIA:
+            with open("storage/vendaAcumuladaPERFUMARIA.txt", "r") as vendaAcumuladaPERFUMARIA:
                 linhas2 = vendaAcumuladaPERFUMARIA.readlines()
 
             for linha in linhas2:
@@ -347,9 +347,9 @@ while activate:
             porcentagemDERMO = 0
 
             # Cálculo de Metas acumuladas
-            with open("metaAcumuladaDERMO.txt", "a") as metaAcumuladaDERMO:
+            with open("storage/metaAcumuladaDERMO.txt", "a") as metaAcumuladaDERMO:
                 metaAcumuladaDERMO.write(f"{metaDia}\n")
-            with open("metaAcumuladaDERMO.txt", "r") as metaAcumuladaDERMO:
+            with open("storage/metaAcumuladaDERMO.txt", "r") as metaAcumuladaDERMO:
                 linhas = metaAcumuladaDERMO.readlines()
 
             for linha in linhas:
@@ -358,9 +358,9 @@ while activate:
             print(rosa + f"R$ {metaAcDERMO:.2f}" + normal)
 
             # Cálculo de Vendas acumuladas
-            with open("vendaAcumuladaDERMO.txt", "a") as vendaAcumuladaDERMO:
+            with open("storage/vendaAcumuladaDERMO.txt", "a") as vendaAcumuladaDERMO:
                 vendaAcumuladaDERMO.write(f"{vendaDia}\n")
-            with open("vendaAcumuladaDERMO.txt", "r") as vendaAcumuladaDERMO:
+            with open("storage/vendaAcumuladaDERMO.txt", "r") as vendaAcumuladaDERMO:
                 linhas2 = vendaAcumuladaDERMO.readlines()
 
             for linha in linhas2:
@@ -369,9 +369,9 @@ while activate:
             print(rosa + f"R$ {vendaAcDERMO:.2f}" + normal)
 
             # Cálculo de Peças acumuladas
-            with open("pecaAcumuladaDERMO.txt", "a") as pecaAcumuladaDERMO:
+            with open("storage/pecaAcumuladaDERMO.txt", "a") as pecaAcumuladaDERMO:
                 pecaAcumuladaDERMO.write(f'{pecaDia}\n')
-            with open("pecaAcumuladaDERMO.txt", "r") as pecaAcumuladaDERMO:
+            with open("storage/pecaAcumuladaDERMO.txt", "r") as pecaAcumuladaDERMO:
                 linhasPeca = pecaAcumuladaDERMO.readlines()
 
             for linha in linhasPeca:

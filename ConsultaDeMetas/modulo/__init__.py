@@ -1,6 +1,7 @@
 # Cores
 import sys
 import random
+import datetime
 
 red = '\033[31m'
 green = '\033[32m'
@@ -89,16 +90,31 @@ def tryIsNumber(valor):
     except Exception as error:
         print(red + f' [!] - ERRO DE {error.__class__}' + normal)
     else:
-        if valor.isnumeric():
-            valor = int(valor)
+        if valor.is_integer():
             return valor
         else:
-            print(red + ' [!] - DADOS INVÁLIDOS (PROCESSO INTERROMPIDO)' + normal)
+            return valor
+
+
+def tryIsNumber_pecas(valor):
+
+    """
+        --> Função simples para identificar se o usuário digitou um número inteiro válido no caso das peças.
+        :param valor:
+        :return: Retorna o número em caso de digitar corretamente.
+        """
+    try:
+        pass
+    except ValueError:
+        print(red + ' [!] - DIGITE UM NÚMERO INTEIRO VÁLIDO!' + normal)
+    except Exception as error:
+        print(red + f' [!] - ERRO DE {error.__class__}' + normal)
+    else:
+        if valor.isnumeric():
+            return int(valor)
+        else:
+            print(red + ' [!] - DIGITE UM NÚMERO INTEIRO VÁLIDO!' + normal)
             sys.exit()
-
-
-def backupList():
-    pass
 
 
 def testList():
@@ -159,3 +175,18 @@ def testList():
                                 f"R${sobrasRD:.2f}|"
                                 f"{porcentagemRDMARCAS:.2f}%\n")
 
+
+def backupVerification(RDMARCA, PERFUMARIA, DERMO):
+    date = datetime.datetime.now()
+    date = datetime.datetime.date(date)
+    datahoje = date.strftime("%d-%m-%Y")
+    if datahoje in RDMARCA or PERFUMARIA or DERMO:
+        confirmacao = str(input(red + ' [!] - BACKUP EXISTENTE, VOCÊ DESEJA SOBRESCREVER? '
+                                '[S/N]\n --> ' + normal)).upper().strip()
+        if confirmacao == 'S':
+            pass
+        elif confirmacao != 'S':
+            print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')
+            sys.exit()
+    else:
+        pass

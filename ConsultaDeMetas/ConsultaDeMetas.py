@@ -1,10 +1,13 @@
 import time
 import datetime
 import random
+import pandas as pd
 from modulo import tryOption
 from modulo import tryExclusion
 from modulo import tryIsNumber
 from modulo import tryOptionConsult
+from modulo import backupVerification
+from modulo import tryIsNumber_pecas
 
 # Cores
 red = '\033[31m'
@@ -28,7 +31,7 @@ def dateVerification():
     if len(data) == 0:
         date = datetime.datetime.now()
         date = datetime.datetime.date(date)
-        data = date.strftime("%d/%m/%Y")
+        data = date.strftime("%d-%m-%Y")
         data_soma = int(data[:2])
         data_soma = data_soma - 1
         data_soma = str(data_soma)
@@ -199,12 +202,10 @@ while activate:
             print(texto_RDMarcas_centralizado)
             data = str(input(green + ' [?] - Informe a data [dia/mês/ano]: '))
             dateVerification()
-            metaDia = str(input(' [?] - Qual a Meta do Dia R$ '))
-            vendaDia = str(input(' [?] - Quando Vendeu Hoje R$ '))
+            metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
+            vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
             tryIsNumber(metaDia)
             tryIsNumber(vendaDia)
-            metaDia = float(metaDia)
-            vendaDia = float(vendaDia)
             # Impulso de inserção (Insere de forma rápida os dados de forma aleatória)
             if teste and metaDia == 0 and vendaDia == 0:
                 vendaDia = float(random.randint(99, 9999))
@@ -263,12 +264,10 @@ while activate:
             print(texto_PERFUMARIA_centralizado)
             data = str(input(green + ' [?] - Informe a data [dia/mês/ano]: '))
             dateVerification()
-            metaDia = str(input(' [?] - Qual a Meta do Dia R$ '))
-            vendaDia = str(input(' [?] - Quando Vendeu Hoje R$ '))
+            metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
+            vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
             tryIsNumber(metaDia)
             tryIsNumber(vendaDia)
-            metaDia = float(metaDia)
-            vendaDia = float(vendaDia)
             # Impulso de inserção (Insere de forma rápida os dados de forma aleatória)
             if teste and metaDia == 0 and vendaDia == 0:
                 vendaDia = float(random.randint(99, 9999))
@@ -327,23 +326,21 @@ while activate:
             print(texto_DERMO_centralizado)
             data = str(input(green + ' [?] - Informe a data [dia/mês/ano]: '))
             dateVerification()
-            metaDia = str(input(' [?] - Qual a Meta do Dia R$ '))
-            vendaDia = str(input(' [?] - Quando Vendeu Hoje R$ '))
+            metaDia = float(input(' [?] - Qual a Meta do Dia R$ '))
+            vendaDia = float(input(' [?] - Quando Vendeu Hoje R$ '))
             pecaDia = str(input(' [?] - Quantas peças Vendeu Hoje: '))
-            tryIsNumber(metaDia)
-            tryIsNumber(vendaDia)
-            tryIsNumber(pecaDia)
-            metaDia = float(metaDia)
-            vendaDia = float(vendaDia)
             if len(pecaDia) == 0:
                 pecaDia = int(0)
-            else:
-                pecaDia = int(pecaDia)
-                # Impulso de inserção (Insere de forma rápida os dados de forma aleatória)
-                if teste and metaDia == 0 and vendaDia == 0 and pecaDia == 0:
-                    vendaDia = float(random.randint(99, 9999))
-                    metaDia = random.randint(99, 9999)
-                    pecaDia = random.randint(5, 60)
+            tryIsNumber(metaDia)
+            tryIsNumber(vendaDia)
+            tryIsNumber_pecas(pecaDia)
+            metaDia = float(metaDia)
+            vendaDia = float(vendaDia)
+            # Impulso de inserção (Insere de forma rápida os dados de forma aleatória)
+            if teste and metaDia == 0 and vendaDia == 0 and pecaDia == 0:
+                vendaDia = float(random.randint(99, 9999))
+                metaDia = random.randint(99, 9999)
+                pecaDia = random.randint(5, 60)
             print(normal)
             metaAcDERMO = 0
             vendaAcDERMO = 0
@@ -495,10 +492,43 @@ while activate:
             print('¨¨' * 52)
     elif decis_registro_exclusao_consulta == '4':
         print(green + ' [!] - TODOS OS DADOS SERÃO GUARDADOS!')
-        time.sleep(1)
+        time.sleep(0.5)
         # BACKUP DE TODAS AS LISTAS
         confirmacao = str(input(green + ' [!] - Confirma o Backup dos dados [S/N] ' + normal)).upper().strip()
         if confirmacao == 'S':
-            pass
+            try:
+                # Pega a data formatada no dia atual
+                date = datetime.datetime.now()
+                date = datetime.datetime.date(date)
+                datahoje = date.strftime("%d-%m-%Y")
+                nomeArquivoRD = f"BackupRDMARCAS-{datahoje}"
+                nomeArquivoPERFUMARIA = f"BackupPERFUMARIA-{datahoje}"
+                nomeArquivoDERMO = f"BackupDERMO-{datahoje}"
+
+                # Separa as informações em formato pandas
+                tabela_RDMARCAS = pd.read_csv("listaRDMARCAS.txt", sep="|")
+                tabela_PERFUMARIA = pd.read_csv("listaPERFUMARIA.txt", sep="|")
+                tabela_DERMO = pd.read_csv("listaDERMO.txt", sep="|")
+
+                # Função para verificar a possibilidade de sobrescrever outro Backup
+                backupVerification(nomeArquivoRD, nomeArquivoPERFUMARIA, nomeArquivoDERMO)
+
+                # Converte em arquivos Excel
+                tabela_RDMARCAS.to_excel(fr"backup\{nomeArquivoRD}.xlsx", index=False)
+                tabela_RDMARCAS.to_excel(fr"backup\{nomeArquivoPERFUMARIA}.xlsx", index=False)
+                tabela_RDMARCAS.to_excel(fr"backup\{nomeArquivoDERMO}.xlsx", index=False)
+
+                # Mensagem de finalização
+                print(green + ' [!] - PROCESSO FINALIZADO')
+                time.sleep(1)
+            except PermissionError:
+                print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (ARQUIVO ABERTO)')
+            except TypeError:
+                print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (DADOS NÃO COMPATÍVEIS)')
+            except ValueError:
+                print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (VALORES AUSENTES OU NÃO COMPATÍVEIS)')
+            except FileNotFoundError:
+                print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (DIRETÓRIO NÃO ENCONTRADO)')
+
         elif confirmacao != 'S':
             print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')

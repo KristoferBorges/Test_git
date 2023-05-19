@@ -334,10 +334,8 @@ while activate:
             tryIsNumber(metaDia)
             tryIsNumber(vendaDia)
             tryIsNumber_pecas(pecaDia)
-            metaDia = float(metaDia)
-            vendaDia = float(vendaDia)
             # Impulso de inserção (Insere de forma rápida os dados de forma aleatória)
-            if teste and metaDia == 0 and vendaDia == 0 and pecaDia == 0:
+            if teste and metaDia == 0 and vendaDia == 0 and pecaDia == '0':
                 vendaDia = float(random.randint(99, 9999))
                 metaDia = random.randint(99, 9999)
                 pecaDia = random.randint(5, 60)

@@ -176,17 +176,3 @@ def testList():
                                 f"{porcentagemRDMARCAS:.2f}%\n")
 
 
-def backupVerification(RDMARCA, PERFUMARIA, DERMO):
-    date = datetime.datetime.now()
-    date = datetime.datetime.date(date)
-    datahoje = date.strftime("%d-%m-%Y")
-    if datahoje in RDMARCA or PERFUMARIA or DERMO:
-        confirmacao = str(input(red + ' [!] - BACKUP EXISTENTE, VOCÊ DESEJA SOBRESCREVER? '
-                                '[S/N]\n --> ' + normal)).upper().strip()
-        if confirmacao == 'S':
-            pass
-        elif confirmacao != 'S':
-            print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')
-            sys.exit()
-    else:
-        pass

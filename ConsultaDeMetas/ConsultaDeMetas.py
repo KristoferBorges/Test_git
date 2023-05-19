@@ -6,7 +6,6 @@ from modulo import tryOption
 from modulo import tryExclusion
 from modulo import tryIsNumber
 from modulo import tryOptionConsult
-from modulo import backupVerification
 from modulo import tryIsNumber_pecas
 
 # Cores
@@ -66,7 +65,8 @@ texto_RDMarcas_lista_centralizado = texto_RDMarcas.center(tamanho_lista)
 texto_PERFUMARIA_lista_centralizado = texto_PERFUMARIA.center(tamanho_lista)
 texto_DERMO_lista_centralizado = texto_DERMO.center(tamanho_lista)
 
-teste = True
+# Variável de Teste, deixar falso se não for utilizado
+teste = False
 activate = True
 while activate:
     print('\n\n')
@@ -496,25 +496,25 @@ while activate:
         if confirmacao == 'S':
             try:
                 # Pega a data formatada no dia atual
+                hora = datetime.datetime.now()
                 date = datetime.datetime.now()
+
                 date = datetime.datetime.date(date)
                 datahoje = date.strftime("%d-%m-%Y")
-                nomeArquivoRD = f"BackupRDMARCAS-{datahoje}"
-                nomeArquivoPERFUMARIA = f"BackupPERFUMARIA-{datahoje}"
-                nomeArquivoDERMO = f"BackupDERMO-{datahoje}"
+                horahoje = hora.strftime("%H;%M;%S")
+                nomeArquivoRD = f"BackupRDMARCAS-{datahoje}-{horahoje}"
+                nomeArquivoPERFUMARIA = f"BackupPERFUMARIA-{datahoje}-{horahoje}"
+                nomeArquivoDERMO = f"BackupDERMO-{datahoje}-{horahoje}"
 
                 # Separa as informações em formato pandas
                 tabela_RDMARCAS = pd.read_csv("listaRDMARCAS.txt", sep="|")
                 tabela_PERFUMARIA = pd.read_csv("listaPERFUMARIA.txt", sep="|")
                 tabela_DERMO = pd.read_csv("listaDERMO.txt", sep="|")
 
-                # Função para verificar a possibilidade de sobrescrever outro Backup
-                backupVerification(nomeArquivoRD, nomeArquivoPERFUMARIA, nomeArquivoDERMO)
-
                 # Converte em arquivos Excel
-                tabela_RDMARCAS.to_excel(fr"backup\{nomeArquivoRD}.xlsx", index=False)
-                tabela_RDMARCAS.to_excel(fr"backup\{nomeArquivoPERFUMARIA}.xlsx", index=False)
-                tabela_RDMARCAS.to_excel(fr"backup\{nomeArquivoDERMO}.xlsx", index=False)
+                tabela_RDMARCAS.to_excel(fr"backup\RDMARCAS\{nomeArquivoRD}.xlsx", index=False)
+                tabela_RDMARCAS.to_excel(fr"backup\PERFUMARIA\{nomeArquivoPERFUMARIA}.xlsx", index=False)
+                tabela_RDMARCAS.to_excel(fr"backup\DERMO\{nomeArquivoDERMO}.xlsx", index=False)
 
                 # Mensagem de finalização
                 print(green + ' [!] - PROCESSO FINALIZADO')

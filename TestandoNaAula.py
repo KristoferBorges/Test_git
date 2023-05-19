@@ -1,8 +1,5 @@
-while True:
-    valor = float(input('Valor: '))
-    if valor.is_integer():
-        print('yes')
-        print(valor)
-    else:
-        print('no')
-        print(valor)
+import datetime
+
+hora = datetime.datetime.now()
+hora = hora.strftime("%H;%M;%S")
+print(hora)

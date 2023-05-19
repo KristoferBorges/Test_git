@@ -29,9 +29,9 @@ def dateVerification():
     """
     global data_formatada, data
     if len(data) == 0:
-        date = datetime.datetime.now()
-        date = datetime.datetime.date(date)
-        data = date.strftime("%d-%m-%Y")
+        data = datetime.datetime.now()
+        data = datetime.datetime.date(data)
+        data = data.strftime("%d-%m-%Y")
         data_soma = int(data[:2])
         data_soma = data_soma - 1
         data_soma = str(data_soma)

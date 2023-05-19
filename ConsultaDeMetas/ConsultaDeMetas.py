@@ -1,7 +1,7 @@
 import time
 import datetime
 import random
-import pandas as pd
+# import pandas as pd (Funciona somente no computador)
 from modulo import tryOption
 from modulo import tryExclusion
 from modulo import tryIsNumber
@@ -80,7 +80,8 @@ while activate:
     decis_registro_exclusao_consulta = str(input(yellow + ' [?] - NOVOS REGISTROS [1]\n'
                                                           ' [?] - LIMPAR DADOS ATUAIS [2]\n'
                                                           ' [?] - CONSULTAR LISTAS ATUAIS [3]\n'
-                                                          ' [?] - BACKUP DOS DADOS [4]\n --> ' + normal))
+                                                          ' [?] - BACKUP DOS DADOS [4]' + red + ' (Desativado)\n'
+                                                          + yellow + '--> ' + normal))
     tryOption(decis_registro_exclusao_consulta)
     if decis_registro_exclusao_consulta == '2':
         print('\n')
@@ -489,6 +490,8 @@ while activate:
             print('¨¨' * 52)
             print('¨¨' * 52)
     elif decis_registro_exclusao_consulta == '4':
+        print(red + '[!] - OPÇÃO DESATIVADA POR QUESTÕES TÉCNICAS (19/05/2023) - SEM PREVISÃO DE RETORNO!')
+        """
         print(green + ' [!] - TODOS OS DADOS SERÃO GUARDADOS!')
         time.sleep(0.5)
         # BACKUP DE TODAS AS LISTAS
@@ -529,4 +532,4 @@ while activate:
                 print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (DIRETÓRIO NÃO ENCONTRADO)')
 
         elif confirmacao != 'S':
-            print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')
+            print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')"""

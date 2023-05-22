@@ -10,11 +10,12 @@ pyautogui.PAUSE = 0.2
 # pyautogui.hotkey()
 # time.sleep(5)
 
-texto = "Bom dia, me chamo Kristofer e estou em busca da minha primeira oportunidade. Trabalho com programação, " \
-        "praticando diariamente. Gostaria de me conectar contigo e pedir, se possível, que analisasse meu perfil e " \
-        "verificasse como posso melhorar. Estou disponível para entrevistas ou processos seletivos!"
+texto = "Bom dia! Meu nome é Kristofer e estou procurando minha primeira oportunidade profissional. " \
+        "Sou apaixonado por programação e pratico diariamente. Gostaria de me conectar com você e solicitar, " \
+        "se possível, uma análise do meu perfil para identificar áreas de melhoria."
 
 
+pyautogui.click(x=1049, y=297)
 pyautogui.click(x=1049, y=277)
 pyautogui.click(x=773, y=329)
 pyperclip.copy(texto)

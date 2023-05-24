@@ -66,7 +66,7 @@ texto_PERFUMARIA_lista_centralizado = texto_PERFUMARIA.center(tamanho_lista)
 texto_DERMO_lista_centralizado = texto_DERMO.center(tamanho_lista)
 
 # Variável de Teste, deixar falso se não for utilizado
-teste = True
+teste = False
 activate = True
 while activate:
     print('\n\n')

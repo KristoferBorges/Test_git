@@ -3,7 +3,7 @@ class Pessoa():
     salario = float
     while salario != 0:
             salario = float(input('Informe seu salario: '))
-            if salario == 15000:
+            if salario == 10000:
                 print('Seu cargo e de Diretor!')
                 novoSalario = salario + (salario * 5 / 100)
                 print('Seu Salario teve um aumento de 5%')

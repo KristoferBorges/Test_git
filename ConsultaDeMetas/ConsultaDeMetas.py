@@ -527,9 +527,9 @@ while activate:
             except TypeError:
                 print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (DADOS NÃO COMPATÍVEIS)')
             except ValueError:
-                print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (VALORES AUSENTES OU NÃO COMPATÍVEIS)')"""
+                print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (VALORES AUSENTES OU NÃO COMPATÍVEIS)')
             except FileNotFoundError:
                 print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (DIRETÓRIO NÃO ENCONTRADO)')
 
         elif confirmacao != 'S':
-            print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')
+            print('\n' + red + ' [!] - PROCESSO INTERROMPIDO')"""

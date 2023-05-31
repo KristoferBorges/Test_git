@@ -1,7 +1,7 @@
 import time
 import datetime
 import random
-import pandas as pd # (Funciona somente no computador)
+# import pandas as pd # (Funciona somente no computador)
 from modulo import tryOption
 from modulo import tryExclusion
 from modulo import tryIsNumber
@@ -491,8 +491,8 @@ while activate:
             print('¨¨' * 52)
             print('¨¨' * 52)
     elif decis_registro_exclusao_consulta == '4':
-        # print(red + '[!] - OPÇÃO DESATIVADA POR QUESTÕES TÉCNICAS (19/05/2023) - SEM PREVISÃO DE RETORNO!')
-        print(green + ' [!] - TODOS OS DADOS SERÃO GUARDADOS!')
+        print(red + '[!] - OPÇÃO DESATIVADA POR QUESTÕES TÉCNICAS (19/05/2023) - SEM PREVISÃO DE RETORNO!')
+        """print(green + ' [!] - TODOS OS DADOS SERÃO GUARDADOS!')
         time.sleep(0.5)
         # BACKUP DE TODAS AS LISTAS
         confirmacao = str(input(green + ' [!] - Confirma o Backup dos dados [S/N] ' + normal)).upper().strip()
@@ -527,7 +527,7 @@ while activate:
             except TypeError:
                 print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (DADOS NÃO COMPATÍVEIS)')
             except ValueError:
-                print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (VALORES AUSENTES OU NÃO COMPATÍVEIS)')
+                print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (VALORES AUSENTES OU NÃO COMPATÍVEIS)')"""
             except FileNotFoundError:
                 print('\n' + red + ' [!] - PROCESSO INTERROMPIDO (DIRETÓRIO NÃO ENCONTRADO)')
 

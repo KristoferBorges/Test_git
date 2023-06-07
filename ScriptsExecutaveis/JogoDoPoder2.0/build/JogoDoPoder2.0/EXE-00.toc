@@ -242,7 +242,7 @@
  [],
  False,
  False,
- 1684359201,
+ 1686170478,
  [('runw.exe',
    'C:\\Users\\Administrator\\Desktop\\ExerciciosGit\\ScriptsExecutaveis\\JogoDoPoder2.0\\venv\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\runw.exe',
    'EXECUTABLE')])

@@ -14,7 +14,7 @@ rosa = '\033[95m'
 
 def tryOption(option):
     """
-    --> Função para determinar a opção que o usuário irá escolher no menu, atualmente temos 3 opções, de registro,
+    --> Função para determinar a opção que o usuário irá escolher no menu, atualmente temos 6 opções, de registro,
     consulta ou de sair do programa, caso o usuário digitar outro número ou letras fora do esperado o sistema
     apresentará uma exceção.
     :param option: Entrada do usuário.
@@ -28,7 +28,7 @@ def tryOption(option):
     except Exception as error:
         print(red + f' [!] - ERRO DE {error.__class__}' + normal)
     else:
-        if option in range(1, 5):
+        if option in range(1, 7):
             return option
         elif option == 'adm':
             return option
@@ -80,6 +80,26 @@ def tryOptionConsult(option):
             print(red + ' [!] - APENAS NÚMEROS INTEIROS DAS OPÇÕES LISTADAS!' + normal)
 
 
+def tryOptionBackup(option):
+    """
+    --> Função para determinar a opção que o usuário irá escolher no menu, atualmente temos 4 opções, de Backup,
+    caso o usuário digitar outro número ou letras fora do esperado o sistema apresentará uma exceção.
+    :param option: Entrada do usuário.
+    :return: Retorna a opção escolhida em caso de zero exceções.
+    """
+    try:
+        option = int(option)
+    except ValueError:
+        print(red + ' [!] - DIGITE UM NÚMERO INTEIRO VÁLIDO!' + normal)
+    except Exception as error:
+        print(red + f' [!] - ERRO DE {error.__class__}' + normal)
+    else:
+        if option in range(1, 5):
+            return option
+        else:
+            print(red + ' [!] - APENAS NÚMEROS INTEIROS DAS OPÇÕES LISTADAS!' + normal)
+
+
 def tryExclusion(option):
     """
     --> Função para determinar a opção que o usuário irá escolher no menu, atualmente temos 4 opções, poderá excluir as
@@ -102,6 +122,11 @@ def tryExclusion(option):
 
 
 def verificar_numero(valor):
+    """
+    --> Sub-Função para verificar se o input do usuário foi um número.
+    :param valor: input do arquivo main.py
+    :return: Valor verdadeiro ou falso
+    """
     try:
         numero = float(valor)
         return True
@@ -111,8 +136,7 @@ def verificar_numero(valor):
 
 def capturaDeValoresMetaDia():
     """
-    --> Função simples para identificar se o usuário digitou um número inteiro válido.
-    :param valor:
+    --> Função simples para identificar se o usuário digitou um número inteiro válido para as metas do dia.
     :return: Retorna o número em caso de digitar corretamente.
     """
     try:
@@ -129,8 +153,7 @@ def capturaDeValoresMetaDia():
 
 def capturaDeValoresVendaDia():
     """
-    --> Função simples para identificar se o usuário digitou um número inteiro válido.
-    :param valor:
+    --> Função simples para identificar se o usuário digitou um número inteiro válido para as vendas do dia.
     :return: Retorna o número em caso de digitar corretamente.
     """
     try:
@@ -147,8 +170,7 @@ def capturaDeValoresVendaDia():
 
 def capturaDeValoresPecaDia():
     """
-        --> Função simples para identificar se o usuário digitou um número inteiro válido.
-        :param valor:
+        --> Função simples para identificar se o usuário digitou um número inteiro válido para as peças do dia.
         :return: Retorna o número em caso de digitar corretamente.
         """
     try:
@@ -184,7 +206,26 @@ def tryIsNumber_pecas(valor):
             sys.exit()
 
 
+def abatimento(meta, vendas):
+    """
+    Função para verificar se as metas foram atingidas, caso não tenham sido, o sistema apresentará o sinal de menos "-".
+    :param meta: Valor da meta
+    :param vendas: Valor das vendas
+    :return: Um sinal negativo para em casos de não atingir as metas.
+    """
+    if vendas >= meta:
+        devedor = ""
+    else:
+        devedor = "-"
+    return devedor
+
+
 def testList():
+    """
+    --> Função em aprimoramento para rápidas inserções de dados sem a necessidade de interação com o usuário
+    (Ainda em desenvolvimento).
+    :return: Inserção dos dados de forma aleatória.
+    """
     global data, metaDia, vendaDia, linhas, linha, metaAcRDMARCAS, vendaAcRDMARCAS, sobrasRD, \
         porcentagemRDMARCAS, linhas2
     metaAcRDMARCAS = 0

@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ScriptsExecutaveis/ConsultaDeMetas" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ScriptsExecutaveis/estudos-kivy" vcs="Git" />
   </component>
 </project>

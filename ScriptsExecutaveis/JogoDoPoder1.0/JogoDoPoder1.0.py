@@ -502,3 +502,4 @@ elif iniciar_jogo == 'NÃO' or iniciar_jogo == 'N':
 else:
     print(red + '   Resposta errada!' + normal)
     print('    Jogo Pausado!')
+    

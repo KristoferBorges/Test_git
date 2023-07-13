@@ -516,8 +516,8 @@ while activate:
 
                 # Converte em arquivos Excel
                 tabela_RDMARCAS.to_excel(fr"backup\RDMARCAS\{nomeArquivoRD}.xlsx", index=False)
-                tabela_RDMARCAS.to_excel(fr"backup\PERFUMARIA\{nomeArquivoPERFUMARIA}.xlsx", index=False)
-                tabela_RDMARCAS.to_excel(fr"backup\DERMO\{nomeArquivoDERMO}.xlsx", index=False)
+                tabela_PERFUMARIA.to_excel(fr"backup\PERFUMARIA\{nomeArquivoPERFUMARIA}.xlsx", index=False)
+                tabela_DERMO.to_excel(fr"backup\DERMO\{nomeArquivoDERMO}.xlsx", index=False)
 
                 # Mensagem de finalização
                 print(green + ' [!] - PROCESSO FINALIZADO')

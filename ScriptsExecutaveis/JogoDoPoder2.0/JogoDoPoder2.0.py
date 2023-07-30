@@ -4,8 +4,8 @@ from pygame.locals import *
 
 pygame.init()
 pygame.mixer.init()
-selecionar = pygame.mixer.Sound(r'music\escolha12.wav')
-pygame.mixer.music.load(r'music\digital.mp3')
+selecionar = pygame.mixer.Sound(r'dist\music\escolha12.wav')
+pygame.mixer.music.load(r'dist\music\digital.mp3')
 pygame.mixer.music.play(-1)
 
 # Defina as dimensões da janela
@@ -21,43 +21,43 @@ font = pygame.font.SysFont('Arial', 25)
 font_max = pygame.font.SysFont('Arial', 26)
 
 # Background-image - Static
-bg = pygame.image.load('img/MolduraComDrag.png').convert_alpha()
+bg = pygame.image.load('dist/img/MolduraComDrag.png').convert_alpha()
 bg = pygame.transform.scale(bg, (window_width, window_height))
 
 # Background-image - Moving
-bg_moving = pygame.image.load('img/dungeon.jpg').convert_alpha()
+bg_moving = pygame.image.load('dist/img/dungeon.jpg').convert_alpha()
 bg_moving = pygame.transform.scale(bg_moving, (window_width, window_height))
 
 # Img - Botão de Play
-play = pygame.image.load('img/start.png')
-playClick = pygame.image.load('img/startClick.png')
+play = pygame.image.load('dist/img/start.png')
+playClick = pygame.image.load('dist/img/startClick.png')
 testeplay = play
 pos_testeplay = testeplay.get_rect(center=(window_width // 2, (window_height // 2) + 100))
 
 # Texto/Imagens Menu 1
-powerGame = pygame.image.load('img/powergame2.png')
+powerGame = pygame.image.load('dist/img/powergame2.png')
 powerGame_rect = powerGame.get_rect(center=(window_width // 2, window_height // 3))
 
 # Texto/Imagens Menu 2
-itensDisponiveis = pygame.image.load('img/itensDisponiveis2.png')
+itensDisponiveis = pygame.image.load('dist/img/itensDisponiveis2.png')
 itensDisponiveis_rect = itensDisponiveis.get_rect(center=(window_width // 2, window_height // 6))
 
-coin_text = pygame.image.load('img/cointext2.png')
+coin_text = pygame.image.load('dist/img/cointext2.png')
 coin_text_size = (coin_text.get_width() * 0.5, coin_text.get_height() * 0.5)
 coin_text = pygame.transform.scale(coin_text, coin_text_size)
 coin_text_rect = coin_text.get_rect(center=(window_width // 2 - 23, window_height // 2))
 
-coin = pygame.image.load('img/valor_img4.png')
+coin = pygame.image.load('dist/img/valor_img4.png')
 coin_size = (coin.get_width(), coin.get_height())
 coin = pygame.transform.scale(coin, coin_size)
 coin_rect = coin.get_rect(center=(window_width // 2, window_height // 5))
 
-item1 = pygame.image.load('img/skip.png')
+item1 = pygame.image.load('dist/img/skip.png')
 item1_size = (item1.get_width() * 0.4, item1.get_height() * 0.4)
 item1 = pygame.transform.scale(item1, item1_size)
 item1_rect = item1.get_rect(center=(120, 175))
 
-item2 = pygame.image.load('img/power.png')
+item2 = pygame.image.load('dist/img/power.png')
 item2_size = (item2.get_width() * 0.0999, item2.get_height() * 0.0999)
 item2 = pygame.transform.scale(item2, item2_size)
 item2_rect = item2.get_rect(center=(120, 245))

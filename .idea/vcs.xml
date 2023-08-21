@@ -2,7 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ProjetoDjangoCRUD" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ScriptsExecutaveis/ConsultaDeMetas" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ScriptsExecutaveis/ConsultaDeMetas_v2.0" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ScriptsExecutaveis/estudos-kivy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ScriptsExecutaveis/kbmd" vcs="Git" />
   </component>
 </project>

@@ -17,14 +17,38 @@
       </option>
       <option name="myCustomValuesEnabled" value="true" />
     </inspection_tool>
+<<<<<<< HEAD
+=======
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="W605" />
+        </list>
+      </option>
+    </inspection_tool>
+>>>>>>> origin/main
     <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <option name="ignoredErrors">
         <list>
           <option value="N802" />
+<<<<<<< HEAD
+=======
+          <option value="N806" />
+>>>>>>> origin/main
         </list>
       </option>
     </inspection_tool>
     <inspection_tool class="PyUnboundLocalVariableInspection" enabled="true" level="WARNING" enabled_by_default="true" editorAttributes="WARNING_ATTRIBUTES" />
+<<<<<<< HEAD
+=======
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="main.pecaAc" />
+        </list>
+      </option>
+    </inspection_tool>
+>>>>>>> origin/main
     <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
       <option name="processCode" value="true" />
       <option name="processLiterals" value="true" />

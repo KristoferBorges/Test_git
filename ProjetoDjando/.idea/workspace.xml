@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b624f648-3437-4597-8fd2-0882a1c588ae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ProjetoDjangoCRUD" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjetoDjangoCRUD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ScriptsExecutaveis/ConsultaDeMetas_v2.0" beforeDir="false" afterPath="$PROJECT_DIR$/../ScriptsExecutaveis/ConsultaDeMetas_v2.0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ScriptsExecutaveis/kbmd" beforeDir="false" afterPath="$PROJECT_DIR$/../ScriptsExecutaveis/kbmd" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2TDzIAnzxvd9LvPXTvhOn7nzrdv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Administrator/Desktop/ExerciciosGit/ScriptsExecutaveis/ConsultaDeMetas_v2.0",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="ProjetoDjando" sdk-home="C:\Users\Administrator\AppData\Local\Programs\Python\Python39\python.exe">
+        <option name="sdk">
+          <Sdk />
+        </option>
+        <option name="mySdkHome" value="C:\Users\Administrator\AppData\Local\Programs\Python\Python39\python.exe" />
+        <option name="mySdk">
+          <Sdk />
+        </option>
+        <option name="myModuleName" value="ProjetoDjando" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b624f648-3437-4597-8fd2-0882a1c588ae" name="Changes" comment="" />
+      <created>1690592356377</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690592356377</updated>
+    </task>
+    <servers />
+  </component>
+</project>

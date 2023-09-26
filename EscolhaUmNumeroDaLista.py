@@ -4,7 +4,7 @@ def sortNumberInLista():
     lista = list()
 
     for i in range(1, 10 + 1):
-        number = random.randint(1, 20)
+        number = random.randint(1, 30)
         if number not in lista:
             lista.append(number)
 

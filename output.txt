@@ -1,9 +1,3 @@
-red = '\033[31m'
-green = '\033[32m'
-yellow = '\033[1;33m'
-blue = '\033[34m'
-blueBack = '\033[44m'
-normal = '\033[m'
-redBack = '\033[41m'
-greenBack = '\033[42m'
-yellowBack = '\033[43m'
+Jogo 1 - [9, 37, 38, 41, 44, 60]
+Jogo 2 - [3, 7, 23, 30, 38, 53]
+Jogo 3 - [13, 27, 29, 32, 38, 43]

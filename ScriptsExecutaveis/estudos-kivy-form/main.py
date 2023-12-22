@@ -1,14 +1,35 @@
+import os
 from kivymd.app import MDApp
-from kivy.lang import Builder
-from app.screens.telas import TelaPrincipal
+from kaki.app import App
+from kivy.factory import Factory
 
 
-class Tela(MDApp):
-    def build(self):
-        self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Orange"
-        Builder.load_file('tela.kv')
-        return TelaPrincipal()
+class LiveApp(MDApp, App):
 
-if __name__ == '__main__':
-    Tela().run()
+    DEBUG = 1 # set this to 0 make live app not working
+
+    # *.kv files to watch
+    KV_FILES = {
+        os.path.join(os.getcwd(), "app/screens/screenmanager.kv"),
+        os.path.join(os.getcwd(), "app/screens/login_screen/loginscreen.kv"),
+    }
+
+    # class to watch from *.py files
+    CLASSES = {
+        "MainScreenManager": "app.screens.screenmanager",
+        "LoginScreen": "app.screens.login_screen.loginscreen",
+    }
+
+    # auto reload path
+    AUTORELOADER_PATHS = [
+        (".", {"recursive": True}),
+    ]
+
+
+    def build_app(self):
+
+        return Factory.MainScreenManager()
+
+
+if __name__ == "__main__":
+    LiveApp().run()

@@ -1,4 +1,5 @@
 from kivy.uix.screenmanager import Screen
+from kivy.lang import Builder
 
-class MenuPrincipal(Screen):
-        pass
+class TelaPrincipal(Screen):
+    pass

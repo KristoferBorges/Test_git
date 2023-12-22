@@ -2,7 +2,7 @@ import os
 from kivymd.app import MDApp
 from kaki.app import App
 from kivy.factory import Factory
-
+from app.support.setup import Setup
 
 class LiveApp(MDApp, App):
 
@@ -27,7 +27,9 @@ class LiveApp(MDApp, App):
 
 
     def build_app(self):
-
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "Green"
+        Setup()
         return Factory.MainScreenManager()
 
 

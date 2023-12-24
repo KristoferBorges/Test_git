@@ -1,7 +1,15 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
 #:include LoginScreen login_screen.LoginScreen
 #:include TelaPrincipal tela_principal.TelaPrincipal
 
 <MainScreenManager>
+    transition: FadeTransition()
+    
     LoginScreen:
+        id: login_screen
+        name: 'login_screen'
+    TelaPrincipal:
+        id: tela_principal
+        name: 'tela_principal'
     
             

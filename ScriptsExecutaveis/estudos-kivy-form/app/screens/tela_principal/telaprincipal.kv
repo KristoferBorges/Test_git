@@ -1,0 +1,13 @@
+<TelaPrincipal>
+    MDGridLayout:
+        cols: 1
+        MDLabel:
+            text: "Bem vindo ao sistema de cadastro de clientes"
+            halign: "center"
+            font_style: "H4"
+
+        MDRoundFlatButton:
+            text: "Voltar"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release: 
+                root.manager.current = "login_screen"

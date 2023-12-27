@@ -1,13 +1,59 @@
 <TelaPrincipal>
-    MDGridLayout:
-        cols: 1
+
+    MDBoxLayout:
+        orientation: "vertical"
+
         MDLabel:
-            text: "Bem vindo ao sistema de cadastro de clientes"
+            text: "Sistema de Cadastros PETHOFE"
+            theme_text_color: "Secondary"
             halign: "center"
             font_style: "H4"
-
-        MDRoundFlatButton:
-            text: "Voltar"
+            size_hint: (0.5, 0.5)
             pos_hint: {"center_x": .5, "center_y": .5}
-            on_release: 
-                root.manager.current = "login_screen"
+            
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "2dp"
+            
+            MDRoundFlatButton:
+                text: "Cadastrar"
+                text_color: 1, 1, 1, 1
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: (0.4, 0.6)
+                font_size: "40dp"
+
+            MDRoundFlatButton:
+                text: "Consultar"
+                text_color: 1, 1, 1, 1
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: (0.4, 0.6)
+                font_size: "40dp"
+
+            MDRoundFlatButton:
+                text: "Alterar"
+                text_color: 1, 1, 1, 1
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: (0.4, 0.6)
+                font_size: "40dp"
+            
+            MDRoundFlatButton:
+                text: "Excluir"
+                text_color: 1, 1, 1, 1
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: (0.4, 0.6)
+                font_size: "40dp"
+
+        MDGridLayout:
+            cols: 1
+
+            MDRoundFlatButton:
+                text: "Voltar"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: 
+                    root.manager.current = "login_screen"
+                    root.logout()
+
+            
+                
+                    

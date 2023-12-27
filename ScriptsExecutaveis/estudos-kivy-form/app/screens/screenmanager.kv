@@ -1,9 +1,10 @@
-#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition 
+#:import NoTransition kivy.uix.screenmanager.NoTransition
 #:include LoginScreen login_screen.LoginScreen
 #:include TelaPrincipal tela_principal.TelaPrincipal
 
 <MainScreenManager>
-    transition: FadeTransition()
+    transition: NoTransition()
     
     LoginScreen:
         id: login_screen

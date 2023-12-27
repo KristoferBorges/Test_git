@@ -2,12 +2,11 @@ import platform
 from kivy.core.window import Window
 
 class Setup():
-    def __init__(self, logado=False):
+    def __init__(self):
         if platform.system() == "Windows":
             Window.size = (800, 200)
         else:
             pass
-
 
 class UserManager:
     def __init__(self):

@@ -6,6 +6,9 @@ from app.support.setup import Setup
 
 class LiveApp(MDApp, App):
 
+    # Fontes
+    font_monofonto = os.path.join(os.getcwd(), "app/support/fonts/monofonto.otf")
+
     DEBUG = 1 # set this to 0 make live app not working
 
     # *.kv files to watch

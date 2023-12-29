@@ -15,5 +15,5 @@ class TelaPrincipal(MDScreen):
         self.user_manager.logout()
         if self.user_manager.is_user_logged_in() == False:
             if platform.system() == "Windows":
-                Window.size = (800, 600)
+                Window.size = (800, 200)
         

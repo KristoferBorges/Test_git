@@ -22,6 +22,7 @@ class UserManager:
         # Lógica de logout
         # Por exemplo, limpar as credenciais e definir self.logged_in como False
         self.logged_in = False
+        
 
     def is_user_logged_in(self):
         return self.logged_in

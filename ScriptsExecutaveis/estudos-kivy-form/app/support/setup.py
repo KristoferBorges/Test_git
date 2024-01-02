@@ -1,10 +1,12 @@
 import platform
+from time import sleep
+from kivy.clock import Clock
 from kivy.core.window import Window
 
 class Setup():
     def __init__(self):
         if platform.system() == "Windows":
-            Window.size = (800, 200)
+            Window.size = (800, 260)
         else:
             pass
 

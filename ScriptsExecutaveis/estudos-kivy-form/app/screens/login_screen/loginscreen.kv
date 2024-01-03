@@ -14,15 +14,13 @@
             font_name: app.font_monofonto
         
         MDBoxLayout:
-            orientation: "horizontal"
-            spacing: dp(60)
+            orientation: "vertical"
+            spacing: dp(100)
             padding: dp(23)
             
             MDTextField:
                 id: text_login
                 hint_text: "Login"
-                helper_text_mode: "persistent"
-                helper_text: "Email/Usuário"
                 icon_right: "account"
                 icon_right_color: app.theme_cls.primary_color
                 pos_hint: {"center_x": .5, "center_y": .5}
@@ -30,7 +28,14 @@
                 hint_text_color_focus: "white"
                 max_text_length: 30
                 width: 350
-            
+                strip: True
+                mode: "line"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(60)
+            padding: dp(23)
+
             MDTextField:
                 id: text_senha
                 hint_text: "Senha"
@@ -40,11 +45,25 @@
                 pos_hint: {"center_x": .5, "center_y": .5}
                 size_hint_x: None
                 hint_text_color_focus: "white"
-                width: 280
+                width: 350
+                strip: True
+                mode: "line"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: dp(0)
+            padding: dp(0)
+
+            MDLabel:
+                id: result_login
+                name: "result_login"
+                text: ""
+                color: 1, 0, 0, 1
+                halign: "center"
 
         MDGridLayout:
             cols: 1
-            spacing: dp(60)
+            
             padding: dp(20)
 
             MDFillRoundFlatButton:
@@ -53,19 +72,22 @@
                 md_bg_color: 1, 3, 3, 0.7
                 size_hint_y: None
                 size_hint_x: None
-                size_hint: (0.5, 0.5) 
+                size_hint: (0.5, 0.4) 
                 height: 50
                 width: 200
                 pos_hint: {"center_x": .5, "center_y": .5}
                 on_release: 
                     root.realizarLogin()
-                    root.manager.current = "tela_principal"
 
         RelativeLayout:
             MDSpinner:
                 id: spinner
+                name: "spinner"
                 size_hint: None, None
-                size: dp(48), dp(48)
+                size: dp(38), dp(38)
+                color: 0.9, 3, 1, 0
                 pos_hint: {'center_x': .5, 'center_y': .5}
                 determinate: True
+                duration: 1
+
                 

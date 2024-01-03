@@ -6,7 +6,7 @@ from kivy.core.window import Window
 class Setup():
     def __init__(self):
         if platform.system() == "Windows":
-            Window.size = (800, 260)
+            Window.size = (800, 394)
         else:
             pass
 
@@ -16,13 +16,10 @@ class UserManager:
 
     def login(self):
         # Lógica de login
-        # Por exemplo, solicitar credenciais e verificar se estão corretas
-        # Se as credenciais estiverem corretas, definir self.logged_in como True
         self.logged_in = True
 
     def logout(self):
         # Lógica de logout
-        # Por exemplo, limpar as credenciais e definir self.logged_in como False
         self.logged_in = False
         
 

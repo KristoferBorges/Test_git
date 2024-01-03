@@ -14,23 +14,27 @@ class LiveApp(MDApp, App):
     # *.kv files to watch
     KV_FILES = {
         # ScreenManager
-        os.path.join(os.getcwd(), "app/screens/screenmanager.kv"),
-        # os.path.join(os.getcwd(), "app/screens/tests/screenmanager.kv"),
+        # os.path.join(os.getcwd(), "app/screens/screenmanager.kv"),
+        os.path.join(os.getcwd(), "app/screens/tests/screenmanager.kv"),
 
         # Demais screens
         os.path.join(os.getcwd(), "app/screens/login_screen/loginscreen.kv"),
-        os.path.join(os.getcwd(), "app/screens/tela_principal/telaprincipal.kv")
+        os.path.join(os.getcwd(), "app/screens/tela_principal/telaprincipal.kv"),
+        os.path.join(os.getcwd(), "app/screens/cadastro/cadastroCliente.kv"),
+        os.path.join(os.getcwd(), "app/screens/cadastro/cadastroService.kv"),
     }
 
     # class to watch from *.py files
     CLASSES = {
         # ScreenManager
-        "MainScreenManager": "app.screens.screenmanager",
-        # "MainScreenManager": "app.screens.tests.screenmanager",
+        # "MainScreenManager": "app.screens.screenmanager",
+        "MainScreenManager": "app.screens.tests.screenmanager",
 
         # Demais screens
         "LoginScreen": "app.screens.login_screen.loginscreen",
         "TelaPrincipal": "app.screens.tela_principal.telaprincipal",
+        "CadastroCliente": "app.screens.cadastro.cadastroCliente",
+        "CadastroService": "app.screens.cadastro.cadastroService",
     }
 
     # auto reload path

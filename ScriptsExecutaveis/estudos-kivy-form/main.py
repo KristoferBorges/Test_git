@@ -22,6 +22,7 @@ class LiveApp(MDApp, App):
         os.path.join(os.getcwd(), "app/screens/tela_principal/telaprincipal.kv"),
         os.path.join(os.getcwd(), "app/screens/cadastro/cadastroCliente.kv"),
         os.path.join(os.getcwd(), "app/screens/cadastro/cadastroService.kv"),
+        os.path.join(os.getcwd(), "app/screens/cadastro/newService.kv"),
     }
 
     # class to watch from *.py files
@@ -35,6 +36,7 @@ class LiveApp(MDApp, App):
         "TelaPrincipal": "app.screens.tela_principal.telaprincipal",
         "CadastroCliente": "app.screens.cadastro.cadastroCliente",
         "CadastroService": "app.screens.cadastro.cadastroService",
+        "NewService": "app.screens.cadastro.newService"
     }
 
     # auto reload path

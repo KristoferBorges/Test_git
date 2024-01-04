@@ -1,4 +1,5 @@
 import platform
+import mysql.connector
 from time import sleep
 from kivy.clock import Clock
 from kivy.core.window import Window
@@ -36,3 +37,57 @@ class System_Crud:
     """
     Classe responsável por gerenciar o CRUD do sistema
     """
+    def __init__(self):
+        pass
+
+    # Conexão com o banco de dados
+    try:
+        conexao = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="bd_tests",
+        )
+        print("Conexão com o banco de dados realizada com sucesso!")
+        connected = True
+        
+    except Exception as erro:
+        connected = False
+        print("Erro ao conectar com o banco de dados: ", erro)
+
+    def createClients(self, RA, nome, semestre, comentario):
+        """
+        Método responsável por cadastrar novos clientes
+        """
+        # Executando teste de inserção
+        try:
+            # Definição do cursor
+            ponteiro = self.conexao.cursor()
+
+            # Query de inserção
+            inserir_dados = f"INSERT INTO clientes VALUES ('{RA}', '{nome}', {semestre}, '{comentario}')"
+
+            # Executando a query
+            ponteiro.execute(inserir_dados)
+
+            # Efetuando o commit
+            self.conexao.commit()
+            print("Inserção bem-sucedida!")
+
+        except Exception as erro:
+            self.conexao.rollback()
+            print("Erro ao inserir dados: ", erro)
+
+        finally:
+            # Fechando o cursor
+            ponteiro.close()
+            self.conexao.close()            
+
+    def read(self):
+        pass
+
+    def update(self):
+        pass
+
+    def delete(self):
+        pass

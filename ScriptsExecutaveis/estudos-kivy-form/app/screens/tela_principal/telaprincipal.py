@@ -5,13 +5,15 @@ from app.support.setup import Setup, UserManager
 from kivy.lang import Builder
 
 class TelaPrincipal(MDScreen):
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.user_manager = UserManager()
         
 
     def logout(self):
+        """
+        Método responsável por fazer o logout do usuário ao clicar no botão de logout
+        """
         self.user_manager.logout()
         if self.user_manager.is_user_logged_in() == False:
             if platform.system() == "Windows":

@@ -4,6 +4,9 @@ from kivy.clock import Clock
 from kivy.core.window import Window
 
 class Setup():
+    """
+    Classe responsável por configurar o sistema
+    """
     def __init__(self):
         if platform.system() == "Windows":
             Window.size = (800, 694)
@@ -11,6 +14,9 @@ class Setup():
             pass
 
 class UserManager:
+    """
+    Classe responsável por gerenciar o login e logout do usuário
+    """
     def __init__(self):
         self.logged_in = False
 
@@ -25,3 +31,8 @@ class UserManager:
 
     def is_user_logged_in(self):
         return self.logged_in
+
+class System_Crud:
+    """
+    Classe responsável por gerenciar o CRUD do sistema
+    """

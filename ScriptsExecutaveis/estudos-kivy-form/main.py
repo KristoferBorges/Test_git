@@ -5,7 +5,9 @@ from kivy.factory import Factory
 from app.support.setup import Setup
 
 class LiveApp(MDApp, App):
-
+    """
+    Classe principal do sistema, responsável por gerenciar o sistema de programação em tempo real e também gerenciar os caminho dos arquivos .kv/.py
+    """
     # Fontes
     font_monofonto = os.path.join(os.getcwd(), "app/support/fonts/monofonto.otf")
 

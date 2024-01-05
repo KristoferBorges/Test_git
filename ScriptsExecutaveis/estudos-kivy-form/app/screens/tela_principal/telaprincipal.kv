@@ -21,12 +21,14 @@
                     id: conexao_icon
                     name: 'conexao_icon'
                     font_name: app.font_monofonto
-                    text: "CONEXÃO"
+                    text: "CONECTANDO..."
                     line_color: 0, 0, 0, 0
-                    text_color: 1, 1, 1, 1
-                    icon_color: 1, 0, 0, 1
+                    text_color: 1, 1, 0, 1
+                    icon_color: 1, 1, 0, 1
                     icon: 'database'
                     pos_hint: {'center_x': 0.5}
+                    on_release:
+                        root.tryConnect()
 
             MDFillRoundFlatButtonCustom:
                 text: "LOGOUT"

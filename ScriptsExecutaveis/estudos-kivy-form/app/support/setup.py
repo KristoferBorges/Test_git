@@ -10,7 +10,7 @@ class Setup():
     """
     def __init__(self):
         if platform.system() == "Windows":
-            Window.size = (800, 694)
+            Window.size = (800, 394)
         else:
             pass
 
@@ -38,22 +38,28 @@ class System_Crud:
     Classe responsável por gerenciar o CRUD do sistema
     """
     def __init__(self):
-        pass
+        self.connected = False
+        self.conexao = None
+        self.conectar_banco()
 
-    # Conexão com o banco de dados
-    try:
-        conexao = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="",
-            database="bd_tests",
-        )
-        print("Conexão com o banco de dados realizada com sucesso!")
-        connected = True
-        
-    except Exception as erro:
-        connected = False
-        print("Erro ao conectar com o banco de dados: ", erro)
+    def conectar_banco(self):
+        """
+        Método responsável por conectar com o banco de dados
+        """
+        # Conexão com o banco de dados
+        try:
+            self.conexao = mysql.connector.connect(
+                host="localhost",
+                user="root",
+                password="",
+                database="bd_tests",
+            )
+            print("Conexão com o banco de dados realizada com sucesso!")
+            self.connected = True
+
+        except Exception as erro:
+            self.connected = False
+            print("Erro ao conectar com o banco de dados: ", erro)
 
     def createClients(self, RA, nome, semestre, comentario):
         """

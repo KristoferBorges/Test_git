@@ -10,7 +10,7 @@ class Setup():
     """
     def __init__(self):
         if platform.system() == "Windows":
-            Window.size = (800, 694)
+            Window.size = (800, 394)
         else:
             pass
 
@@ -87,7 +87,6 @@ class System_Crud:
         finally:
             # Fechando o cursor
             ponteiro.close()
-            self.conexao.close()            
 
     def read(self):
         pass

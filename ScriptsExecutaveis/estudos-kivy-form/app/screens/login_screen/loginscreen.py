@@ -27,7 +27,7 @@ class LoginScreen(MDScreen):
             self.user_manager.login()
             if self.user_manager.is_user_logged_in() == True:
                 if platform.system() == "Windows":
-                    Window.size = (800, 600)
+                    Window.size = (800, 694)
         else:
             self.ids.text_login.text = ""
             self.ids.text_senha.text = ""

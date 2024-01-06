@@ -66,6 +66,7 @@
                 strip: True
                 font_name: app.font_monofonto
                 multiline: False
+                min_text_length: 5
         
         MDBoxLayout:
             orientation: "vertical"
@@ -82,18 +83,6 @@
                 font_name: app.font_monofonto
                 input_filter: "int"
                 multiline: False
-        
-        # Usado para indicar a falta do preenchimento dos campos
-        MDBoxLayout:
-            orientation: "vertical"
-
-            MDLabel:
-                id: resultado_preenchimento
-                name: "resultado_preenchimento"
-                text: ""
-                color: 1, 0, 0, 1
-                font_name: app.font_monofonto
-                halign: "center"
 
         MDGridLayout:
             cols: 1

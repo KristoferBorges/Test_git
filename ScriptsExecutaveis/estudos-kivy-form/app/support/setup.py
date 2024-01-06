@@ -10,7 +10,7 @@ class Setup():
     """
     def __init__(self):
         if platform.system() == "Windows":
-            Window.size = (800, 394)
+            Window.size = (800, 694)
         else:
             pass
 
@@ -41,6 +41,7 @@ class System_Crud:
         self.connected = False
         self.conexao = None
         self.conectar_banco()
+        self.error = None
 
     def conectar_banco(self):
         """
@@ -61,7 +62,7 @@ class System_Crud:
             self.connected = False
             print("Erro ao conectar com o banco de dados: ", erro)
 
-    def createClients(self, RA, nome, semestre, comentario):
+    def createClients(self, RA, nome, semestre, comentario=None):
         """
         Método responsável por cadastrar novos clientes
         """
@@ -80,13 +81,27 @@ class System_Crud:
             self.conexao.commit()
             print("Inserção bem-sucedida!")
 
+            return True
+
+        except mysql.connector.errors.IntegrityError as erro:
+            self.conexao.rollback()
+            self.error = erro
+            print(f"Exceção no arquivo Setup: {erro}")
+            if "Duplicate entry" in str(erro):
+                self.error = "Usuário já cadastrado"
+            return False
+
         except Exception as erro:
             self.conexao.rollback()
-            print("Erro ao inserir dados: ", erro)
+            self.error = erro
+            print(f"Exceção no arquivo Setup: {erro}")
+            return False
 
         finally:
-            # Fechando o cursor
-            ponteiro.close()
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
+        
+
 
     def read(self):
         pass
@@ -96,3 +111,4 @@ class System_Crud:
 
     def delete(self):
         pass
+

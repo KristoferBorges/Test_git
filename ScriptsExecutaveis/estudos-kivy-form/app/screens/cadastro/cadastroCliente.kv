@@ -42,7 +42,8 @@
             MDTextField:
                 id: ra_cliente
                 name: "ra_cliente"
-                hint_text: "RA"
+                required: True
+                hint_text: "RA *"
                 mode: "rectangle"
                 size_hint_x: 0.5
                 hint_text_color_focus: "white"
@@ -57,7 +58,8 @@
             MDTextField:
                 id: nome_cliente
                 name: "nome_cliente"
-                hint_text: "Nome"
+                required: True
+                hint_text: "Nome *"
                 mode: "rectangle"
                 size_hint_x: 0.5
                 hint_text_color_focus: "white"
@@ -71,7 +73,8 @@
             MDTextField:
                 id: semestre_cliente
                 name: "semestre_cliente"
-                hint_text: "Semestre"
+                required: True
+                hint_text: "Semestre *"
                 mode: "rectangle"
                 size_hint_x: 0.5
                 hint_text_color_focus: "white"
@@ -79,7 +82,19 @@
                 font_name: app.font_monofonto
                 input_filter: "int"
                 multiline: False
-            
+        
+        # Usado para indicar a falta do preenchimento dos campos
+        MDBoxLayout:
+            orientation: "vertical"
+
+            MDLabel:
+                id: resultado_preenchimento
+                name: "resultado_preenchimento"
+                text: ""
+                color: 1, 0, 0, 1
+                font_name: app.font_monofonto
+                halign: "center"
+
         MDGridLayout:
             cols: 1
 
@@ -95,7 +110,8 @@
                 multiline: True
                 max_height: 150
                 max_text_length: 205
-    
+
+
     MDBoxLayout:
         orientation: "horizontal"
         spacing: dp(20)
@@ -105,14 +121,12 @@
             anchor_x: "right"
             anchor_y: "bottom"
 
-            MDRectangleFlatIconButton:
+            MDRoundFlatIconButton:
                 text: "FINALIZAR"
                 icon: "check"
                 size_hint: (0.1, 0.06)
                 font_name: app.font_monofonto
                 line_color: 0, 0, 0, 0
                 font_size: "20dp"
-
-                
-
-                
+                on_release:
+                    root.finalizarCadastroCliente()

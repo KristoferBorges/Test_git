@@ -10,7 +10,7 @@ class Setup():
     """
     def __init__(self):
         if platform.system() == "Windows":
-            Window.size = (800, 394)
+            Window.size = (800, 694)
         else:
             pass
 

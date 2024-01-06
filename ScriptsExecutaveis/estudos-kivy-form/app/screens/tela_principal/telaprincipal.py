@@ -4,6 +4,7 @@ from kivymd.uix.screen import MDScreen
 from app.support.setup import System_Crud, UserManager
 from kivy.lang import Builder
 from kivy.clock import Clock
+from time import sleep
 
 class TelaPrincipal(MDScreen):
     def __init__(self, **kwargs):
@@ -50,10 +51,9 @@ class TelaPrincipal(MDScreen):
 
         self.ids.conexao_icon.text_color = (1, 1, 0, 1)
         self.ids.conexao_icon.icon_color = (1, 1, 0, 1)
-        self.ids.conexao_icon.text = "CONECTANDO..."
+        self.ids.conexao_icon.text = "CONECTANDO"
         Clock.schedule_once(lambda x: self.verificarConexao(), 1.5)
 
-        
         system_crud_instance.conectar_banco()
 
         

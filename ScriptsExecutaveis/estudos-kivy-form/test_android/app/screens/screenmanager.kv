@@ -5,7 +5,6 @@
 #:include TelaPrincipal tela_principal.TelaPrincipal
 #:include CadastroCliente cadastroCliente.CadastroCliente
 #:include CadastroService cadastroService.CadastroService
-#:include NewService newService.NewService
 
 <MainScreenManager>
     transition: NoTransition()
@@ -13,7 +12,7 @@
     LoginScreen:
         id: login_screen
         name: 'login_screen'
-
+        
     TelaPrincipal:
         id: tela_principal
         name: 'tela_principal'
@@ -25,7 +24,3 @@
     CadastroCliente:
         id: cadastro_cliente
         name: 'cadastro_cliente'
-    
-    NewService:
-        id: new_service
-        name: 'new_service'

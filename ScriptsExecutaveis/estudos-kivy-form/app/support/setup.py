@@ -62,7 +62,7 @@ class System_Crud:
             self.connected = False
             print("Erro ao conectar com o banco de dados: ", erro)
 
-    def createClients(self, RA, nome, semestre, comentario=None):
+    def createClients(self, RA, nome, semestre, data, comentario=None):
         """
         Método responsável por cadastrar novos clientes
         """
@@ -72,7 +72,7 @@ class System_Crud:
             ponteiro = self.conexao.cursor()
 
             # Query de inserção
-            inserir_dados = f"INSERT INTO clientes VALUES ('{RA}', '{nome}', {semestre}, '{comentario}')"
+            inserir_dados = f"INSERT INTO clientes VALUES ('{RA}', '{nome}', {semestre}, '{data}', '{comentario}')"
 
             # Executando a query
             ponteiro.execute(inserir_dados)

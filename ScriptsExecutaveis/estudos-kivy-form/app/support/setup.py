@@ -100,7 +100,42 @@ class System_Crud:
         finally:
             print("Fechando conexão com o banco de dados...")
             self.conexao.close()
+    
+    def createService(self, nome, valor, dependencia):
+        # Executando teste de inserção
+        try:
+            # Definição do cursor
+            ponteiro = self.conexao.cursor()
+
+            # Query de inserção
+            inserir_dados = f"INSERT INTO servicos VALUES (default, '{nome}', '{valor}', '{dependencia}')"
+
+            # Executando a query
+            ponteiro.execute(inserir_dados)
+
+            # Efetuando o commit
+            self.conexao.commit()
+            print("Inserção bem-sucedida!")
+
+            return True
         
+        except mysql.connector.errors.IntegrityError as erro:
+            self.conexao.rollback()
+            self.error = erro
+            print(f"Exceção no arquivo Setup: {erro}")
+            if "Duplicate entry" in str(erro):
+                self.error = "Serviço já cadastrado"
+            return False
+        
+        except Exception as erro:
+            self.conexao.rollback()
+            self.error = erro
+            print(f"Exceção no arquivo Setup: {erro}")
+            return False
+        
+        finally:
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
 
 
     def read(self):

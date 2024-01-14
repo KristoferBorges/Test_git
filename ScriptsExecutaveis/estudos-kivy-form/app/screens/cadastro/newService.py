@@ -1,10 +1,13 @@
 from datetime import datetime
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.pickers import MDDatePicker
+from app.support.modulo import FunctionsCase
+from app.support.setup import System_Crud
 
 class NewService(MDScreen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.system_crud = System_Crud()
         self.data_entrega = None
         self.data_atual = datetime.now().strftime("%Y-%m-%d")
 
@@ -22,10 +25,9 @@ class NewService(MDScreen):
 
         valueFormated = value.strftime("%d/%m/%Y")
         self.ids.data_entrega.text = valueFormated
-        self.data_entrega = value.strftime(format="%Y-%m-%d")
+        self.data_entrega = value.strftime("%Y-%m-%d")
 
         instance.dismiss()
-        return self.data_entrega
 
     def on_cancel(self, instance, value):
         '''Events called when the "CANCEL" dialog box button is clicked.'''
@@ -49,4 +51,29 @@ class NewService(MDScreen):
         """
         Função responsável por analisar os campos preenchidos e utilizar a função de cadastro do sistema
         """
-        pass
+        try:
+            if (self.ids.busca_ra_cliente.text == "") or (self.ids.busca_service.text == "") or (self.ids.valor_cobrado.text == "") or (self.ids.valor_pendente.text == "") or (self.data_entrega == None) or (self.data_atual == None):
+                # Pop-up de erro de preenchimento
+                FunctionsCase.popup_preenchimento()
+
+            elif (self.system_crud.read_RA(self.ids.busca_ra_cliente.text) == False):
+                # Pop-up de RA não encontrado
+                FunctionsCase.popup_ra_nao_encontrado()
+
+            elif (self.system_crud.read_ID_service(self.ids.busca_service.text) == False):
+                # Pop-up de ID Service não encontrado
+                FunctionsCase.popup_id_nao_encontrado()
+
+            else:
+                self.system_crud.conectar_banco()
+                print(self.data_atual, self.data_entrega)
+                if self.system_crud.registerNewService(self.ids.busca_ra_cliente.text, self.ids.busca_service.text, self.data_atual, self.data_entrega, self.ids.valor_cobrado.text, self.ids.valor_pendente.text) == True:
+                    self.ids.busca_ra_cliente.text = ""
+                    self.ids.busca_service.text = ""
+                    self.ids.valor_cobrado.text = ""
+                    self.ids.valor_pendente.text = ""
+                    self.ids.data_entrega.text = "00/00/0000"
+                    self.ids.data_registro.text = "00/00/0000"
+                    FunctionsCase.popup_sucesso()
+        except Exception as erro:
+            print(f"Exceção newService: {erro}")

@@ -46,6 +46,32 @@ class FunctionsCase:
         close_button.bind(on_release=popup.dismiss)
         popup.open()
 
+    def popup_ra_nao_encontrado():
+        # Pop-up de RA não encontrado
+        content = MDBoxLayout(orientation="vertical", padding="10dp")
+        label = MDLabel(text="RA do Cliente não encontrado", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+        close_button = MDFillRoundFlatButton(text="Fechar", size_hint=(1, None), font_name="app/support/fonts/monofonto.otf")
+
+        content.add_widget(label)
+        content.add_widget(close_button)
+
+        popup = Popup(title="Erro", content=content, size_hint=(0.8, 0.5), auto_dismiss=False)
+        close_button.bind(on_release=popup.dismiss)
+        popup.open()
+
+    def popup_id_nao_encontrado():
+        # Pop-up de ID Service não encontrado
+        content = MDBoxLayout(orientation="vertical", padding="10dp")
+        label = MDLabel(text="ID Service não encontrado", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+        close_button = MDFillRoundFlatButton(text="Fechar", size_hint=(1, None), font_name="app/support/fonts/monofonto.otf")
+
+        content.add_widget(label)
+        content.add_widget(close_button)
+
+        popup = Popup(title="Erro", content=content, size_hint=(0.8, 0.5), auto_dismiss=False)
+        close_button.bind(on_release=popup.dismiss)
+        popup.open()
+
     def filtrandoLetras(texto):
         """
         Método para filtrar apenas letras de um texto ignorando números ou caracteres especiais

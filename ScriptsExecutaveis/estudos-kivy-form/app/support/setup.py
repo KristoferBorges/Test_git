@@ -225,8 +225,24 @@ class System_Crud:
             print("Fechando conexão com o banco de dados...")
             self.conexao.close()
 
-    def read(self):
-        pass
+    def read_clients(self):
+        """
+        Método que retorna todos os clientes cadastrados no banco de dados
+        """
+        try:
+            self.conectar_banco()
+            if self.connected == True:
+                cursor = self.conexao.cursor()
+                query = "SELECT * FROM clientes"
+                cursor.execute(query)
+                result = cursor.fetchall()
+
+                return result
+            else:
+                print("Erro ao encontrar clientes!")
+        
+        except Exception as erro:
+            print(f"Exceção read_clients: {erro}")
 
     def update(self):
         pass

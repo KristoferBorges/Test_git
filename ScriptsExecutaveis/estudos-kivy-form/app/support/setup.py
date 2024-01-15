@@ -240,6 +240,7 @@ class System_Crud:
                 return result
             else:
                 print("Erro ao encontrar clientes!")
+                return False
         
         except Exception as erro:
             print(f"Exceção read_clients: {erro}")

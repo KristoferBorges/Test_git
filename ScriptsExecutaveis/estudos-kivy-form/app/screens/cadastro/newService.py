@@ -60,60 +60,68 @@ class NewService(MDScreen):
         """
         Aplica a função de consulta de clientes mostrando os dados em um popup
         """
-        data_from_database = self.system_crud.read_clients()
+        try:
+            if self.system_crud.read_clients() == False:
+                # Pop-up de erro de preenchimento
+                FunctionsCase.popup_search_error()
+            else:
+                data_from_database = self.system_crud.read_clients()
 
-        # Criando um ScrollView
-        scroll_view = ScrollView()
+                # Criando um ScrollView
+                scroll_view = ScrollView()
 
-        # Layout para conter os itens da lista
-        content_layout = BoxLayout(orientation="vertical", padding="10dp", spacing="5dp", size_hint_y=None)
+                # Layout para conter os itens da lista
+                content_layout = BoxLayout(orientation="vertical", padding="10dp", spacing="5dp", size_hint_y=None)
 
-        # Adicionando o cabeçalho
-        header_layout = BoxLayout(orientation="horizontal", padding="10dp", spacing="10dp", size_hint_y=None, height="30dp")
-        header_layout.add_widget(Label(text="RA", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
-        header_layout.add_widget(Label(text="Nome", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
-        header_layout.add_widget(Label(text="Semestre", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
-        header_layout.add_widget(Label(text="Data_Registro", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
+                # Adicionando o cabeçalho
+                header_layout = BoxLayout(orientation="horizontal", padding="10dp", spacing="10dp", size_hint_y=None, height="30dp")
+                header_layout.add_widget(Label(text="RA", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
+                header_layout.add_widget(Label(text="Nome", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
+                header_layout.add_widget(Label(text="Semestre", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
+                header_layout.add_widget(Label(text="Data_Registro", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
 
-        content_layout.add_widget(header_layout)
+                content_layout.add_widget(header_layout)
 
-        # Adicionando itens ao layout
-        for item in data_from_database:
-            # Criando rótulos para cada coluna
-            ra_label = Label(text=str(item[0]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
-            nome_label = Label(text=str(item[1]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
-            semestre_label = Label(text=str(item[2]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
-            data_registro_label = Label(text=str(item[3]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+                # Adicionando itens ao layout
+                for item in data_from_database:
+                    # Criando rótulos para cada coluna
+                    ra_label = Label(text=str(item[0]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+                    nome_label = Label(text=str(item[1]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+                    semestre_label = Label(text=str(item[2]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+                    data_registro_label = Label(text=str(item[3]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
 
-            # Adicionando rótulos ao layout
-            row_layout = BoxLayout(orientation="horizontal", padding="10dp", spacing="10dp", size_hint_y=None, height="20dp")
-            row_layout.add_widget(ra_label)
-            row_layout.add_widget(nome_label)
-            row_layout.add_widget(semestre_label)
-            row_layout.add_widget(data_registro_label)
+                    # Adicionando rótulos ao layout
+                    row_layout = BoxLayout(orientation="horizontal", padding="10dp", spacing="10dp", size_hint_y=None, height="20dp")
+                    row_layout.add_widget(ra_label)
+                    row_layout.add_widget(nome_label)
+                    row_layout.add_widget(semestre_label)
+                    row_layout.add_widget(data_registro_label)
 
-            content_layout.add_widget(row_layout)
+                    content_layout.add_widget(row_layout)
 
-        # Ajustando o tamanho da altura dinamicamente
-        content_layout.height = len(data_from_database) * (25 + 3)  # Altura de uma linha + espaçamento entre as linhas
+                # Ajustando o tamanho da altura dinamicamente
+                content_layout.height = len(data_from_database) * (25 + 3)  # Altura de uma linha + espaçamento entre as linhas
 
-        # Adicionando um botão para fechar o popup
-        close_button = MDFillRoundFlatButton(text="VOLTAR", font_size="15dp", size_hint=(0.2, None), font_name="app/support/fonts/monofonto.otf", height="15dp", pos_hint={"center_x": 0.5, "center_y": 0.1}, text_color=(0, 0, 0, 1), md_bg_color=[1, 3, 3, 0.7])
+                # Adicionando um botão para fechar o popup
+                close_button = MDFillRoundFlatButton(text="VOLTAR", font_size="15dp", size_hint=(0.2, None), font_name="app/support/fonts/monofonto.otf", height="15dp", pos_hint={"center_x": 0.5, "center_y": 0.1}, text_color=(0, 0, 0, 1), md_bg_color=[1, 3, 3, 0.7])
 
-        # Adicionando o layout ao ScrollView
-        scroll_view.add_widget(content_layout)
+                # Adicionando o layout ao ScrollView
+                scroll_view.add_widget(content_layout)
 
-        # Criando o layout do popup
-        popup_layout = BoxLayout(orientation="vertical")
-        popup_layout.add_widget(scroll_view)
-        popup_layout.add_widget(close_button)
+                # Criando o layout do popup
+                popup_layout = BoxLayout(orientation="vertical")
+                popup_layout.add_widget(scroll_view)
+                popup_layout.add_widget(close_button)
 
-        # Criando o popup
-        popup = Popup(title="Consulta de clientes", content=popup_layout, size_hint=(0.8, 0.8), auto_dismiss=True)
-        close_button.bind(on_release=popup.dismiss)
+                # Criando o popup
+                popup = Popup(title="Consulta de clientes", content=popup_layout, size_hint=(0.8, 0.8), auto_dismiss=True)
+                close_button.bind(on_release=popup.dismiss)
 
-        # Exibindo o popup
-        popup.open()
+                # Exibindo o popup
+                popup.open()
+            
+        except Exception as erro:
+            print(f"Exceção consultarClientes: {erro}")
 
     def consultarServices(self):
         """

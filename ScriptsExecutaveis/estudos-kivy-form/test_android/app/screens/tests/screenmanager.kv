@@ -1,0 +1,31 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:include LoginScreen login_screen.LoginScreen
+#:include TelaPrincipal tela_principal.TelaPrincipal
+#:include CadastroCliente cadastroCliente.CadastroCliente
+#:include CadastroService cadastroService.CadastroService
+#:include NewService newService.NewService
+
+<MainScreenManager>
+    transition: NoTransition()
+
+    NewService:
+        id: new_service
+        name: 'new_service'
+
+    LoginScreen:
+        id: login_screen
+        name: 'login_screen'
+
+    TelaPrincipal:
+        id: tela_principal
+        name: 'tela_principal'
+
+    CadastroService:
+        id: cadastro_service
+        name: 'cadastro_service'
+
+    CadastroCliente:
+        id: cadastro_cliente
+        name: 'cadastro_cliente'

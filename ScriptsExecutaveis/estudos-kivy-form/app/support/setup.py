@@ -245,6 +245,26 @@ class System_Crud:
         except Exception as erro:
             print(f"Exceção read_clients: {erro}")
 
+    def read_services(self):
+        """
+        Método que retorna todos os serviços cadastrados no banco de dados
+        """
+        try:
+            self.conectar_banco()
+            if self.connected == True:
+                cursor = self.conexao.cursor()
+                query = "SELECT * FROM servicos"
+                cursor.execute(query)
+                result = cursor.fetchall()
+
+                return result
+            else:
+                print("Erro ao encontrar serviços!")
+                return False
+        
+        except Exception as erro:
+            print(f"Exceção read_services: {erro}")
+
     def update(self):
         pass
 

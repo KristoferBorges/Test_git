@@ -25,6 +25,12 @@ class LiveApp(MDApp, App):
         os.path.join(os.getcwd(), "app/screens/cadastro/cadastroCliente.kv"),
         os.path.join(os.getcwd(), "app/screens/cadastro/cadastroService.kv"),
         os.path.join(os.getcwd(), "app/screens/cadastro/newService.kv"),
+        os.path.join(os.getcwd(), "app/screens/consulta/consultaCliente.kv"),
+        os.path.join(os.getcwd(), "app/screens/consulta/consultaService.kv"),
+        os.path.join(os.getcwd(), "app/screens/consulta/consultaUnica.kv"),
+        os.path.join(os.getcwd(), "app/screens/alterar/alterarCliente.kv"),
+        os.path.join(os.getcwd(), "app/screens/alterar/alterarService.kv"),
+        os.path.join(os.getcwd(), "app/screens/alterar/alterarRegistro.kv"),
     }
 
     # class to watch from *.py files
@@ -38,7 +44,13 @@ class LiveApp(MDApp, App):
         "TelaPrincipal": "app.screens.tela_principal.telaprincipal",
         "CadastroCliente": "app.screens.cadastro.cadastroCliente",
         "CadastroService": "app.screens.cadastro.cadastroService",
-        "NewService": "app.screens.cadastro.newService"
+        "NewService": "app.screens.cadastro.newService",
+        "ConsultaCliente": "app.screens.consulta.consultaCliente",
+        "ConsultaService": "app.screens.consulta.consultaService",
+        "ConsultaUnica": "app.screens.consulta.consultaUnica",
+        "AlterarCliente": "app.screens.alterar.alterarCliente",
+        "AlterarService": "app.screens.alterar.alterarService",
+        "AlterarRegistro": "app.screens.alterar.alterarRegistro",
     }
 
     # auto reload path

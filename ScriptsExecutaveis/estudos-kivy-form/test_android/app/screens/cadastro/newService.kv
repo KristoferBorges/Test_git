@@ -1,4 +1,11 @@
 <NewService>:
+
+    Image:
+        source: "app/support/image/minimalbackground.jpg"
+        allow_stretch: True
+        keep_ratio: False
+        opacity: 0.060
+
     MDBoxLayout:
         orientation: "horizontal"
         
@@ -88,6 +95,8 @@
                 text_color: 1, 1, 1, 1
                 font_size: "15dp"
                 size_hint_x: 0.32
+                on_release:
+                    root.consultarServices()
 
         MDBoxLayout:
             orientation: "vertical"

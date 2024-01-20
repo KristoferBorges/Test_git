@@ -55,9 +55,8 @@ class System_Crud:
                 password="",
                 database="bd_tests",
             )
-            print("Conectado ao BD com sucesso!")
             self.connected = True
-
+            
         except Exception as erro:
             self.connected = False
             print("Erro ao conectar com o banco de dados: ", erro)

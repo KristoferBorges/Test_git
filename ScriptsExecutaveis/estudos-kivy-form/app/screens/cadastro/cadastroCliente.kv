@@ -1,4 +1,11 @@
 <CadastroCliente>:
+
+    Image:
+        source: "app/support/image/minimalbackground.jpg"
+        allow_stretch: True
+        keep_ratio: False
+        opacity: 0.060
+
     MDBoxLayout:
         orientation: "horizontal"
 
@@ -90,7 +97,7 @@
             MDTextField:
                 id: comentario_cliente
                 name: "comentario_cliente"
-                hint_text: "Comentário"
+                hint_text: "Anotação"
                 mode: "rectangle"
                 size_hint_x: 1
                 hint_text_color_focus: "white"

@@ -6,9 +6,16 @@
 #:include CadastroCliente cadastroCliente.CadastroCliente
 #:include CadastroService cadastroService.CadastroService
 #:include NewService newService.NewService
+#:include ConsultaCliente consultaCliente.ConsultaCliente
+#:include ConsultaService consultaService.ConsultaService
+#:include ConsultaUnica consultaUnica.ConsultaUnica
 
 <MainScreenManager>
     transition: NoTransition()
+
+    TelaPrincipal:
+        id: tela_principal
+        name: 'tela_principal'
 
     NewService:
         id: new_service
@@ -18,10 +25,6 @@
         id: login_screen
         name: 'login_screen'
 
-    TelaPrincipal:
-        id: tela_principal
-        name: 'tela_principal'
-
     CadastroService:
         id: cadastro_service
         name: 'cadastro_service'
@@ -29,3 +32,27 @@
     CadastroCliente:
         id: cadastro_cliente
         name: 'cadastro_cliente'
+    
+    ConsultaCliente:
+        id: consulta_cliente
+        name: 'consulta_cliente'
+    
+    ConsultaService:
+        id: consulta_service
+        name: 'consulta_service'
+    
+    ConsultaUnica:
+        id: consulta_unica
+        name: 'consulta_unica'
+    
+    AlterarCliente:
+        id: alterar_cliente
+        name: 'alterar_cliente'
+    
+    AlterarService:
+        id: alterar_service
+        name: 'alterar_service'
+    
+    AlterarRegistro:
+        id: alterar_registro
+        name: 'alterar_registro'

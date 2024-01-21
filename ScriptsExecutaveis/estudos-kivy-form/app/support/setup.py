@@ -224,7 +224,7 @@ class System_Crud:
             print("Fechando conexão com o banco de dados...")
             self.conexao.close()
 
-    def read_clients(self):
+    def read_clients(self, filter=None):
         """
         Método que retorna todos os clientes cadastrados no banco de dados
         """
@@ -232,9 +232,30 @@ class System_Crud:
             self.conectar_banco()
             if self.connected == True:
                 cursor = self.conexao.cursor()
-                query = "SELECT * FROM clientes"
-                cursor.execute(query)
-                result = cursor.fetchall()
+                if filter == None:
+                    query = "SELECT * FROM clientes"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                elif filter == "RA":
+                    query = "SELECT * FROM clientes ORDER BY ra_cliente"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                elif filter == "Nome":
+                    query = "SELECT * FROM clientes ORDER BY nome"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                elif filter == "Semestre":
+                    query = "SELECT * FROM clientes ORDER BY semestre"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                elif filter == "Registro":
+                    query = "SELECT * FROM clientes ORDER BY data_registro"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
 
                 return result
             else:

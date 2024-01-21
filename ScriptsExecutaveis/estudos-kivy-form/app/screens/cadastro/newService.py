@@ -121,7 +121,7 @@ class NewService(MDScreen):
                 popup.open()
             
         except Exception as erro:
-            print(f"Exceção consultarClientes: {erro}")
+            print(f"Exceção newService: {erro}")
 
     def consultarServices(self):
         """
@@ -188,7 +188,7 @@ class NewService(MDScreen):
                 popup.open()
 
         except Exception as erro:
-            print(f"Exceção consultarServiço: {erro}")
+            print(f"Exceção newService: {erro}")
 
     def finalizarRegistro(self):
         """

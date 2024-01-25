@@ -101,6 +101,9 @@ class System_Crud:
             self.conexao.close()
     
     def createService(self, nome, valor, dependencia):
+        """
+        Função responsável por cadastrar novos serviços
+        """
         # Executando teste de inserção
         try:
             # Definição do cursor

@@ -39,7 +39,7 @@ class ConsultaCliente(MDScreen):
                 header_layout.add_widget(Label(text="RA", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Nome", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Semestre", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
-                header_layout.add_widget(Label(text="Data_Registro", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
+                header_layout.add_widget(Label(text="Registro", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
 
                 content_layout.add_widget(header_layout)
 
@@ -85,6 +85,9 @@ class ConsultaCliente(MDScreen):
             print(f"Exceção consultaCliente: {erro}")
     
     def filterRA(self):
+        """
+        Função ligada ao botão para filtrar por RA
+        """
         self.ids.ra_filter.opacity = 1
         self.ids.nome_filter.opacity = 0
         self.ids.semestre_filter.opacity = 0
@@ -92,6 +95,9 @@ class ConsultaCliente(MDScreen):
         self.filter = "RA"
 
     def filterNome(self):
+        """
+        Função ligada ao botão para filtrar por Nome
+        """
         self.ids.ra_filter.opacity = 0
         self.ids.nome_filter.opacity = 1
         self.ids.semestre_filter.opacity = 0
@@ -99,6 +105,9 @@ class ConsultaCliente(MDScreen):
         self.filter = "Nome"
 
     def filterSemestre(self):
+        """
+        Função ligada ao botão para filtrar por Semestre
+        """
         self.ids.ra_filter.opacity = 0
         self.ids.nome_filter.opacity = 0
         self.ids.semestre_filter.opacity = 1
@@ -106,6 +115,9 @@ class ConsultaCliente(MDScreen):
         self.filter = "Semestre"
 
     def filterRegistro(self):
+        """
+        Função ligada ao botão para filtrar por Registro
+        """
         self.ids.ra_filter.opacity = 0
         self.ids.nome_filter.opacity = 0
         self.ids.semestre_filter.opacity = 0

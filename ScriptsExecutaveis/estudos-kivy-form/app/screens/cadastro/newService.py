@@ -21,17 +21,9 @@ class NewService(MDScreen):
         self.data_atual = datetime.now().strftime("%Y-%m-%d")
 
     def on_save(self, instance, value, date_range):
-        '''
-
-        Events called when the "OK" dialog box button is clicked.
-
-        :type instance: <kivymd.uix.picker.MDDatePicker object>;
-        :param value: selected date;
-        :type value: <class 'datetime.date'>;
-        :param date_range: list of 'datetime.date' objects in the selected range;
-        :type date_range: <class 'list'>;
-        '''
-
+        """
+        Evento chamado quando o botão "OK" da caixa de diálogo é clicado.
+        """
         valueFormated = value.strftime("%d/%m/%Y")
         self.ids.data_entrega.text = valueFormated
         self.data_entrega = value.strftime("%Y-%m-%d")
@@ -39,7 +31,9 @@ class NewService(MDScreen):
         instance.dismiss()
 
     def on_cancel(self, instance, value):
-        '''Events called when the "CANCEL" dialog box button is clicked.'''
+        """
+        Evento chamado quando o botão "CANCELAR" da caixa de diálogo é clicado (sem evento).
+        """
         pass
 
     def show_date_picker(self):

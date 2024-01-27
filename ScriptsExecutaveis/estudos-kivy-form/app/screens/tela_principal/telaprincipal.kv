@@ -132,7 +132,7 @@
                 orientation: "vertical"
                 spacing: dp(20)
                 padding: dp(10)
-                pos_hint: {"center_x": .5, "center_y": 1.17}
+                pos_hint: {"center_x": .5, "center_y": 1.076}
 
                 MDRectangleFlatIconButton:
                     text: "CONSULTAR CLIENTES"
@@ -157,7 +157,19 @@
                     icon: "file-find"
                     on_release:
                         root.manager.current = "consulta_service"
-        
+
+                MDRectangleFlatIconButton:
+                    text: "CONSULTAR ORÇAMENTOS"
+                    font_name: app.font_monofonto
+                    font_size: "24sp"
+                    text_color: 1, 1, 1, 0.86
+                    md_bg_color: 0.5, 0.7, 0.5, 0.04
+                    line_color: 0, 0, 0, 0
+                    size_hint_y: None
+                    icon: "file-search"
+                    on_release:
+                        root.manager.current = "consulta_orcamento"
+
                 MDRectangleFlatIconButton:
                     text: "CONSULTA ÚNICA"
                     font_name: app.font_monofonto

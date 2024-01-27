@@ -268,7 +268,7 @@ class System_Crud:
         except Exception as erro:
             print(f"Exceção read_clients: {erro}")
 
-    def read_services(self):
+    def read_services(self, filter=None):
         """
         Método que retorna todos os serviços cadastrados no banco de dados
         """
@@ -276,9 +276,30 @@ class System_Crud:
             self.conectar_banco()
             if self.connected == True:
                 cursor = self.conexao.cursor()
-                query = "SELECT * FROM servicos"
-                cursor.execute(query)
-                result = cursor.fetchall()
+                if filter == None:
+                    query = "SELECT * FROM servicos"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                elif filter == "ID":
+                    query = "SELECT * FROM servicos ORDER BY id_servico"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                elif filter == "Nome":
+                    query = "SELECT * FROM servicos ORDER BY nome"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                elif filter == "Valor":
+                    query = "SELECT * FROM servicos ORDER BY valor"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                elif filter == "Dependencia":
+                    query = "SELECT * FROM servicos ORDER BY dependencia"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
 
                 return result
             else:
@@ -287,6 +308,123 @@ class System_Crud:
         
         except Exception as erro:
             print(f"Exceção read_services: {erro}")
+
+    def read_client_service(self, filter=None):
+        """
+        Método que retorna todos os orçamentos cadastrados no banco de dados
+        """
+        try:
+            self.conectar_banco()
+            if self.connected == True:
+                cursor = self.conexao.cursor()
+                if filter == None:
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                
+                elif filter == "RA":
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico
+                            ORDER BY c.ra_cliente"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                
+                elif filter == "Nome":
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico
+                            ORDER BY c.nome"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                
+                elif filter == "Semestre":
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico
+                            ORDER BY c.semestre"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                
+                elif filter == "Serviço":
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico
+                            ORDER BY s.nome"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                
+                elif filter == "ValorCobrado":
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico
+                            ORDER BY cs.valor_cobrado"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                
+                elif filter == "DataContratação":
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico
+                            ORDER BY cs.data_contratacao"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                
+                elif filter == "DataEntrega":
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico
+                            ORDER BY cs.data_entrega"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                elif filter == "Pendência":
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico
+                            ORDER BY cs.pendencia"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                
+                elif filter == "Status":
+                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                            JOIN cliente_servico cs
+                            ON c.ra_cliente = cs.id_cliente
+                            JOIN servicos s
+                            ON cs.tipo_servico = id_servico
+                            ORDER BY cs.situacao"""
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                
+                return result
+
+            else:
+                print("Erro ao encontrar orçamentos!")
+                return False
+            
+        except Exception as erro:
+            print(f"Exceção read_client_service: {erro}")
+
 
     def update(self):
         pass

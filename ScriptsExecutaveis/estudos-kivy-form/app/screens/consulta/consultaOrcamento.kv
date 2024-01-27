@@ -1,4 +1,4 @@
-<ConsultaCliente>
+<ConsultaOrcamento>
 
     Image:
         source: "app/support/image/minimalbackground.jpg"
@@ -30,17 +30,17 @@
         pos_hint: {"center_x": .5, "center_y": .9}
 
         MDLabel:
-            text: "[u]CONSULTAR CLIENTES[/u]"
+            text: "[u]CONSULTAR ORÇAMENTOS[/u]"
             font_style: "H5"
             text_color: 1, 1, 1, 1
             font_name: app.font_monofonto
             markup: True
-
+    
     MDGridLayout:
         cols: 1
         spacing: dp(20)
         padding: dp(30)
-        pos_hint: {"center_x": .5, "center_y": 0.94}
+        pos_hint: {"center_x": .5, "center_y": 0.7}
 
         MDBoxLayout:
             orientation: "vertical"
@@ -116,7 +116,7 @@
                         text_color: 0, 1, 0, 1
             
             MDRectangleFlatIconButton:
-                text: "Registro"
+                text: "Serviço"
                 font_name: app.font_monofonto
                 font_size: "20dp"
                 text_color: 1, 1, 1, 1
@@ -124,15 +124,130 @@
                 line_color: 0, 0, 0, 0
                 size_hint_x: .3
                 on_release:
-                    root.filterRegistro()
+                    root.filterServico()
 
                 AnchorLayout:
                     anchor_x: "left"
                     anchor_y: "center"
 
                     MDIcon:
-                        id: registro_filter
-                        name: "registro_filter"
+                        id: servico_filter
+                        name: "servico_filter"
+                        icon: 'check'
+                        opacity: 0
+                        theme_text_color: "Custom"
+                        text_color: 0, 1, 0, 1
+            
+            MDRectangleFlatIconButton:
+                text: "Valor Cobrado"
+                font_name: app.font_monofonto
+                font_size: "20dp"
+                text_color: 1, 1, 1, 1
+                md_bg_color: .1, .1, .1, 0.90
+                line_color: 0, 0, 0, 0
+                size_hint_x: .3
+                on_release:
+                    root.filterValorCobrado()
+
+                AnchorLayout:
+                    anchor_x: "left"
+                    anchor_y: "center"
+
+                    MDIcon:
+                        id: valor_cobrado_filter
+                        name: "valor_cobrado_filter"
+                        icon: 'check'
+                        opacity: 0
+                        theme_text_color: "Custom"
+                        text_color: 0, 1, 0, 1
+            
+            MDRectangleFlatIconButton:
+                text: "D-Contratação"
+                font_name: app.font_monofonto
+                font_size: "20dp"
+                text_color: 1, 1, 1, 1
+                md_bg_color: .1, .1, .1, 0.90
+                line_color: 0, 0, 0, 0
+                size_hint_x: .3
+                on_release:
+                    root.filterContratacao()
+
+                AnchorLayout:
+                    anchor_x: "left"
+                    anchor_y: "center"
+
+                    MDIcon:
+                        id: contratacao_filter
+                        name: "contratacao_filter"
+                        icon: 'check'
+                        opacity: 0
+                        theme_text_color: "Custom"
+                        text_color: 0, 1, 0, 1
+
+            MDRectangleFlatIconButton:
+                text: "D-Entrega"
+                font_name: app.font_monofonto
+                font_size: "20dp"
+                text_color: 1, 1, 1, 1
+                md_bg_color: .1, .1, .1, 0.90
+                line_color: 0, 0, 0, 0
+                size_hint_x: .3
+                on_release:
+                    root.filterEntrega()
+
+                AnchorLayout:
+                    anchor_x: "left"
+                    anchor_y: "center"
+
+                    MDIcon:
+                        id: entrega_filter
+                        name: "entrega_filter"
+                        icon: 'check'
+                        opacity: 0
+                        theme_text_color: "Custom"
+                        text_color: 0, 1, 0, 1
+                        
+            MDRectangleFlatIconButton:
+                text: "Pendência"
+                font_name: app.font_monofonto
+                font_size: "20dp"
+                text_color: 1, 1, 1, 1
+                md_bg_color: .1, .1, .1, 0.90
+                line_color: 0, 0, 0, 0
+                size_hint_x: .3
+                on_release:
+                    root.filterPendencia()
+
+                AnchorLayout:
+                    anchor_x: "left"
+                    anchor_y: "center"
+
+                    MDIcon:
+                        id: pendencia_filter
+                        name: "pendencia_filter"
+                        icon: 'check'
+                        opacity: 0
+                        theme_text_color: "Custom"
+                        text_color: 0, 1, 0, 1
+
+            MDRectangleFlatIconButton:
+                text: "Status"
+                font_name: app.font_monofonto
+                font_size: "20dp"
+                text_color: 1, 1, 1, 1
+                md_bg_color: .1, .1, .1, 0.90
+                line_color: 0, 0, 0, 0
+                size_hint_x: .3
+                on_release:
+                    root.filterStatus()
+
+                AnchorLayout:
+                    anchor_x: "left"
+                    anchor_y: "center"
+
+                    MDIcon:
+                        id: status_filter
+                        name: "status_filter"
                         icon: 'check'
                         opacity: 0
                         theme_text_color: "Custom"
@@ -152,5 +267,5 @@
             md_bg_color: .1, .1, .1, 0.90
             font_size: "20dp"
             size_hint: 1, None
-            on_release: 
-                root.consultClientFilter()
+            on_release:
+                root.consultOrcamentoFilter()

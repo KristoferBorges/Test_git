@@ -139,7 +139,7 @@ class System_Crud:
             print("Fechando conexão com o banco de dados...")
             self.conexao.close()
 
-    def registerNewService(self, ra_cliente, id_service, data_registro, data_entrega, valor_cobrado, valor_pendente, ):
+    def registerNewService(self, ra_cliente, id_service, data_registro, data_entrega, valor_cobrado, valor_pendente):
         """
         Método responsável por criar um novo serviço com base nos clientes/serviços já cadastrados
         """

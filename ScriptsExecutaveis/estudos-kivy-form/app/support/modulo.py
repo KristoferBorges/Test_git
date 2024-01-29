@@ -84,6 +84,19 @@ class FunctionsCase:
         popup = Popup(title="Erro", content=content, size_hint=(0.8, 0.5), auto_dismiss=False)
         close_button.bind(on_release=popup.dismiss)
         popup.open()
+    
+    def popup_preenchimento_invalido():
+        # Pop-up de preenchimento inválido
+        content = MDBoxLayout(orientation="vertical", padding="10dp")
+        label = MDLabel(text="Preencha apenas uma busca por véz", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+        close_button = MDFillRoundFlatButton(text="Fechar", size_hint=(1, None), font_name="app/support/fonts/monofonto.otf")
+
+        content.add_widget(label)
+        content.add_widget(close_button)
+
+        popup = Popup(title="Erro", content=content, size_hint=(0.8, 0.5), auto_dismiss=False)
+        close_button.bind(on_release=popup.dismiss)
+        popup.open()
 
     def filtrandoLetras(texto):
         """

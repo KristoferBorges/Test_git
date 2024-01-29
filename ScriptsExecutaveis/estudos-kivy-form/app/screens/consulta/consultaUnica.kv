@@ -58,6 +58,7 @@
             padding: (dp(10), 0, 0, dp(26))
 
             MDTextField:
+                id: ra_cliente
                 hint_text: "RA"
                 mode: "rectangle"
                 size_hint_x: 0.65
@@ -82,6 +83,7 @@
             padding: (dp(10), 0, 0, dp(26))
 
             MDTextField:
+                id: id_servico
                 hint_text: "ID"
                 mode: "rectangle"
                 size_hint_x: 0.65
@@ -106,6 +108,7 @@
             padding: (dp(10), 0, 0, dp(26))
 
             MDTextField:
+                id: id_orcamento
                 hint_text: "ID"
                 mode: "rectangle"
                 size_hint_x: 0.65
@@ -114,3 +117,20 @@
                 font_name: app.font_monofonto
                 multiline: False
                 min_text_length: 5
+    
+    MDBoxLayout:
+        orientation: "horizontal"
+        spacing: dp(20)
+        padding: dp(20)
+        
+        MDRectangleFlatIconButton:
+            text: "Consultar"
+            font_name: app.font_monofonto
+            icon: "magnify"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            md_bg_color: .1, .1, .1, 0.90
+            font_size: "20dp"
+            size_hint: 1, None
+            on_release:
+                root.realizarConsultaUnica()

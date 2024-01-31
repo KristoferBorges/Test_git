@@ -38,7 +38,6 @@ class ConsultaOrcamento(MDScreen):
                 header_layout = BoxLayout(orientation="horizontal", padding="13dp", spacing="13dp", size_hint_y=None, height="30dp")
                 header_layout.add_widget(Label(text="ID", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Nome", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
-                header_layout.add_widget(Label(text="Semestre", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Serviço", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Valor", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Contrataçaõ", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
@@ -53,18 +52,16 @@ class ConsultaOrcamento(MDScreen):
                     # Criando rótulos para cada coluna
                     id_label = Label(text=str(item[0]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
                     nome_label = Label(text=str(item[1]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
-                    semestre_label = Label(text=str(item[2]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
-                    servico_label = Label(text=str(item[3]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
-                    valor_cobrado_label = Label(text=str(item[4]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
-                    contratacao_label = Label(text=str(item[5]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
-                    entrega_label = Label(text=str(item[6]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
-                    pendencia_label = Label(text=str(item[7]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
-                    status_label = Label(text=str(item[8]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
+                    servico_label = Label(text=str(item[2]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
+                    valor_cobrado_label = Label(text=str(item[3]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
+                    contratacao_label = Label(text=str(item[4]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
+                    entrega_label = Label(text=str(item[5]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
+                    pendencia_label = Label(text=str(item[6]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
+                    status_label = Label(text=str(item[7]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
                 
                     row_layout = BoxLayout(orientation="horizontal", padding="13dp", spacing="13dp", size_hint_y=None, height="20dp")
                     row_layout.add_widget(id_label)
                     row_layout.add_widget(nome_label)
-                    row_layout.add_widget(semestre_label)
                     row_layout.add_widget(servico_label)
                     row_layout.add_widget(valor_cobrado_label)
                     row_layout.add_widget(contratacao_label)
@@ -127,21 +124,6 @@ class ConsultaOrcamento(MDScreen):
         self.ids.pendencia_filter.opacity = 0
         self.ids.status_filter.opacity = 0
         self.filter = "Nome"
-
-    def filterSemestre(self):
-        """
-        Função ligada ao botão para filtrar por Semestre
-        """
-        self.ids.ra_filter.opacity = 0
-        self.ids.nome_filter.opacity = 0
-        self.ids.semestre_filter.opacity = 1
-        self.ids.servico_filter.opacity = 0
-        self.ids.valor_cobrado_filter.opacity = 0
-        self.ids.contratacao_filter.opacity = 0
-        self.ids.entrega_filter.opacity = 0
-        self.ids.pendencia_filter.opacity = 0
-        self.ids.status_filter.opacity = 0
-        self.filter = "Semestre"
 
     def filterServico(self):
         """

@@ -193,7 +193,7 @@ class System_Crud:
                 if result == []:
                     return False
                 else:
-                    return True
+                    return result
             else:
                 print("Erro ao conectar com o banco de dados!")
         except Exception as erro:
@@ -318,7 +318,7 @@ class System_Crud:
             if self.connected == True:
                 cursor = self.conexao.cursor()
                 if filter == None:
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                    query = """SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                             JOIN cliente_servico cs
                             ON c.ra_cliente = cs.id_cliente
                             JOIN servicos s
@@ -327,7 +327,7 @@ class System_Crud:
                     result = cursor.fetchall()
                 
                 elif filter == "RA":
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                    query = """SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                             JOIN cliente_servico cs
                             ON c.ra_cliente = cs.id_cliente
                             JOIN servicos s
@@ -337,7 +337,7 @@ class System_Crud:
                     result = cursor.fetchall()
                 
                 elif filter == "Nome":
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                    query = """SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                             JOIN cliente_servico cs
                             ON c.ra_cliente = cs.id_cliente
                             JOIN servicos s
@@ -346,18 +346,8 @@ class System_Crud:
                     cursor.execute(query)
                     result = cursor.fetchall()
                 
-                elif filter == "Semestre":
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
-                            JOIN cliente_servico cs
-                            ON c.ra_cliente = cs.id_cliente
-                            JOIN servicos s
-                            ON cs.tipo_servico = id_servico
-                            ORDER BY c.semestre"""
-                    cursor.execute(query)
-                    result = cursor.fetchall()
-                
                 elif filter == "Serviço":
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                    query = """SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                             JOIN cliente_servico cs
                             ON c.ra_cliente = cs.id_cliente
                             JOIN servicos s
@@ -367,7 +357,7 @@ class System_Crud:
                     result = cursor.fetchall()
                 
                 elif filter == "ValorCobrado":
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                    query = """SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                             JOIN cliente_servico cs
                             ON c.ra_cliente = cs.id_cliente
                             JOIN servicos s
@@ -377,7 +367,7 @@ class System_Crud:
                     result = cursor.fetchall()
                 
                 elif filter == "DataContratação":
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                    query = """SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                             JOIN cliente_servico cs
                             ON c.ra_cliente = cs.id_cliente
                             JOIN servicos s
@@ -387,7 +377,7 @@ class System_Crud:
                     result = cursor.fetchall()
                 
                 elif filter == "DataEntrega":
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                    query = """SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                             JOIN cliente_servico cs
                             ON c.ra_cliente = cs.id_cliente
                             JOIN servicos s
@@ -397,7 +387,7 @@ class System_Crud:
                     result = cursor.fetchall()
 
                 elif filter == "Pendência":
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                    query = """SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                             JOIN cliente_servico cs
                             ON c.ra_cliente = cs.id_cliente
                             JOIN servicos s
@@ -407,7 +397,7 @@ class System_Crud:
                     result = cursor.fetchall()
                 
                 elif filter == "Status":
-                    query = """SELECT c.ra_cliente, c.nome, c.semestre, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                    query = """SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                             JOIN cliente_servico cs
                             ON c.ra_cliente = cs.id_cliente
                             JOIN servicos s

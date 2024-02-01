@@ -217,11 +217,42 @@ class System_Crud:
                 if result == []:
                     return False
                 else:
-                    return True
+                    return result
             else:
                 print("Erro ao conectar com o banco de dados!")
         except Exception as erro:
             print(f"Exceção read_ID_service: {erro}")
+        
+        finally:
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
+
+    def read_ID_orcamento(self, id_orcamento):
+        """
+        Método responsável por realizar a busca do ID do orçamento
+        """
+        try:
+            self.conectar_banco()
+            if self.connected == True:
+                id = id_orcamento
+                cursor = self.conexao.cursor()
+                cursor.execute(f"""SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
+                                JOIN cliente_servico cs
+                                ON c.ra_cliente = cs.id_cliente
+                                JOIN servicos s
+                                ON cs.tipo_servico = id_servico
+                                WHERE cs.id = '{id}'""")
+                result = cursor.fetchall()
+                if result == []:
+                    return False
+                else:
+                    return result
+            
+            else:
+                print("Erro ao conectar com o banco de dados!")
+        
+        except Exception as erro:
+            print(f"Exceção read_ID_orcamento: {erro}")
         
         finally:
             print("Fechando conexão com o banco de dados...")

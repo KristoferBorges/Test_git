@@ -447,8 +447,28 @@ class System_Crud:
             print(f"Exceção read_client_service: {erro}")
 
 
-    def update(self):
-        pass
+    def update_client(self, ra, nome, semestre, data, comentario):
+        """
+        Método responsável por atualizar os dados do cliente
+        """
+        try:
+            self.conectar_banco()
+            if self.connected == True:
+                cursor = self.conexao.cursor()
+                query = f"UPDATE clientes SET nome = '{nome}', semestre = {semestre}, data_registro = '{data}', obs = '{comentario}' WHERE ra_cliente = '{ra}'"
+                cursor.execute(query)
+                self.conexao.commit()
+                print(ra, nome, semestre, data, comentario)
+                return True
+                    
+            else:
+                print("Erro ao conectar com o banco de dados!")
+                return False
+            
+        except Exception as erro:
+            print(f"Exceção update_client: {erro}")
+            self.error = erro
+            self.conexao.rollback()
 
     def delete(self):
         pass

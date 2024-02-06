@@ -298,6 +298,10 @@ class System_Crud:
         
         except Exception as erro:
             print(f"Exceção read_clients: {erro}")
+        
+        finally:
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
 
     def read_services(self, filter=None):
         """
@@ -339,6 +343,10 @@ class System_Crud:
         
         except Exception as erro:
             print(f"Exceção read_services: {erro}")
+        
+        finally:
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
 
     def read_client_service(self, filter=None):
         """
@@ -445,6 +453,10 @@ class System_Crud:
             
         except Exception as erro:
             print(f"Exceção read_client_service: {erro}")
+        
+        finally:
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
 
 
     def update_client(self, ra, nome, semestre, data, comentario):
@@ -469,6 +481,10 @@ class System_Crud:
             print(f"Exceção update_client: {erro}")
             self.error = erro
             self.conexao.rollback()
+        
+        finally:
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
 
     def delete(self):
         pass

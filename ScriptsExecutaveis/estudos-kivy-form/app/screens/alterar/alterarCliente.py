@@ -80,7 +80,7 @@ class AlterarCliente(MDScreen):
                 self.data_registro = datetime.strptime(self.ids.data_registro.text, "%d/%m/%Y").strftime("%Y-%m-%d")
 
                 if self.system_crud.update_client(self.ids.ra_cliente.text, self.ids.nome_cliente.text, self.ids.semestre_cliente.text, self.data_registro, self.ids.comentario_cliente.text) == True:
-                    FunctionsCase.popup_sucesso()
+                    FunctionsCase.popup_alteracao_sucesso()
                     self.ids.ra_cliente.text = ""
                     self.ids.nome_cliente.text = ""
                     self.ids.semestre_cliente.text = ""

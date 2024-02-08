@@ -211,6 +211,6 @@ class NewService(MDScreen):
                     self.ids.valor_pendente.text = ""
                     self.ids.data_entrega.text = "00/00/0000"
                     self.ids.data_registro.text = "00/00/0000"
-                    FunctionsCase.popup_sucesso()
+                    FunctionsCase.popup_cadastro_sucesso()
         except Exception as erro:
             print(f"Exceção newService: {erro}")

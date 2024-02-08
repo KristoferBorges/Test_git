@@ -30,7 +30,7 @@ class CadastroService(MDScreen):
                     self.ids.valor_service.text = ""
                     self.ids.icon_sem_dependencia.opacity = 0
                     self.ids.icon_com_dependencia.opacity = 0
-                    FunctionsCase.popup_sucesso()
+                    FunctionsCase.popup_cadastro_sucesso()
                 else:
                     FunctionsCase.popup_error(f"{self.system_crud.error}")
         except Exception as erro:

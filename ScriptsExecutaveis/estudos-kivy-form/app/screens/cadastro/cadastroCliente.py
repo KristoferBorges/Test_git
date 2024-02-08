@@ -29,7 +29,7 @@ class CadastroCliente(MDScreen):
                     self.ids.nome_cliente.text = ""
                     self.ids.semestre_cliente.text = ""
                     self.ids.comentario_cliente.text = ""
-                    FunctionsCase.popup_sucesso()
+                    FunctionsCase.popup_cadastro_sucesso()
                 else:
                     FunctionsCase.popup_error(f"{self.system_crud.error}")
         except Exception as erro:

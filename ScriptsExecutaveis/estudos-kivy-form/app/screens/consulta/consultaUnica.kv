@@ -68,6 +68,9 @@
                 multiline: False
                 min_text_length: 5
                 input_filter: "int"
+                on_focus: 
+                    id_servico.text = ""
+                    id_orcamento.text = ""
         
         MDBoxLayout:
             orientation: "horizontal"
@@ -94,6 +97,9 @@
                 multiline: False
                 min_text_length: 5
                 input_filter: "int"
+                on_focus:
+                    ra_cliente.text = ""
+                    id_orcamento.text = ""
         
         MDBoxLayout:
             orientation: "horizontal"
@@ -120,6 +126,9 @@
                 multiline: False
                 min_text_length: 5
                 input_filter: "int"
+                on_focus:
+                    ra_cliente.text = ""
+                    id_servico.text = ""
     
     MDBoxLayout:
         orientation: "horizontal"

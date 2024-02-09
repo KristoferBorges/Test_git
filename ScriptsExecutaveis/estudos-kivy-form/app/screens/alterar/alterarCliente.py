@@ -35,7 +35,7 @@ class AlterarCliente(MDScreen):
         self.ids.data_registro.text = datetime.now().strftime("%d/%m/%Y")
         date_dialog.open()
     
-    def consultarClientes(self):
+    def consultarCliente(self):
         """
         Método responsável por fazer a busca do RA do cliente no banco de dados.
         """

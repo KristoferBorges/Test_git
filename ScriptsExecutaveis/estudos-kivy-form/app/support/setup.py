@@ -227,14 +227,13 @@ class System_Crud:
             print("Fechando conexão com o banco de dados...")
             self.conexao.close()
 
-    def read_ID_orcamento(self, id_orcamento):
+    def read_ID_orcamento(self, id):
         """
         Método responsável por realizar a busca do ID do orçamento
         """
         try:
             self.conectar_banco()
             if self.connected == True:
-                id = id_orcamento
                 cursor = self.conexao.cursor()
                 cursor.execute(f"""SELECT cs.id, c.nome, s.nome, cs.valor_cobrado, cs.data_contratacao, cs.data_entrega, cs.pendencia, cs.situacao FROM clientes c
                                 JOIN cliente_servico cs

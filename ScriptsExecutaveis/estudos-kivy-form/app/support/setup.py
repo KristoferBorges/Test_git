@@ -203,14 +203,13 @@ class System_Crud:
             print("Fechando conexão com o banco de dados...")
             self.conexao.close()
 
-    def read_ID_service(self, id_service):
+    def read_ID_service(self, id):
         """
         Método responsável por realizar a busca do RA do cliente
         """
         try:
             self.conectar_banco()
             if self.connected == True:
-                id = id_service
                 cursor = self.conexao.cursor()
                 cursor.execute(f"SELECT * FROM servicos WHERE id_servico = '{id}'")
                 result = cursor.fetchall()
@@ -478,6 +477,34 @@ class System_Crud:
             
         except Exception as erro:
             print(f"Exceção update_client: {erro}")
+            self.error = erro
+            self.conexao.rollback()
+        
+        finally:
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
+
+    def update_service(self, id, nome, valor, dependencia):
+        """
+        Método responsável por atualizar os dados do serviço
+        """
+        try:
+            print(id, nome, valor, dependencia)
+            self.conectar_banco()
+            if self.connected == True:
+                cursor = self.conexao.cursor()
+                query = f"UPDATE servicos SET nome = '{nome}', valor = {valor}, dependencia = '{dependencia}' WHERE id_servico = '{id}'"
+                cursor.execute(query)
+                self.conexao.commit()
+                print(id, nome, valor, dependencia)
+                return True
+            
+            else:
+                print("Erro ao conectar com o banco de dados!")
+                return False
+
+        except Exception as erro:
+            print(f"Exceção update_service: {erro}")
             self.error = erro
             self.conexao.rollback()
         

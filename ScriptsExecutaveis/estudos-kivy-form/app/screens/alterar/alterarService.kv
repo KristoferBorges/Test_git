@@ -48,8 +48,8 @@
             spacing: dp(20)
         
             MDTextField:
-                id: id_cliente
-                name: "id_cliente"
+                id: id_servico
+                name: "id_servico"
                 required: True
                 hint_text: "ID *"
                 mode: "rectangle"
@@ -68,7 +68,7 @@
                 font_size: "15dp"
                 size_hint_x: 0.32
                 on_release:
-                    root.consultarServiço()
+                    root.consultarServico()
                     
         MDBoxLayout:
             orientation: "vertical"
@@ -116,6 +116,7 @@
                 line_color: 0, 0, 0, 0
                 size_hint_x: 0.65
                 width: "120dp"
+                disabled: True
                 on_release:
                     root.mostrarIconSemDependencia()
 
@@ -142,6 +143,7 @@
                 line_color: 0, 0, 0, 0
                 size_hint_x: 0.65
                 width: "120dp"
+                disabled: True
                 on_release:
                     root.mostrarIconComDependencia()
                 

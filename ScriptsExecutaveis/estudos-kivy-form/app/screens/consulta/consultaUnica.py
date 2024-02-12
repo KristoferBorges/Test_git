@@ -101,6 +101,7 @@ class ConsultaUnica(MDScreen):
 
                         # Exibindo o popup
                         popup.open()
+
                 elif self.ids.id_servico.text != "":
                     # Popup de preenchimento válido (Apenas uma consulta por vez)
                     if self.system_crud.read_ID_service(self.ids.id_servico.text) == False:
@@ -231,7 +232,12 @@ class ConsultaUnica(MDScreen):
 
                         # Exibindo o popup
                         popup.open()
+
         except Exception as error:
             preenchimento = 0
+            
+            if "NoneType" in str(error):
+                FunctionsCase.popup_search_error()
+                
             print(f"Exceção ConsultaÚnica: {error}")
     

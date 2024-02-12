@@ -96,7 +96,7 @@ class AlterarCliente(MDScreen):
                     self.ids.comentario_cliente.readonly = True
                     self.ids.btn_data_registro.disabled = True
                 else:
-                    FunctionsCase.popup_error(self.system_crud.error)
+                    FunctionsCase.popup_change_error(self.system_crud.error)
                     self.ids.ra_cliente.text = ""
                     self.ids.nome_cliente.text = ""
                     self.ids.semestre_cliente.text = ""

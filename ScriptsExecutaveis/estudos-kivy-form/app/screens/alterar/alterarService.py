@@ -78,21 +78,39 @@ class AlterarService(Screen):
                 else:
                     self.dependencia = "Regular"
 
-                if self.system_crud.update_service(self.ids.id_servico.text, self.ids.nome_servico.text, self.ids.valor_servico.text, self.dependencia) == True:
-                    FunctionsCase.popup_alteracao_sucesso()
-                    self.ids.id_servico.text = ""
-                    self.ids.nome_servico.text = ""
-                    self.ids.valor_servico.text = ""
-                    self.ids.icon_sem_dependencia.opacity = 0
-                    self.ids.icon_com_dependencia.opacity = 0
+                if self.ids.nome_servico.text == "" or self.ids.valor_servico.text == "" or self.dependencia == None:
+                    # Pop-up de erro de preenchimento
+                    FunctionsCase.popup_preenchimento()
 
-                    # Bloqueia os campos para edição
-                    self.ids.id_servico.readonly = False
-                    self.ids.nome_servico.readonly = True
-                    self.ids.valor_servico.readonly = True
-                    self.ids.btn_sem_dependencia.disabled = True
-                    self.ids.btn_com_dependencia.disabled = True
+                else:
+                    if self.system_crud.update_service(self.ids.id_servico.text, self.ids.nome_servico.text, self.ids.valor_servico.text, self.dependencia) == True:
+                        FunctionsCase.popup_alteracao_sucesso()
+                        self.ids.id_servico.text = ""
+                        self.ids.nome_servico.text = ""
+                        self.ids.valor_servico.text = ""
+                        self.ids.icon_sem_dependencia.opacity = 0
+                        self.ids.icon_com_dependencia.opacity = 0
 
+                        # Bloqueia os campos para edição
+                        self.ids.id_servico.readonly = False
+                        self.ids.nome_servico.readonly = True
+                        self.ids.valor_servico.readonly = True
+                        self.ids.btn_sem_dependencia.disabled = True
+                        self.ids.btn_com_dependencia.disabled = True
+                    else:
+                        FunctionsCase.popup_change_error(self.system_crud.error)
+                        self.ids.id_servico.text = ""
+                        self.ids.nome_servico.text = ""
+                        self.ids.valor_servico.text = ""
+                        self.ids.icon_sem_dependencia.opacity = 0
+                        self.ids.icon_com_dependencia.opacity = 0
+
+                        # Bloqueia os campos para edição
+                        self.ids.id_servico.readonly = False
+                        self.ids.nome_servico.readonly = True
+                        self.ids.valor_servico.readonly = True
+                        self.ids.btn_sem_dependencia.disabled = True
+                        self.ids.btn_com_dependencia.disabled = True
 
         except Exception as erro:
             print(f"Exceção alterarServico: {erro}")

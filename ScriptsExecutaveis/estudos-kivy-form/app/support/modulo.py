@@ -46,6 +46,19 @@ class FunctionsCase:
         close_button.bind(on_release=popup.dismiss)
         popup.open()
     
+    def popup_change_error(error):
+        # Pop-up de erro
+        content = MDBoxLayout(orientation="vertical", padding="10dp")
+        label = MDLabel(text="Erro ao realizar alteração", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+        close_button = MDFillRoundFlatButton(text="Fechar", size_hint=(1, None), font_name="app/support/fonts/monofonto.otf")
+
+        content.add_widget(label)
+        content.add_widget(close_button)
+
+        popup = Popup(title=f"{error}", content=content, size_hint=(0.8, 0.5), auto_dismiss=False)
+        close_button.bind(on_release=popup.dismiss)
+        popup.open()
+    
     def popup_preenchimento():
         # Pop-up de erro de preenchimento
         content = MDBoxLayout(orientation="vertical", padding="10dp")

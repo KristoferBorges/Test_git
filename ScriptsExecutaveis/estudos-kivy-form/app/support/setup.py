@@ -504,8 +504,11 @@ class System_Crud:
                 return False
 
         except Exception as erro:
+            if "42000" in str(erro):
+                self.error = "Valor inválido"
+            else:
+                self.error = erro
             print(f"Exceção update_service: {erro}")
-            self.error = erro
             self.conexao.rollback()
         
         finally:

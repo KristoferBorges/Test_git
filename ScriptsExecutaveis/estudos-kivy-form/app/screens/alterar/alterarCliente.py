@@ -64,7 +64,7 @@ class AlterarCliente(MDScreen):
 
         except Exception as erro:
             if "NoneType" in str(erro):
-                FunctionsCase.popup_id_nao_encontrado()
+                FunctionsCase.popup_ra_nao_encontrado()
             print(f"Exceção alterarCliente: {erro}")
 
     def finalizarAlteracao(self):

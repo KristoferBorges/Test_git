@@ -63,6 +63,8 @@ class AlterarCliente(MDScreen):
                 self.ids.btn_data_registro.disabled = False
 
         except Exception as erro:
+            if "NoneType" in str(erro):
+                FunctionsCase.popup_id_nao_encontrado()
             print(f"Exceção alterarCliente: {erro}")
 
     def finalizarAlteracao(self):

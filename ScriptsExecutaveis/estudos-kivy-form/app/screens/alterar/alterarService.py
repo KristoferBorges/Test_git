@@ -59,7 +59,10 @@ class AlterarService(Screen):
                 self.ids.btn_com_dependencia.disabled = False
 
         except Exception as erro:
+            if "NoneType" in str(erro):
+                FunctionsCase.popup_id_nao_encontrado()
             print(f"Exceção alterarService: {erro}")
+        
 
     def finalizarAlteracao(self):
         """

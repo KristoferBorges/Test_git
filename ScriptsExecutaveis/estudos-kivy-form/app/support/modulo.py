@@ -149,3 +149,17 @@ class FunctionsCase:
                 texto_filtrado += letra
 
         return texto_filtrado.title()
+
+    def formatNome(nome):
+        """
+        Função que limita o tamanho do nome
+        """
+        nomeFormatado = ""
+        nome = FunctionsCase.filtrandoLetras(nome)
+        
+        if len(nome) > 15:
+            nomeFormatado = nome[:15] + "..."
+        else:
+            nomeFormatado = nome
+
+        return nomeFormatado

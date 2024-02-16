@@ -1,54 +1,29 @@
-import mysql.connector
+from app.support.modulo import FunctionsCase
 
-class System_Crud:
+def formatNome(nome):
     """
-    Classe responsável por gerenciar o CRUD do sistema
+    Função que limita o tamanho do nome
     """
-    def __init__(self):
-        self.connected = False
-        self.conexao = None
-        self.conectar_banco()
-        self.error = None
+    space = list()
+    nomeFormatado = ""
+    primeiroNome = ""
+    sobrenome = ""
+    nome = FunctionsCase.filtrandoLetras(nome)
+    
+    for ind, letra in enumerate(nome):
+        if letra == " ":
+            space.append(ind)
+        else:
+            pass
+    
+    primeiroNome = nome[:space[0]].strip()
+    sobrenome = nome[space[-1]:].strip()
 
-    def conectar_banco(self):
-        """
-        Método responsável por conectar com o banco de dados
-        """
-        # Conexão com o banco de dados
-        try:
-            self.conexao = mysql.connector.connect(
-                host="localhost",
-                user="root",
-                password="",
-                database="bd_tests",
-            )
-            print("Conexão com o banco de dados realizada com sucesso!")
-            self.connected = True
+    print(space)
+    print(primeiroNome)
+    print(sobrenome)
 
-        except Exception as erro:
-            self.connected = False
-            print("Erro ao conectar com o banco de dados: ", erro)
-    def read_RA(self, ra):
-        """
-        Método responsável por realizar a busca do RA do cliente
-        """
-        try:
-            self.conectar_banco()
-            if self.connected == True:
-                ra_cliente = ra
-                cursor = self.conexao.cursor()
-                cursor.execute(f"SELECT * FROM clientes WHERE ra_cliente = '{ra_cliente}'")
-                result = cursor.fetchall()
-                if result == []:
-                    print("RA não encontrado!")
-                else:
-                    print("RA encontrado!")
-            else:
-                print("Erro ao conectar com o banco de dados!")
-        except Exception as erro:
-            print(f"Exceção read_RA: {erro}")
-        
-        finally:
-            self.conexao.close()
 
-System_Crud().read_RA(ra="54676")
+formatNome("João da Silva")
+            
+                

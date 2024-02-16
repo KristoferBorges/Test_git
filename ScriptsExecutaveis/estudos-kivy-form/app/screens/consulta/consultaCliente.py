@@ -47,7 +47,7 @@ class ConsultaCliente(MDScreen):
                 for item in data_from_database:
                     # Criando rótulos para cada coluna
                     ra_label = Label(text=str(item[0]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
-                    nome_label = Label(text=str(item[1]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+                    nome_label = Label(text=str(FunctionsCase.formatNome(item[1])), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
                     semestre_label = Label(text=str(item[2]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
                     data_registro_label = Label(text=str(item[3]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
 

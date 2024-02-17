@@ -51,7 +51,7 @@ class ConsultaOrcamento(MDScreen):
                 for item in data_from_database:
                     # Criando rótulos para cada coluna
                     id_label = Label(text=str(item[0]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
-                    nome_label = Label(text=str(item[1]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
+                    nome_label = Label(text=str(FunctionsCase.formatNome(item[1])), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
                     servico_label = Label(text=str(item[2]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
                     valor_cobrado_label = Label(text=str(item[3]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
                     contratacao_label = Label(text=str(item[4]), halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf")
@@ -86,7 +86,7 @@ class ConsultaOrcamento(MDScreen):
                 popup_layout.add_widget(close_button)
 
                 # Criando o popup
-                popup = Popup(title="Consulta de Orçamentos", content=popup_layout, size_hint=(0.9, 0.9), auto_dismiss=True)
+                popup = Popup(title="Consulta de Orçamentos", content=popup_layout, size_hint=(0.98, 0.98), auto_dismiss=True)
                 close_button.bind(on_release=popup.dismiss)
 
                 # Exibindo o popup

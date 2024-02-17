@@ -19,7 +19,7 @@ class TelaPrincipal(MDScreen):
         self.user_manager.logout()
         if self.user_manager.is_user_logged_in() == False:
             if platform.system() == "Windows":
-                Window.size = (800, 394)
+                Window.size = (900, 394)
         
         # Ativa a função de resetSpinner
         self.manager.get_screen("login_screen").resetSpinner()

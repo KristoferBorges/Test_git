@@ -18,10 +18,9 @@ def formatNome(nome):
     
     primeiroNome = nome[:space[0]].strip()
     sobrenome = nome[space[-1]:].strip()
-
-    print(space)
-    print(primeiroNome)
-    print(sobrenome)
+    nomeFormatado = primeiroNome + " " + sobrenome
+    
+    return nomeFormatado
 
 
 formatNome("João da Silva")

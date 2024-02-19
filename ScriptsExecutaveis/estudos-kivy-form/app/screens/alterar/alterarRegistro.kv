@@ -51,7 +51,7 @@
                 id: id_orcamento
                 name: "id_orcamento"
                 required: True
-                hint_text: "ID *"
+                hint_text: "ID Orçamento*"
                 mode: "rectangle"
                 size_hint_x: 0.65
                 hint_text_color_focus: "white"
@@ -116,7 +116,7 @@
                 size_hint_x: 0.5
                 disabled: True
                 on_release:
-                    root.show_date_picker()
+                    root.show_date_contratacao()
             
             MDLabel:
                 id: data_contratacao
@@ -143,7 +143,7 @@
                 size_hint_x: 0.5
                 disabled: True
                 on_release:
-                    root.show_date_picker()
+                    root.show_date_entrega()
             
             MDLabel:
                 id: data_entrega
@@ -200,7 +200,7 @@
                 width: "120dp"
                 disabled: True
                 on_release:
-                    root.mostrarIconPendente()
+                    root.situacaoPendente()
 
                 AnchorLayout:
                     anchor_x: "left"
@@ -227,7 +227,7 @@
                 width: "120dp"
                 disabled: True
                 on_release:
-                    root.mostrarIconConcluido()
+                    root.situacaoConcluido()
                 
                 AnchorLayout:
                     anchor_x: "left"
@@ -254,7 +254,7 @@
                 width: "120dp"
                 disabled: True
                 on_release:
-                    root.mostrarIconIndeferido()
+                    root.situacaoIndeferido()
                 
                 AnchorLayout:
                     anchor_x: "left"

@@ -228,7 +228,7 @@ class System_Crud:
 
     def read_ID_orcamento(self, id):
         """
-        Método responsável por realizar a busca do ID do orçamento
+        Método responsável por realizar a busca do ID do orçamento com alguns filtros
         """
         try:
             self.conectar_banco()
@@ -251,6 +251,31 @@ class System_Crud:
         
         except Exception as erro:
             print(f"Exceção read_ID_orcamento: {erro}")
+        
+        finally:
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
+
+    def read_ID_orcamento_nofilter(self, id):
+        """
+        Método responsável por realizar a busca do ID do orçamento sem filtros
+        """
+        try:
+            self.conectar_banco()
+            if self.connected == True:
+                cursor = self.conexao.cursor()
+                cursor.execute(f"SELECT * FROM cliente_servico WHERE id = '{id}'")
+                result = cursor.fetchall()
+                if result == []:
+                    return False
+                else:
+                    return result
+            
+            else:
+                print("Erro ao conectar com o banco de dados!")
+        
+        except Exception as erro:
+            print(f"Exceção read_ID_orcamento_nofilter: {erro}")
         
         finally:
             print("Fechando conexão com o banco de dados...")
@@ -514,6 +539,41 @@ class System_Crud:
         finally:
             print("Fechando conexão com o banco de dados...")
             self.conexao.close()
+
+    def update_orcamento(self, id, ra_cliente, id_servico, data_contratacao, data_entrega, valor_cobrado, valor_pendente, situacao):
+        """
+        Método responsável por atualizar os dados do serviço
+        """
+        try:
+            print(id, ra_cliente, id_servico, data_contratacao, data_entrega, valor_cobrado, valor_pendente, situacao)
+            self.conectar_banco()
+            if self.connected == True:
+                cursor = self.conexao.cursor()
+                query = f"UPDATE cliente_servico SET id_cliente = '{ra_cliente}', tipo_servico = '{id_servico}', data_contratacao = '{data_contratacao}', data_entrega = '{data_entrega}', valor_cobrado = '{valor_cobrado}', pendencia = '{valor_pendente}', situacao = '{situacao}' WHERE id = '{id}'"
+                cursor.execute(query)
+                self.conexao.commit()
+                return True
+        
+            else:
+                print("Erro ao conectar com o banco de dados!")
+                return False
+            
+
+        except Exception as erro:
+            if "42000" in str(erro):
+                self.error = "Valor inválido"
+            
+            elif "23000" in str(erro):
+                self.error = "RA ou ID inválido"
+            else:
+                self.error = erro
+            print(f"Exceção update_orcamento: {erro}")
+            self.conexao.rollback()
+        
+        finally:
+            print("Fechando conexão com o banco de dados...")
+            self.conexao.close()
+
 
     def delete(self):
         pass

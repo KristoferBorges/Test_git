@@ -9,9 +9,27 @@
 #:include ConsultaCliente consultaCliente.ConsultaCliente
 #:include ConsultaService consultaService.ConsultaService
 #:include ConsultaUnica consultaUnica.ConsultaUnica
+#:include DeletarCliente deletarCliente.DeletarCliente
+#:include DeletarServico deletarServico.DeletarServico
 
 <MainScreenManager>
     transition: NoTransition()
+
+    DeletarCliente:
+        id: deletar_cliente
+        name: 'deletar_cliente'
+
+    DeletarServico:
+        id: deletar_servico
+        name: 'deletar_servico'
+
+    DeletarOrcamento:
+        id: deletar_orcamento
+        name: 'deletar_orcamento'
+
+    TelaPrincipal:
+        id: tela_principal
+        name: 'tela_principal'
 
     AlterarRegistro:
         id: alterar_registro
@@ -40,10 +58,6 @@
     ConsultaCliente:
         id: consulta_cliente
         name: 'consulta_cliente'
-
-    TelaPrincipal:
-        id: tela_principal
-        name: 'tela_principal'
 
     NewService:
         id: new_service

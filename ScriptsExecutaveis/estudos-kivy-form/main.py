@@ -11,7 +11,7 @@ class LiveApp(MDApp, App):
     # Fontes
     font_monofonto = os.path.join(os.getcwd(), "app/support/fonts/monofonto.otf")
 
-    DEBUG = 0 # set this to 0 make live app not working
+    DEBUG = 1 # set this to 0 make live app not working
 
     # *.kv files to watch
     KV_FILES = {
@@ -32,6 +32,9 @@ class LiveApp(MDApp, App):
         os.path.join(os.getcwd(), "app/screens/alterar/alterarCliente.kv"),
         os.path.join(os.getcwd(), "app/screens/alterar/alterarService.kv"),
         os.path.join(os.getcwd(), "app/screens/alterar/alterarRegistro.kv"),
+        os.path.join(os.getcwd(), "app/screens/deletar/deletarCliente.kv"),
+        os.path.join(os.getcwd(), "app/screens/deletar/deletarServico.kv"),
+        os.path.join(os.getcwd(), "app/screens/deletar/deletarOrcamento.kv"),
     }
 
     # class to watch from *.py files
@@ -53,6 +56,9 @@ class LiveApp(MDApp, App):
         "AlterarCliente": "app.screens.alterar.alterarCliente",
         "AlterarService": "app.screens.alterar.alterarService",
         "AlterarRegistro": "app.screens.alterar.alterarRegistro",
+        "DeletarCliente": "app.screens.deletar.deletarCliente",
+        "DeletarServico": "app.screens.deletar.deletarServico",
+        "DeletarOrcamento": "app.screens.deletar.deletarOrcamento",
     }
 
     # auto reload path

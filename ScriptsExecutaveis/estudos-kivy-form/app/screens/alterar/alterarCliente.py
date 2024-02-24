@@ -116,4 +116,24 @@ class AlterarCliente(MDScreen):
 
         except Exception as erro:
             print(f"Exceção alterarCliente: {erro}")
+    
+    def resetarCampos(self):
+        """
+        Método ligado ao botão da interface para resetar os campos preenchidos.
+        --> Sem retorno.
+        """
+        self.ids.ra_cliente.text = ""
+        self.ids.nome_cliente.text = ""
+        self.ids.semestre_cliente.text = ""
+        self.ids.data_registro.text = ""
+        self.ids.comentario_cliente.text = ""
+
+        # Bloqueia os campos para edição
+        self.ids.ra_cliente.readonly = False
+        self.ids.ra_cliente.line_color_focus = (1, 1, 1, 1)
+        self.ids.nome_cliente.readonly = True
+        self.ids.semestre_cliente.readonly = True
+        self.ids.data_registro.readonly = True
+        self.ids.comentario_cliente.readonly = True
+        self.ids.btn_data_registro.disabled = True
 

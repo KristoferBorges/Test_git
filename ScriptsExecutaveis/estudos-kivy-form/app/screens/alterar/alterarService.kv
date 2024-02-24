@@ -169,11 +169,24 @@
             anchor_y: "bottom"
 
             MDRoundFlatIconButton:
-                text: "FINALIZAR"
-                icon: "check"
+                text: "RESETAR"
+                icon: "close-circle-outline"
                 size_hint: (0.1, 0.06)
                 font_name: app.font_monofonto
+                theme_text_color: "Custom"
+                text_color: 0.8, 0, 0, 1
+                icon_color: 0.8, 0, 0, 1
                 line_color: 0, 0, 0, 0
                 font_size: "20dp"
                 on_release:
-                    root.finalizarAlteracao()
+                    root.resetarCampos()
+
+        MDRoundFlatIconButton:
+            text: "FINALIZAR"
+            icon: "check"
+            size_hint: (0.1, 0.06)
+            font_name: app.font_monofonto
+            line_color: 0, 0, 0, 0
+            font_size: "20dp"
+            on_release:
+                root.finalizarAlteracao()

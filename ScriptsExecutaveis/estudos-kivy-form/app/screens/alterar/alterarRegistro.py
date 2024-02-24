@@ -202,3 +202,33 @@ class AlterarRegistro(Screen):
 
         except Exception as erro:
             print(f"Exceção alterarRegistro: {erro}")
+
+    def resetarCampos(self):
+        """
+        Método responsável por resetar os campos do formulário.
+        """
+        self.ids.id_orcamento.text = ""
+        self.ids.ra_cliente.text = ""
+        self.ids.id_servico.text = ""
+        self.ids.data_contratacao.text = ""
+        self.ids.data_entrega.text = ""
+        self.ids.valor_cobrado.text = ""
+        self.ids.valor_pendente.text = ""
+        self.ids.icon_pendente.opacity = 0
+        self.ids.icon_concluido.opacity = 0
+        self.ids.icon_indeferido.opacity = 0
+        self.situacao = None
+
+        # Bloqueia os campos para edição
+        self.ids.id_orcamento.readonly = False
+        self.ids.ra_cliente.readonly = True
+        self.ids.id_servico.readonly = True
+        self.ids.data_contratacao.readonly = True
+        self.ids.data_entrega.readonly = True
+        self.ids.valor_cobrado.readonly = True
+        self.ids.valor_pendente.readonly = True
+        self.ids.btn_data_contratacao.disabled = True
+        self.ids.btn_data_entrega.disabled = True
+        self.ids.btn_pendente.disabled = True
+        self.ids.btn_concluido.disabled = True
+        self.ids.btn_indeferido.disabled = True

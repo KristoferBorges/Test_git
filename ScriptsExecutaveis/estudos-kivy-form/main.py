@@ -11,7 +11,7 @@ class LiveApp(MDApp, App):
     # Fontes
     font_monofonto = os.path.join(os.getcwd(), "app/support/fonts/monofonto.otf")
 
-    DEBUG = 1 # set this to 0 make live app not working
+    DEBUG = 0 # set this to 0 make live app not working
 
     # *.kv files to watch
     KV_FILES = {

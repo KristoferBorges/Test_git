@@ -40,6 +40,7 @@ class ConsultaCliente(MDScreen):
                 header_layout.add_widget(Label(text="Nome", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Semestre", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Registro", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
+                header_layout.add_widget(Label(text="Status", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
 
                 content_layout.add_widget(header_layout)
 
@@ -50,6 +51,7 @@ class ConsultaCliente(MDScreen):
                     nome_label = Label(text=str(FunctionsCase.formatNome(item[1])), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
                     semestre_label = Label(text=str(item[2]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
                     data_registro_label = Label(text=str(item[3]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+                    status_label = Label(text=str(item[5]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
 
                     # Adicionando rótulos ao layout
                     row_layout = BoxLayout(orientation="horizontal", padding="10dp", spacing="10dp", size_hint_y=None, height="20dp")
@@ -57,6 +59,7 @@ class ConsultaCliente(MDScreen):
                     row_layout.add_widget(nome_label)
                     row_layout.add_widget(semestre_label)
                     row_layout.add_widget(data_registro_label)
+                    row_layout.add_widget(status_label)
 
                     content_layout.add_widget(row_layout)
 

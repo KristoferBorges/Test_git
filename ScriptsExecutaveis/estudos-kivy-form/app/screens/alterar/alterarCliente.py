@@ -10,7 +10,24 @@ class AlterarCliente(MDScreen):
         self.system_crud = System_Crud()
         self.data_registro = None
         self.data_from_database = None
+        self.status = None
     
+    def statusAtivo(self):
+        """
+        Método responsável por mostrar o ícone de check
+        """
+        self.ids.icon_ativo.opacity = 1
+        self.ids.icon_inativo.opacity = 0
+        self.status = "ATIVO"
+    
+    def statusInativo(self):
+        """
+        Método responsável por mostrar o ícone de check
+        """
+        self.ids.icon_inativo.opacity = 1
+        self.ids.icon_ativo.opacity = 0
+        self.status = "INATIVO"
+
     def on_save(self, instance, value, date_range):
         """
         Evento chamado quando o botão "OK" da caixa de diálogo é clicado.
@@ -52,6 +69,15 @@ class AlterarCliente(MDScreen):
                 self.ids.semestre_cliente.text = self.data_from_database[0][2]
                 self.ids.data_registro.text = self.data_from_database[0][3].strftime("%d/%m/%Y")
                 self.ids.comentario_cliente.text = self.data_from_database[0][4]
+                
+                status = self.data_from_database[0][5]
+
+                if status == "ATIVO":
+                    self.statusAtivo()
+                elif status == "INATIVO":
+                    self.statusInativo()
+                else:
+                    pass
 
                 # Libera os campos para edição
                 self.ids.ra_cliente.readonly = True
@@ -61,6 +87,8 @@ class AlterarCliente(MDScreen):
                 self.ids.data_registro.readonly = False
                 self.ids.comentario_cliente.readonly = False
                 self.ids.btn_data_registro.disabled = False
+                self.ids.btn_ativo.disabled = False
+                self.ids.btn_inativo.disabled = False
 
         except Exception as erro:
             if "NoneType" in str(erro):
@@ -81,13 +109,16 @@ class AlterarCliente(MDScreen):
                 self.ids.nome_cliente.text = self.ids.nome_cliente.text.title()
                 self.data_registro = datetime.strptime(self.ids.data_registro.text, "%d/%m/%Y").strftime("%Y-%m-%d")
 
-                if self.system_crud.update_client(self.ids.ra_cliente.text, self.ids.nome_cliente.text, self.ids.semestre_cliente.text, self.data_registro, self.ids.comentario_cliente.text) == True:
+                if self.system_crud.update_client(self.ids.ra_cliente.text, self.ids.nome_cliente.text, self.ids.semestre_cliente.text, self.data_registro, self.ids.comentario_cliente.text, self.status) == True:
                     FunctionsCase.popup_alteracao_sucesso()
                     self.ids.ra_cliente.text = ""
                     self.ids.nome_cliente.text = ""
                     self.ids.semestre_cliente.text = ""
                     self.ids.data_registro.text = ""
                     self.ids.comentario_cliente.text = ""
+                    self.ids.icon_ativo.opacity = 0
+                    self.ids.icon_inativo.opacity = 0
+                    self.status = None
 
                     # Bloqueia os campos para edição
                     self.ids.ra_cliente.readonly = False
@@ -97,6 +128,9 @@ class AlterarCliente(MDScreen):
                     self.ids.data_registro.readonly = True
                     self.ids.comentario_cliente.readonly = True
                     self.ids.btn_data_registro.disabled = True
+                    self.ids.btn_ativo.disabled = True
+                    self.ids.btn_inativo.disabled = True
+
                 else:
                     FunctionsCase.popup_change_error(self.system_crud.error)
                     self.ids.ra_cliente.text = ""
@@ -104,6 +138,9 @@ class AlterarCliente(MDScreen):
                     self.ids.semestre_cliente.text = ""
                     self.ids.data_registro.text = ""
                     self.ids.comentario_cliente.text = ""
+                    self.ids.icon_ativo.opacity = 0
+                    self.ids.icon_inativo.opacity = 0
+                    self.status = None
 
                     # Bloqueia os campos para edição
                     self.ids.ra_cliente.readonly = False
@@ -113,6 +150,8 @@ class AlterarCliente(MDScreen):
                     self.ids.data_registro.readonly = True
                     self.ids.comentario_cliente.readonly = True
                     self.ids.btn_data_registro.disabled = True
+                    self.ids.btn_ativo.disabled = True
+                    self.ids.btn_inativo.disabled = True
 
         except Exception as erro:
             print(f"Exceção alterarCliente: {erro}")
@@ -127,6 +166,9 @@ class AlterarCliente(MDScreen):
         self.ids.semestre_cliente.text = ""
         self.ids.data_registro.text = ""
         self.ids.comentario_cliente.text = ""
+        self.ids.icon_ativo.opacity = 0
+        self.ids.icon_inativo.opacity = 0
+        self.status = None
 
         # Bloqueia os campos para edição
         self.ids.ra_cliente.readonly = False
@@ -136,4 +178,6 @@ class AlterarCliente(MDScreen):
         self.ids.data_registro.readonly = True
         self.ids.comentario_cliente.readonly = True
         self.ids.btn_data_registro.disabled = True
+        self.ids.btn_ativo.disabled = True
+        self.ids.btn_inativo.disabled = True
 

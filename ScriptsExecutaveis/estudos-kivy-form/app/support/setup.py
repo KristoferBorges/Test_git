@@ -61,7 +61,7 @@ class System_Crud:
             self.connected = False
             print("Erro ao conectar com o banco de dados: ", erro)
 
-    def createClients(self, RA, nome, semestre, data, comentario=None):
+    def createClients(self, RA, nome, semestre, data, comentario=None, status="ATIVO"):
         """
         Método responsável por cadastrar novos clientes
         """
@@ -71,7 +71,7 @@ class System_Crud:
             ponteiro = self.conexao.cursor()
 
             # Query de inserção
-            inserir_dados = f"INSERT INTO clientes VALUES ('{RA}', '{nome}', {semestre}, '{data}', '{comentario}')"
+            inserir_dados = f"INSERT INTO clientes VALUES ('{RA}', '{nome}', {semestre}, '{data}', '{comentario}', '{status}')"
 
             # Executando a query
             ponteiro.execute(inserir_dados)
@@ -100,7 +100,7 @@ class System_Crud:
             print("Fechando conexão com o banco de dados...")
             self.conexao.close()
     
-    def createService(self, nome, valor, dependencia):
+    def createService(self, nome, valor, dependencia, status="ATIVO"):
         """
         Função responsável por cadastrar novos serviços
         """
@@ -110,7 +110,7 @@ class System_Crud:
             ponteiro = self.conexao.cursor()
 
             # Query de inserção
-            inserir_dados = f"INSERT INTO servicos VALUES (default, '{nome}', '{valor}', '{dependencia}')"
+            inserir_dados = f"INSERT INTO servicos VALUES (default, '{nome}', '{valor}', '{dependencia}', '{status}')"
 
             # Executando a query
             ponteiro.execute(inserir_dados)
@@ -482,7 +482,7 @@ class System_Crud:
             self.conexao.close()
 
 
-    def update_client(self, ra, nome, semestre, data, comentario):
+    def update_client(self, ra, nome, semestre, data, comentario, status):
         """
         Método responsável por atualizar os dados do cliente
         """
@@ -490,7 +490,7 @@ class System_Crud:
             self.conectar_banco()
             if self.connected == True:
                 cursor = self.conexao.cursor()
-                query = f"UPDATE clientes SET nome = '{nome}', semestre = {semestre}, data_registro = '{data}', obs = '{comentario}' WHERE ra_cliente = '{ra}'"
+                query = f"UPDATE clientes SET nome = '{nome}', semestre = {semestre}, data_registro = '{data}', obs = '{comentario}', status = '{status}' WHERE ra_cliente = '{ra}'"
                 cursor.execute(query)
                 self.conexao.commit()
                 print(ra, nome, semestre, data, comentario)

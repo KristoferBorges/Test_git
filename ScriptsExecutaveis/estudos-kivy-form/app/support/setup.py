@@ -493,7 +493,7 @@ class System_Crud:
                 query = f"UPDATE clientes SET nome = '{nome}', semestre = {semestre}, data_registro = '{data}', obs = '{comentario}', status = '{status}' WHERE ra_cliente = '{ra}'"
                 cursor.execute(query)
                 self.conexao.commit()
-                print(ra, nome, semestre, data, comentario)
+                print(ra, nome, semestre, data, comentario, status)
                 return True
                     
             else:
@@ -509,7 +509,7 @@ class System_Crud:
             print("Fechando conexão com o banco de dados...")
             self.conexao.close()
 
-    def update_service(self, id, nome, valor, dependencia):
+    def update_service(self, id, nome, valor, dependencia, status):
         """
         Método responsável por atualizar os dados do serviço
         """
@@ -518,10 +518,10 @@ class System_Crud:
             self.conectar_banco()
             if self.connected == True:
                 cursor = self.conexao.cursor()
-                query = f"UPDATE servicos SET nome = '{nome}', valor = {valor}, dependencia = '{dependencia}' WHERE id_servico = '{id}'"
+                query = f"UPDATE servicos SET nome = '{nome}', valor = {valor}, dependencia = '{dependencia}', status = '{status}' WHERE id_servico = '{id}'"
                 cursor.execute(query)
                 self.conexao.commit()
-                print(id, nome, valor, dependencia)
+                print(id, nome, valor, dependencia, status)
                 return True
             
             else:

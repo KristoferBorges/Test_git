@@ -8,6 +8,23 @@ class AlterarService(Screen):
         self.system_crud = System_Crud()
         self.data_from_database = None
         self.dependencia = None
+        self.status = None
+
+    def statusAtivo(self):
+        """
+        Método responsável por mostrar o ícone de check
+        """
+        self.ids.icon_ativo.opacity = 1
+        self.ids.icon_inativo.opacity = 0
+        self.status = "ATIVO"
+    
+    def statusInativo(self):
+        """
+        Método responsável por mostrar o ícone de check
+        """
+        self.ids.icon_inativo.opacity = 1
+        self.ids.icon_ativo.opacity = 0
+        self.status = "INATIVO"
 
     def mostrarIconSemDependencia(self):
         """
@@ -43,7 +60,10 @@ class AlterarService(Screen):
                 # Preenchendo os campos com os dados do serviço
                 self.ids.nome_servico.text = self.data_from_database[0][1]
                 self.ids.valor_servico.text = str(self.data_from_database[0][2])
+        
                 dependencia = self.data_from_database[0][3]
+                status = self.data_from_database[0][4]
+
                 if dependencia == "DP":
                     self.mostrarIconComDependencia()
                 elif dependencia == "Regular":
@@ -51,13 +71,24 @@ class AlterarService(Screen):
                 else:
                     pass
 
+                if status == "ATIVO":
+                    self.statusAtivo()
+                elif status == "INATIVO":
+                    self.statusInativo()
+                else:
+                    pass
+                
+            
                 # Libera os campos para edição
                 self.ids.id_servico.readonly = True
                 self.ids.nome_servico.readonly = False
                 self.ids.valor_servico.readonly = False
                 self.ids.btn_sem_dependencia.disabled = False
                 self.ids.btn_com_dependencia.disabled = False
+                self.ids.btn_ativo.disabled = False
+                self.ids.btn_inativo.disabled = False
 
+                
         except Exception as erro:
             if "NoneType" in str(erro):
                 FunctionsCase.popup_id_nao_encontrado()
@@ -86,13 +117,15 @@ class AlterarService(Screen):
                     FunctionsCase.popup_preenchimento()
 
                 else:
-                    if self.system_crud.update_service(self.ids.id_servico.text, self.ids.nome_servico.text, self.ids.valor_servico.text, self.dependencia) == True:
+                    if self.system_crud.update_service(self.ids.id_servico.text, self.ids.nome_servico.text, self.ids.valor_servico.text, self.dependencia, self.status) == True:
                         FunctionsCase.popup_alteracao_sucesso()
                         self.ids.id_servico.text = ""
                         self.ids.nome_servico.text = ""
                         self.ids.valor_servico.text = ""
                         self.ids.icon_sem_dependencia.opacity = 0
                         self.ids.icon_com_dependencia.opacity = 0
+                        self.ids.icon_ativo.opacity = 0
+                        self.ids.icon_inativo.opacity = 0
 
                         # Bloqueia os campos para edição
                         self.ids.id_servico.readonly = False
@@ -100,6 +133,9 @@ class AlterarService(Screen):
                         self.ids.valor_servico.readonly = True
                         self.ids.btn_sem_dependencia.disabled = True
                         self.ids.btn_com_dependencia.disabled = True
+                        self.ids.btn_ativo.disabled = True
+                        self.ids.btn_inativo.disabled = True
+
                     else:
                         FunctionsCase.popup_change_error(self.system_crud.error)
                         self.ids.id_servico.text = ""
@@ -107,6 +143,9 @@ class AlterarService(Screen):
                         self.ids.valor_servico.text = ""
                         self.ids.icon_sem_dependencia.opacity = 0
                         self.ids.icon_com_dependencia.opacity = 0
+                        self.ids.icon_ativo.opacity = 0
+                        self.ids.icon_inativo.opacity = 0
+                        self.status = None
 
                         # Bloqueia os campos para edição
                         self.ids.id_servico.readonly = False
@@ -114,6 +153,8 @@ class AlterarService(Screen):
                         self.ids.valor_servico.readonly = True
                         self.ids.btn_sem_dependencia.disabled = True
                         self.ids.btn_com_dependencia.disabled = True
+                        self.ids.btn_ativo.disabled = True
+                        self.ids.btn_inativo.disabled = True
 
         except Exception as erro:
             print(f"Exceção alterarServico: {erro}")
@@ -127,10 +168,16 @@ class AlterarService(Screen):
         self.ids.valor_servico.text = ""
         self.ids.icon_sem_dependencia.opacity = 0
         self.ids.icon_com_dependencia.opacity = 0
+        self.ids.icon_ativo.opacity = 0
+        self.ids.icon_inativo.opacity = 0
+        self.status = None
 
         # Bloqueia os campos para edição
         self.ids.id_servico.readonly = False
+        self.ids.id_servico.line_color_focus = (1, 1, 1, 1)
         self.ids.nome_servico.readonly = True
         self.ids.valor_servico.readonly = True
         self.ids.btn_sem_dependencia.disabled = True
         self.ids.btn_com_dependencia.disabled = True
+        self.ids.btn_ativo.disabled = True
+        self.ids.btn_inativo.disabled = True

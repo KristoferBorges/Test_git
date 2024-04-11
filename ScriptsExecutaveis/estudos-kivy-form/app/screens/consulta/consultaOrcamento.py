@@ -40,7 +40,7 @@ class ConsultaOrcamento(MDScreen):
                 header_layout.add_widget(Label(text="Nome", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Serviço", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Valor", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
-                header_layout.add_widget(Label(text="Contrataçaõ", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
+                header_layout.add_widget(Label(text="Contratação", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Entrega", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Pendência", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Status", halign="center", font_size="12dp", font_name="app/support/fonts/monofonto.otf"))

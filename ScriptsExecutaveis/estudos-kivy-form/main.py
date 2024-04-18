@@ -16,8 +16,8 @@ class LiveApp(MDApp, App):
     # *.kv files to watch
     KV_FILES = {
         # ScreenManager
-        # os.path.join(os.getcwd(), "app/screens/screenmanager.kv"),
-        os.path.join(os.getcwd(), "app/screens/tests/screenmanager.kv"),
+        os.path.join(os.getcwd(), "app/screens/screenmanager.kv"),
+        # os.path.join(os.getcwd(), "app/screens/tests/screenmanager.kv"),
 
         # Demais screens
         os.path.join(os.getcwd(), "app/screens/login_screen/loginscreen.kv"),

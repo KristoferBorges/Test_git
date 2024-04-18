@@ -53,7 +53,7 @@ class System_Crud:
                 host="localhost",
                 user="root",
                 password="",
-                database="bd_tests",
+                database="bd_clientes",
             )
             self.connected = True
             

@@ -173,14 +173,20 @@ class FunctionsCase:
         sobrenome = ""
         nome = FunctionsCase.filtrandoLetras(nome)
         
-        for ind, letra in enumerate(nome):
-            if letra == " ":
-                space.append(ind)
-            else:
-                pass
-        
-        primeiroNome = nome[:space[0]].strip()
-        sobrenome = nome[space[-1]:].strip()
-        nomeFormatado = primeiroNome + " " + sobrenome
-        
+        # Verifica se há espaços no nome
+        if " " in nome:
+            for ind, letra in enumerate(nome):
+                if letra == " ":
+                    space.append(ind)
+                else:
+                    pass
+            
+            # Extrai o primeiro nome e o sobrenome
+            primeiroNome = nome[:space[0]].strip()
+            sobrenome = nome[space[-1]:].strip()
+            nomeFormatado = primeiroNome + " " + sobrenome
+        else:
+            # Se não houver sobrenome, o nome é mantido intacto
+            nomeFormatado = nome.strip()
+            
         return nomeFormatado

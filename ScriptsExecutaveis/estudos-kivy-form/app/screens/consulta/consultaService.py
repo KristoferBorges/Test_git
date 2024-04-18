@@ -65,7 +65,7 @@ class ConsultaService(MDScreen):
                     content_layout.add_widget(row_layout)
                 
                 # Ajustando o tamanho da altura dinamicamente
-                content_layout.height = len(data_from_database) * (30 + 3)  # Altura de uma linha + espaçamento entre as linhas
+                content_layout.height = len(data_from_database) * (25 + 3)  # Altura de uma linha + espaçamento entre as linhas
 
                 # Adicionando um botão para fechar o popup
                 close_button = MDFillRoundFlatButton(text="VOLTAR", font_size="15dp", size_hint=(0.2, None), font_name="app/support/fonts/monofonto.otf", height="15dp", pos_hint={"center_x": 0.5, "center_y": 0.1}, text_color=(0, 0, 0, 1), md_bg_color=[1, 3, 3, 0.7])

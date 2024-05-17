@@ -73,6 +73,7 @@ class NewService(MDScreen):
                 header_layout.add_widget(Label(text="Nome", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Semestre", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
                 header_layout.add_widget(Label(text="Data_Registro", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
+                header_layout.add_widget(Label(text="Status", halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf"))
 
                 content_layout.add_widget(header_layout)
 
@@ -80,9 +81,10 @@ class NewService(MDScreen):
                 for item in data_from_database:
                     # Criando rótulos para cada coluna
                     ra_label = Label(text=str(item[0]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
-                    nome_label = Label(text=str(item[1]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+                    nome_label = Label(text=str(FunctionsCase.formatNome(item[1])), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
                     semestre_label = Label(text=str(item[2]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
                     data_registro_label = Label(text=str(item[3]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
+                    status_label = Label(text=str(item[5]), halign="center", font_size="15dp", font_name="app/support/fonts/monofonto.otf")
 
                     # Adicionando rótulos ao layout
                     row_layout = BoxLayout(orientation="horizontal", padding="10dp", spacing="10dp", size_hint_y=None, height="20dp")
@@ -90,11 +92,12 @@ class NewService(MDScreen):
                     row_layout.add_widget(nome_label)
                     row_layout.add_widget(semestre_label)
                     row_layout.add_widget(data_registro_label)
+                    row_layout.add_widget(status_label)
 
                     content_layout.add_widget(row_layout)
 
                 # Ajustando o tamanho da altura dinamicamente
-                content_layout.height = len(data_from_database) * (25 + 3)  # Altura de uma linha + espaçamento entre as linhas
+                content_layout.height = len(data_from_database) * (23 + 3)  # Altura de uma linha + espaçamento entre as linhas
 
                 # Adicionando um botão para fechar o popup
                 close_button = MDFillRoundFlatButton(text="VOLTAR", font_size="15dp", size_hint=(0.2, None), font_name="app/support/fonts/monofonto.otf", height="15dp", pos_hint={"center_x": 0.5, "center_y": 0.1}, text_color=(0, 0, 0, 1), md_bg_color=[1, 3, 3, 0.7])

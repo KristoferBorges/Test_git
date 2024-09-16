@@ -24,7 +24,7 @@ mixer.music.play(-1)
 # Processo para elevação de poder / nível após certo nível //
 def aumento_de_poder():
     global user_level, lv_monster, power_monster, lv_choice
-    if user_level > 70 and power_usuario > 20000:
+    if user_level > 70 and power_usuario > 16000:
         lv_choice = random.randint(3, 7)
         lv_monster = lv_monster + lv_choice
         power_monster = power_monster * lv_choice
@@ -45,12 +45,12 @@ def roar():
 
 def critico_infernal():
     global power_usuario, point
-    if random.randint(1, 5) == 1:
+    if random.randint(1, 7) == 1:
         critico.play()
         print(red + '   INFERNAL USOU SUA ULTMATE E INFRIGIU 5000 DE DANO' + normal)
-        print(red + '   -200 Pontos' + normal)
-        power_usuario = power_usuario - 4000
-        point = point - 200
+        print(red + '   -100 Pontos' + normal)
+        power_usuario = power_usuario - 5000
+        point = point - 100
         sleep(3)
 
 
@@ -204,8 +204,8 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 'Arcano', 'Fada', 'Spectro', 'Guerreiro Sombrio', 'Clérigo Corrompido', 'Gigante', 'Monstro do Lago',
                 'Ogro', 'Escorpião', 'Cobra Selvagem', 'Lobo', 'Crocodilo', 'Dragão', 'Infernal']
 
-    monsters_high = ['Zumbi Gigante', 'Leviatã', 'Dragão Negro', 'Fênix Dourada', 'Troll Raivoso', 'Basilisco', 'Hidra',
-                     'Grifo', 'Gólem', 'Infernal', 'Infernal', 'Gigante', 'Monstro do Lago', 'Dragão', 'Crocodilo',
+    monsters_high = ['Zumbi Gigante', 'Zumbi Gigante', 'Zumbi Gigante', 'Leviatã', 'Dragão Negro', 'Fênix Dourada', 'Troll Raivoso', 'Basilisco', 'Hidra',
+                     'Grifo', 'Gólem', 'Infernal', 'Gigante', 'Monstro do Lago', 'Dragão', 'Crocodilo',
                      'Fada', 'Spectro', 'Guerreiro Sombrio', 'Clérigo Corrompido']
     # Monstros Divididos por nível
     monsters_lv1 = ['Goblin', 'Rato', 'Esqueleto', 'Slime', 'Aranha', 'Zumbi', 'Duente']
@@ -228,7 +228,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
     monster_power_lv4 = 600
 
     # Infernal lv10 - power
-    monster_power_lv10 = 10000
+    monster_power_lv10 = 7000
 
     # Personagens + Esquema de Poder
     # Definição de power por nível do usuário
@@ -260,9 +260,9 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
     # Condicionais para V/D monstros
     while power_usuario > 0:
         # Variáveis para o Item de bonus
-        powerBonus = random.randint(1000, 5000)
-        choice = random.randint(1, 20)
-        sleep(0.2)
+        powerBonus = random.randint(1000, 3000)
+        choice = random.randint(1, 25)
+        sleep(0.15)
         # Definição de níveis conforme a entidade + poder inicial
         if lv_monster == 1:
             power_monster = power_monster + power_lv1
@@ -282,7 +282,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                         skipBoss = skipBoss - 1
                         card_monster = random.choice(monsters)
                         lv_monster = random.randint(1, 4)
-                        sleep(3)
+                        sleep(1.5)
                     else:
                         selecionar.play()
                         print(ciano + '    Você não usou o item!')
@@ -291,7 +291,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                         user_level = user_level - 5
                         power_usuario = power_usuario - 1000
                         print(red + '   DANO CRÍTICO!' + normal)
-                        sleep(3)
+                        sleep(1.5)
                         critico_infernal()
                 elif skipBoss <= 0:
                     power_monster = power_monster + monster_power_lv10
@@ -299,7 +299,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     user_level = user_level - 5
                     power_usuario = power_usuario - 1000
                     print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(3)
+                    sleep(1.5)
                     critico_infernal()
                 print('\n')
                 if_monsters()
@@ -321,7 +321,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                         skipBoss = skipBoss - 1
                         card_monster = random.choice(monsters)
                         lv_monster = random.randint(1, 4)
-                        sleep(3)
+                        sleep(1.5)
                     else:
                         selecionar.play()
                         print(ciano + '    Você não usou o item!')
@@ -330,7 +330,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                         user_level = user_level - 5
                         power_usuario = power_usuario - 1000
                         print(red + '   DANO CRÍTICO!' + normal)
-                        sleep(3)
+                        sleep(1.5)
                         critico_infernal()
                 elif skipBoss <= 0:
                     power_monster = power_monster + monster_power_lv10
@@ -339,7 +339,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     power_usuario = power_usuario - 1000
                     point = point - 100
                     print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(3)
+                    sleep(1.5)
                     critico_infernal()
                 print('\n')
                 if_monsters()
@@ -361,7 +361,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                         skipBoss = skipBoss - 1
                         card_monster = random.choice(monsters)
                         lv_monster = random.randint(1, 4)
-                        sleep(3)
+                        sleep(1.5)
                     else:
                         selecionar.play()
                         print(ciano + '    Você não usou o item!')
@@ -370,7 +370,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                         user_level = user_level - 5
                         power_usuario = power_usuario - 1000
                         print(red + '   DANO CRÍTICO!' + normal)
-                        sleep(3)
+                        sleep(1.5)
                         critico_infernal()
                 elif skipBoss <= 0:
                     power_monster = power_monster + monster_power_lv10
@@ -378,7 +378,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     user_level = user_level - 5
                     power_usuario = power_usuario - 1000
                     print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(3)
+                    sleep(1.5)
                     critico_infernal()
                 print('\n')
                 if_monsters()
@@ -400,7 +400,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                         skipBoss = skipBoss - 1
                         card_monster = random.choice(monsters)
                         lv_monster = random.randint(1, 4)
-                        sleep(3)
+                        sleep(1.5)
                     else:
                         selecionar.play()
                         print(ciano + '    Você não usou o item!')
@@ -409,7 +409,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                         user_level = user_level - 5
                         power_usuario = power_usuario - 1000
                         print(red + '   DANO CRÍTICO!' + normal)
-                        sleep(3)
+                        sleep(1.5)
                         critico_infernal()
                 elif skipBoss <= 0:
                     power_monster = power_monster + monster_power_lv10
@@ -417,7 +417,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     user_level = user_level - 5
                     power_usuario = power_usuario - 1000
                     print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(3)
+                    sleep(1.5)
                     critico_infernal()
                 print('\n')
                 if_monsters()

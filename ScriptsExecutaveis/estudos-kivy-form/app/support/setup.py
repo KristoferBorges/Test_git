@@ -50,10 +50,10 @@ class System_Crud:
         # Conexão com o banco de dados
         try:
             self.conexao = mysql.connector.connect(
-                host="localhost",
+                host="roundhouse.proxy.rlwy.net",
                 user="root",
-                password="",
-                database="bd_clientes",
+                password="enNapQzMLEXjFqdnuMtVCUyGOYAmNjNL",
+                database="railway",
             )
             self.connected = True
             
